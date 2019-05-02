@@ -1,0 +1,18 @@
+{
+  "environment": "web",
+  "source": "./.tmp/index.md",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-137363732-1",
+  "updated": "2019-05-02T09:39:29-04:00",
+  "id": "docs/lab",
+  "duration": 0,
+  "title": "Codelab NestJS",
+  "summary": "Pendant ce codelab, nous allons créer un backend pour une application d’e-commerce avec le framework NestJS.",
+  "theme": "",
+  "status": null,
+  "category": null,
+  "tags": [],
+  "feedback": "https://twitter.com/AurelienLoyer",
+  "url": "docs/lab"
+}

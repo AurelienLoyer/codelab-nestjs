@@ -1,0 +1,21 @@
+{
+    "name": "codelab-nestjs",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+      "build": "./slides.sh"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/T3kstiil3/codelab-nestjs.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/T3kstiil3/codelab-nestjs/issues"
+    },
+    "homepage": "https://github.com/T3kstiil3/codelab-nestjs",
+    "devDependencies": {
+    }
+  }
