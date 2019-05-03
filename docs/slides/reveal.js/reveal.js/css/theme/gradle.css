@@ -1,3 +1,141 @@
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    background: black;
+}
+
+body {
+    position: relative;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+a:focus,
+a:active {
+    color: #fff;
+}
+
+.cat {
+    background-image: url("img/cat.jpeg");
+    background-size: cover;
+    position: fixed;
+    width: 40vw;
+    height: 100vh;
+    z-index: -1;
+    right: 0;
+}
+
+.main {
+    background: rgba(0, 0, 0, 0.45);
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.main .logo {
+    margin: 40px auto;
+    width: 25vw;
+    max-width: 200px;
+}
+
+.main-wrapper {
+    padding-top: 140px;
+}
+
+.main-wrapper h1 {
+    font-weight: 500;
+    font-size: 110px;
+    font-family: 'EB Garamond', serif;
+    margin: 0 0 35px;
+    line-height: 75px;
+}
+
+.main-wrapper h1 span {
+    font-size: 30px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.main-wrapper h4 {
+    font-family: monospace;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 18px;
+    line-height: 32px;
+}
+
+.buttons-wrapper {
+    font-family: monospace;
+    padding: 40px 0;
+}
+
+.buttons-wrapper .btn {
+    margin: 0px 10px ;
+}
+
+.buttons-wrapper .btn .fa-github {
+    margin-right: 6px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.btn {
+    font-weight: 500;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    padding: 14px 28px;
+    min-width: 230px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    -webkit-transition: all 100ms ease-in;
+}
+
+.btn-primary {
+    background: #ea2845;
+    border: 2px solid #ea2845;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    border: 2px solid #e93333;
+    background: transparent;
+    color: #fff;
+}
+
+.btn-secondary {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    border: 2px solid #e92845;
+    background: transparent;
+    color: #e92845;
+}
+
+.btn img {
+    margin-right: 5px;
+}
+
+.btn span {
+    vertical-align: middle;
+}
+
 /**
  * Beige theme for reveal.js.
  *
