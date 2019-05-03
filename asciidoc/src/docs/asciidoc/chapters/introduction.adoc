@@ -1,0 +1,13 @@
+== What is NestJS?
+
+=== NestJS
+
+- Introduction
+    - C'est quoi NestJS
+    - Parler la CLI
+    - Presenter le sujet du TP 
+    - Presenter la projet de base avec les TU
+        - Documentation
+        - Proposer un squelette de projet nestjs vide avec les TU
+
+

@@ -1,0 +1,10 @@
+== What is NestJS?
+
+=== NestJS
+
+- Validation /basket
+    Implement le POST pour ajouter asu panier et verifier que le stock est dispo 
+    Ajouter une methode pour vider le panier 
+    Ajouter une methode pour supprimer un item 
+    - Creer un module basket 
+    create provider basket

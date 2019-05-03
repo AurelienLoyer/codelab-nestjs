@@ -1,0 +1,9 @@
+== What is NestJS?
+
+=== NestJS
+
+- Controlleurs
+    - TP : /beers
+        Retourner la liste des bieres
+        Retouerner une biere par id // path parameter
+        Retourner avec filter query parameter
