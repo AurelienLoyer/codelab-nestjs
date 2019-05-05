@@ -27,10 +27,16 @@ Emmanuel Demey (@EmmanuelDemey) & Aurélien Loyer (@Aurelient Loyer) - Zenika Li
 
 
 include::chapters/introduction.adoc[]
+
 include::chapters/controllers.adoc[]
-include::chapters/providers.adoc[]
+
 include::chapters/modules.adoc[]
+
+include::chapters/providers.adoc[]
+
 include::chapters/validation.adoc[]
+
 include::chapters/authentification.adoc[]
+
 include::chapters/andmore.adoc[]
  
