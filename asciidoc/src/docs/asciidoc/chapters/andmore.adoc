@@ -1,4 +1,5 @@
 == Pour aller plus loin...
 
-=== NestJS
+=== Un zeste de Nest...
 
+image::nestjs.png[]
