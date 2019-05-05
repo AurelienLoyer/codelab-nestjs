@@ -1,4 +1,4 @@
-== What is NestJS?
+== Validation des données
 
 === NestJS
 
@@ -8,3 +8,5 @@
     Ajouter une methode pour supprimer un item 
     - Creer un module basket 
     create provider basket
+
+=== À vous de jouer !

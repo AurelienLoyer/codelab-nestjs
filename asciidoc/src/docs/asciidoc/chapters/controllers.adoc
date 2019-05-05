@@ -1,4 +1,4 @@
-== What is NestJS?
+== Les controleurs
 
 === NestJS
 
@@ -7,3 +7,5 @@
         Retourner la liste des bieres
         Retouerner une biere par id // path parameter
         Retourner avec filter query parameter
+
+=== À vous de jouer !
