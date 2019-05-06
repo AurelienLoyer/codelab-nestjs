@@ -2,6 +2,7 @@ html,
 body {
     padding: 0px;
     margin: 0px;
+    height: 100%;
 }
 
 html {
@@ -29,6 +30,7 @@ a:active {
     background-size: cover;
     position: fixed;
     width: 40vw;
+    min-width: 300px;
     height: 100vh;
     z-index: -1;
     right: 0;
@@ -36,7 +38,7 @@ a:active {
 
 .main {
     background: rgba(0, 0, 0, 0.45);
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     z-index: 2;
     text-align: center;
@@ -74,15 +76,21 @@ a:active {
     margin: 20px auto;
     font-size: 18px;
     line-height: 32px;
+    width: 80%;
 }
 
 .buttons-wrapper {
     font-family: monospace;
     padding: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .buttons-wrapper .btn {
-    margin: 0px 10px ;
+    margin: 0px 10px;
+    margin-bottom: 10px;
+    min-width: 120px;
 }
 
 .buttons-wrapper .btn .fa-github {
