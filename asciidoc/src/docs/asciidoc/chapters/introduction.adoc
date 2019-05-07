@@ -1,6 +1,6 @@
 === Petite Présentation
 
-* Framework permettant de développer des applications serveur basées sur : 
+* Plateforme permettant de développer des applications serveur basées sur : 
 ** NodeJS
 ** TypeScript
 ** Express or Fastify
