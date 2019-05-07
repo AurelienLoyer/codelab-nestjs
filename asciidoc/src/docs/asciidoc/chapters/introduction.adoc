@@ -22,6 +22,7 @@ npm i -g @nestjs/cli
 nest new project-name
 
 npm run start:dev
+npm run start:debug
 npm run test
 ----
 
