@@ -6,10 +6,12 @@ feedback link: https://twitter.com/AurelienLoyer
 
 # Codelab NestJS
 
-## Prérequis 
+## Prérequis
 
 Pour faire ce codelab, vous avez besoin des outils suivants :
 
-* GIT
-* NodeJS 7.x ou >
-* un IDE (WebStorm ou Visual Studio Code...)
+- GIT
+- NodeJS 7.x ou >
+- un IDE (WebStorm ou Visual Studio Code...)
+
+Si vous utilisez VSCode, nous vous proposons une selection d'extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, et faites une recherche via `@recommanded` . Normalement VSCode listera notre liste d'extensions.
