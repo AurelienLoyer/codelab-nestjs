@@ -139,8 +139,3 @@ class User {
 ----
 
 === À vous de jouer !
-
-* Récupérer le squelette de projet 
-* Si vous éxécutez la commande `npm run test`, seul le controlleur généré par défaut par _nest-cli_ doit être testè
-* Ajouter le module Swagger afin de pouvoir intéragir avec le serveur
-
