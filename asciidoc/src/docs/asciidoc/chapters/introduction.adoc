@@ -34,6 +34,9 @@ nest generate controller users
 nest generate provider users
 ----
 
+=== Installation 
+
+screencast:nestjs[]
 
 === Quelle est la porte d'entrée?
 

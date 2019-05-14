@@ -5,3 +5,5 @@
 image::nestjs.png[]
 
 === SSR pour application Angular
+
+screencast:angular[]
