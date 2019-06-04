@@ -10,7 +10,7 @@ ifndef::sourcedir[:sourcedir: ../java]
 :title-slide-transition-speed: fast
 :icons: font
 
-= : NestJS
+= Codelab NestJS - A progressive Node.js web framework | Slides
 
 +++<h2>+++
 Building an API with the Angular way
