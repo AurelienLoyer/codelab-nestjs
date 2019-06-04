@@ -1,13 +1,144 @@
-== What is NestJS?
+=== Petite Présentation
 
-=== NestJS
+* Plateforme permettant de développer des applications serveur basées sur : 
+** NodeJS
+** TypeScript
+** Express or Fastify
+** Ouvert au GraphQL, WebSockets, Monde des microservices (Redis, gRPC, MQTT, ...)
+* Fortement inspiré de l'architecture d'une application _Angular_
+** Même structure
+** Même terminonologie
+** Mêmes patterns
 
-- Introduction
-    - C'est quoi NestJS
-    - Parler la CLI
-    - Presenter le sujet du TP 
-    - Presenter la projet de base avec les TU
-        - Documentation
-        - Proposer un squelette de projet nestjs vide avec les TU
+=== Installation 
+
+- Utilisation d'une CLI pour bootstraper le projet 
+- https://docs.nestjs.com/cli/usages
+- Même philosophie que pour _Angular CLI_
+
+[source,shell]
+----
+npm i -g @nestjs/cli
+nest new project-name
+
+npm run start:dev
+npm run start:debug
+npm run test
+----
+
+- Propose des _schematics_ pour générer de nouveaux fichiers
+
+[source,shell]
+----
+nest generate controller users
+nest generate provider users
+----
+
+=== Installation 
+
+screencast:nestjs[]
+
+=== Quelle est la porte d'entrée?
+
+.main.ts
+[source,typescript]
+----
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  await app.listen(3000);
+}
+bootstrap();
+----
+
+.app.module.ts
+[source,typescript]
+----
+import { Module } from '@nestjs/common';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
+@Module({
+  imports: [],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+----
 
 
+=== Présentation du TP fil rouge
+
+=== Intégration Swagger
+
+* Module permettant d'intégrer _Swagger_ à votre API 
+* Met à disposition un UI permettant d'intéragir avec vos endpoints
+
+[source,shell]
+----
+npm install --save @nestjs/swagger swagger-ui-express
+----
+
+[source,typescript]
+----
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+
+  const options = new DocumentBuilder()
+    .setTitle('Cats example')
+    .setDescription('The cats API description')
+    .setVersion('1.0')
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api', app, document);
+
+  await app.listen(3000);
+}
+----
+
+
+=== Intégration Swagger
+
+* Documentation de vos API via des _Décorateurs_
+
+[source,typescript]
+----
+import { Controller, Post, Body } from '@nestjs/common';
+import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
+
+@Controller()
+export class AppController {
+  @Post()
+  @ApiResponse({ status: 403, description: 'Forbidden.'})
+  createUser(@Body() user: User): string {
+    return "OK"
+  }
+}
+----
+
+=== Intégration Swagger
+
+* Documentation de vos API via des _Décorateurs_
+
+[source,typescript]
+----
+import { Controller, Post, Body } from '@nestjs/common';
+import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
+
+class Address {
+  @ApiModelProperty()
+  city: string
+}
+class User {
+  @ApiModelProperty()
+  name: string
+  @ApiModelProperty({type: Address})
+  address: Address[]
+}
+----
+
+=== À vous de jouer !

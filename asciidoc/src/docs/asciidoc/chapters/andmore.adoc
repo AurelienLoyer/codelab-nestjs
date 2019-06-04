@@ -1,4 +1,9 @@
-== What is NestJS?
+== Pour aller plus loin...
 
-=== NestJS
+=== Un zeste de Nest...
 
+image::nestjs.png[]
+
+=== SSR pour application Angular
+
+screencast:angular[]

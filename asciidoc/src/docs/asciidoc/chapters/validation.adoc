@@ -1,10 +1,63 @@
-== What is NestJS?
+== Validation des données
 
-=== NestJS
+=== Validation des données
 
-- Validation /basket
-    Implement le POST pour ajouter asu panier et verifier que le stock est dispo 
-    Ajouter une methode pour vider le panier 
-    Ajouter une methode pour supprimer un item 
-    - Creer un module basket 
-    create provider basket
+* Grâce au pipe `ValidationPipe`, nous allons pouvoir valider les données entrantes
+* La validation peut s'activer 
+** localement à un endpoint
+
+[source,typescript]
+----
+@Post()
+@UsePipes(ValidationPipe)
+getHello(@Body() body: User) { ... }
+----
+
+=== Validation des données
+
+* globalement pour toute l'application
+
+[source,typescript]
+----
+async function bootstrap() {
+  const app = await NestFactory.create(ApplicationModule);
+  app.useGlobalPipes(new ValidationPipe());
+  await app.listen(3000);
+}
+bootstrap();
+----
+
+* localement à un paramètre
+
+[source,typescript]
+----
+@Post()
+getHello(@Body(new ValidationPipe()) body: User) { ... }
+----
+
+=== Validation des données
+
+* Le validateur se base sur les modules `class-validator` et `class-transfoermer`
+* Il suffit d'ajouter des décorateurs sur vos models
+
+[source,typescript]
+----
+import { IsString, IsInt } from 'class-validator';
+
+export class User {
+  @IsString()
+  readonly name: string;
+
+  @IsInt()
+  readonly age: number;
+
+  @IsEmail()
+  readonly email: string;
+
+  @IsDate()
+  readonly birthDate: date;
+}
+----
+
+
+=== À vous de jouer !

@@ -1,9 +1,91 @@
-== What is NestJS?
+== Les contrôleurs
 
-=== NestJS
+=== Les contrôleurs
 
-- Controlleurs
-    - TP : /beers
-        Retourner la liste des bieres
-        Retouerner une biere par id // path parameter
-        Retourner avec filter query parameter
+- Un contrôleur permet de définir les endpoints de votre API REST. 
+- Syntaxe pour définir les headers, les path parameters, les query parameters, ... facilité par l'utilisation des décorateurs
+
+[source,typescript]
+----
+import { Controller, Get } from '@nestjs/common';
+
+@Controller('trainings')
+export class CatsController {
+  @Get()
+  findAll(): string {
+    // GET /trainings 
+    return 'NestJS Training';
+  }
+}
+----
+
+=== Les contrôleurs - CRUD
+
+- Utilisation des décorateurs @Get, @Post, @Put, @Delete, ... pour définir le verbe HTTP utilisé. 
+
+[source,typescript]
+----
+@Controller('trainings')
+export class CatsController {
+  @Get()
+  findAll(): Training[] {
+    return [];
+  }
+  @Get(':id')
+  findById(@Param() id: string): Training {
+    return {};
+  }
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateCatDto: Training) : Training {
+    return {};
+  }
+}
+----
+
+=== Les contrôleurs - Valeur de retour
+
+* retourner la donnée directement
+* retourner une `promise`
+*  Manipuler l'objet `Response`
+
+[source,typescript]
+----
+import { Response } from 'express';
+
+@Get()
+findAll(): Training[] {
+    return [];
+}
+@Get()
+findAllPromise(): Promise<Training[]> {
+    return fetchTrainingFromAnotherServer();
+}
+@Get()
+findAllResponse(@Res() response: Response) {
+    res.status(HttpStatus.OK).send([]);
+}
+----
+
+=== Les contrôleurs - autres décorateurs
+
+* Récupération 
+** du body de la requête via `@Body()`
+** des query parameters via `@Query()`
+** des headers via `@Headers`
+
+[source,typescript]
+----
+@Controller('trainings')
+export class CatsController {
+  @Get()
+  findAll(
+      @Query('sort') sort:string,
+      @Headers('pageNumber') pageNumber: number
+    ): Training[] { ... }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateCatDto: Training) { }
+}
+----
+
+=== À vous de jouer !

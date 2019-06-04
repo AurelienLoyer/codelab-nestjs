@@ -1,4 +1,99 @@
-== What is NestJS?
+== Authentication
 
-=== NestJS
+=== Authentication
 
+* NestJS se base sur la librairie *Passport* pour pouvoir restreindre l'accès à nos endpoints
+* Nous allons pouvoir définir des `Strategy` d'authentification et les utiliser via des `Guards`
+* Modules de base nécésaires pour la mise en place de l'authentification
+
+[source,shell]
+----
+npm install --save @nestjs/passport passport
+----
+
+=== Authentication - JWT
+
+* En fonction de la `Strategy`, d'autres modules seront nécéssaires
+
+[source,shell]
+----
+npm install --save @nestjs/jwt passport-jw
+----
+
+[source,typescript]
+----
+@Get('users')
+@UseGuards(AuthGuard())
+findAll() {
+  return [];
+}
+----
+
+=== Authentication - JWT
+
+[source,typescript]
+----
+import { Module } from '@nestjs/common';
+import { JwtModule } from '@nestjs/jwt';
+import { AuthService } from './auth.service';
+import { JwtStrategy } from './jwt.strategy';
+import { PassportModule } from '@nestjs/passport';
+
+@Module({
+  imports: [
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.register({
+      secretOrPrivateKey: 'secretKey'
+    })
+  ],
+  providers: [AuthService, JwtStrategy]
+})
+export class AppModule {}
+----
+
+=== Authentication - JWT
+
+[source,typescript]
+----
+@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor(private readonly authService: AuthService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: 'secretKey',
+    });
+  }
+
+  async validate(payload: JwtPayload) {
+    const user = await this.authService.validateUser(payload);
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+    return user;
+  }
+}
+----
+
+=== Authentication - JWT
+
+[source,typescript]
+----
+@Injectable()
+export class AuthService {
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
+  ) {}
+
+  async signIn(): Promise<string> {
+    const user: JwtPayload = { email: 'user@email.com' };
+    return this.jwtService.sign(user);
+  }
+
+  async validateUser(payload: JwtPayload): Promise<any> {
+    return await this.usersService.findOneByEmail(payload.email);
+  }
+}
+----
+
+=== À vous de jouer !
