@@ -6,7 +6,7 @@
       "update:submodule": "git submodule update --recursive --force",
       "generate": "./slides.sh && ls", 
       "generate:labs": "./slides.sh",
-      "generate:slides": "./asciidoc/gradlew release"
+      "generate:slides": "cd asciidoc && ./gradlew release && cd .."
     },
     "repository": {
       "type": "git",
