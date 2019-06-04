@@ -10,7 +10,7 @@ presentation {
 
 tasks.register("release", Copy::class.java) {
     from("./build/asciidoc/revealjs")
-    into("../docs/slides/reveal.js")
+    into("../docs/slides")
 }
 
 afterEvaluate {
