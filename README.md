@@ -1,6 +1,6 @@
 # 📚💻 Codelab NestJS - Créons notre première API avec NestJS
 
-## URL 🔗
+## URL
 https://aurelien-loyer.fr/codelab-nestjs/
 
 ## Description
