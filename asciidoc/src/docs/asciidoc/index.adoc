@@ -16,7 +16,7 @@ ifndef::sourcedir[:sourcedir: ../java]
 Building an API with the Angular way
 +++</h2>+++
 
-Emmanuel Demey (@EmmanuelDemey) & Aurélien Loyer (@Aurelient Loyer) - Zenika Lille.
+Emmanuel Demey (@EmmanuelDemey) & Aurélien Loyer (@AurelienLoyer) - Zenika Lille.
 
 == Who are we?
 
