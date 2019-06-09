@@ -3,7 +3,7 @@
 === Les contrôleurs
 
 - Un contrôleur permet de définir les endpoints de votre API REST. 
-- Syntaxe pour définir les headers, les path parameters, les query parameters, ... facilité par l'utilisation des décorateurs
+- Syntaxe pour définir les headers, les path parameters, les query parameters, ... facilitée par l'utilisation des décorateurs
 
 [source,typescript]
 ----
@@ -21,7 +21,7 @@ export class CatsController {
 
 === Les contrôleurs - CRUD
 
-- Utilisation des décorateurs @Get, @Post, @Put, @Delete, ... pour définir le verbe HTTP utilisé. 
+- Utilisation des décorateurs @Get, @Post, @Put, @Delete, ... pour définir le verbe HTTP à utiliser. 
 
 [source,typescript]
 ----

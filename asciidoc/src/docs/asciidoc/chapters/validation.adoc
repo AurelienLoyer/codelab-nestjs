@@ -37,7 +37,7 @@ getHello(@Body(new ValidationPipe()) body: User) { ... }
 
 === Validation des données
 
-* Le validateur se base sur les modules `class-validator` et `class-transfoermer`
+* Le validateur se base sur les modules `class-validator` et `class-transformer`
 * Il suffit d'ajouter des décorateurs sur vos models
 
 [source,typescript]

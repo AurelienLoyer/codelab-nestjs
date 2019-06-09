@@ -4,7 +4,7 @@
 
 * Toutes applications NestJS possède au moins un module 
 * A ne pas confondre aves les modules `ES2015`
-* Permet de regrouper de manière logique un ensemble de fonctionnalité
+* Permet de regrouper de manière logique un ensemble de fonctionnalités
 ** découpage métier
 ** découpage technique
 ** ...
