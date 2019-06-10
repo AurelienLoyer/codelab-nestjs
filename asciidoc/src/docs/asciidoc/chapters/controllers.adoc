@@ -89,3 +89,9 @@ export class CatsController {
 ----
 
 === À vous de jouer !
+
+* Dans le `AppController`, implementez un CRUD permettant de gérer des bières. Nous allons pouvoir : 
+** Les lister, et en récupérer une
+** En supprimer une 
+** En ajouter
+** En modifier
