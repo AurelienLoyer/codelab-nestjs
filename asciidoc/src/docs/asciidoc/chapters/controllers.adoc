@@ -3,7 +3,7 @@
 === Les contrôleurs
 
 - Un contrôleur permet de définir les endpoints de votre API REST. 
-- Syntaxe pour définir les headers, les path parameters, les query parameters, ... facilité par l'utilisation des décorateurs
+- Syntaxe pour définir les headers, les path parameters, les query parameters, ... facilitée par l'utilisation des décorateurs
 
 [source,typescript]
 ----
@@ -21,7 +21,7 @@ export class CatsController {
 
 === Les contrôleurs - CRUD
 
-- Utilisation des décorateurs @Get, @Post, @Put, @Delete, ... pour définir le verbe HTTP utilisé. 
+- Utilisation des décorateurs @Get, @Post, @Put, @Delete, ... pour définir le verbe HTTP à utiliser. 
 
 [source,typescript]
 ----
@@ -71,7 +71,7 @@ findAllResponse(@Res() response: Response) {
 * Récupération 
 ** du body de la requête via `@Body()`
 ** des query parameters via `@Query()`
-** des headers via `@Headers`
+** des headers via `@Headers()`
 
 [source,typescript]
 ----
@@ -89,3 +89,10 @@ export class CatsController {
 ----
 
 === À vous de jouer !
+
+* Dans le `AppController`, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir : 
+** Les lister
+** En récupérer une
+** En supprimer une 
+** En ajouter
+** En modifier
