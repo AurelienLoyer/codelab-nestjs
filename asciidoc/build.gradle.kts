@@ -7,7 +7,6 @@ presentation {
     githubRepoName.set("gradle-presentation-template")
 }
 
-
 tasks.register("release", Copy::class.java) {
     from("./build/asciidoc/revealjs")
     into("../docs/slides")

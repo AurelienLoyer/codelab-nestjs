@@ -2,8 +2,12 @@
 
 === Un zeste de Nest...
 
-image::nestjs.png[]
+image::nestjs.png[conference]
 
 === SSR pour application Angular
 
 screencast:angular[]
+
+=== Merci 🙏
+
+@EmmanuelDemey | @AurelienLoyer
