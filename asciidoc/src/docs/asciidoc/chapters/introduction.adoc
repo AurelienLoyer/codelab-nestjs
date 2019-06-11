@@ -1,7 +1,7 @@
 === Petite Présentation
 
 * Plateforme permettant de développer des applications serveur basées sur : 
-** NodeJS
+** Node.js
 ** TypeScript
 ** Express ou Fastify
 ** Ouvert à GraphQL, WebSockets, Monde des microservices (Redis, gRPC, MQTT, ...)
@@ -38,7 +38,7 @@ nest generate provider users
 
 screencast:nestjs[]
 
-=== Quelle est la porte d'entrée?
+=== Quelle est la porte d'entrée ?
 
 .main.ts
 [source,typescript]

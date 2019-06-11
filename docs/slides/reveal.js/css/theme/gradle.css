@@ -583,3 +583,10 @@ section.has-dark-background h3 {
 
 
 
+
+
+.slide-background {
+    background-size: contain;
+    background-position: top;
+    background-color: #0f1314;
+}

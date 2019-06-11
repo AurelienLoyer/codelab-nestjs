@@ -5,14 +5,16 @@ ifndef::sourcedir[:sourcedir: ../java]
 :navigation:
 :menu:
 :status:
-:title-slide-background-image: title.jpeg
+:title-slide-background-image: nest-logo.png
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
 :icons: font
 
-=: Building an API with the Angular way
+= CRÉONS NOTRE PREMIÈRE API AVEC NESTJS
 
-== Who are we?
+Le framework Node.JS à la façon Angular
+
+== Qui sommes nous ?
 
 === Emmanuel DEMEY
 
