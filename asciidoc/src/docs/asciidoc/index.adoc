@@ -10,21 +10,13 @@ ifndef::sourcedir[:sourcedir: ../java]
 :title-slide-transition-speed: fast
 :icons: font
 
-= Codelab NestJS - A progressive Node.js web framework | Slides
-
-+++<h2>+++
-Building an API with the Angular way
-+++</h2>+++
-
-Emmanuel Demey (@EmmanuelDemey) & Aurélien Loyer (@Aurelient Loyer) - Zenika Lille.
+=: Building an API with the Angular way
 
 == Who are we?
 
 === Emmanuel DEMEY
 
-
 === Aurélien LOYER
-
 
 include::chapters/introduction.adoc[]
 
