@@ -2,7 +2,7 @@
 
 === Les Modules
 
-* Toutes applications NestJS possède au moins un module 
+* Toute application NestJS possède au moins un module 
 * A ne pas confondre aves les modules `ES2015`
 * Permet de regrouper de manière logique un ensemble de fonctionnalités
 ** découpage métier
@@ -75,3 +75,4 @@ export class DatabaseModule {
 
 * Via la CLI, générez un nouveau module NestJS `BeerModule`. 
 * Dans ce module générez un nouveau contrôleur `BeerController` qui contiendra le CRUD créé précédemment
+* Importez ce nouveau module dans le module principal afin d'avoir le même fonctionnement que précédemment

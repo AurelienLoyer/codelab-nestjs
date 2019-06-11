@@ -3,8 +3,8 @@
 * Plateforme permettant de développer des applications serveur basées sur : 
 ** NodeJS
 ** TypeScript
-** Express or Fastify
-** Ouvert au GraphQL, WebSockets, Monde des microservices (Redis, gRPC, MQTT, ...)
+** Express ou Fastify
+** Ouvert à GraphQL, WebSockets, Monde des microservices (Redis, gRPC, MQTT, ...)
 * Fortement inspiré de l'architecture d'une application _Angular_
 ** Même structure
 ** Même terminonologie
@@ -74,7 +74,7 @@ export class AppModule {}
 === Intégration Swagger
 
 * Module permettant d'intégrer _Swagger_ à votre API 
-* Met à disposition un UI permettant d'intéragir avec vos endpoints
+* Met à disposition une UI permettant d'intéragir avec vos endpoints
 
 [source,shell]
 ----
@@ -103,7 +103,7 @@ async function bootstrap() {
 
 === Intégration Swagger
 
-* Documentation de vos API via des _Décorateurs_
+* Documentation de vos APIs via des _Décorateurs_
 
 [source,typescript]
 ----
@@ -112,6 +112,7 @@ import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
+  
   @Post()
   @ApiResponse({ status: 403, description: 'Forbidden.'})
   createUser(@Body() user: User): string {

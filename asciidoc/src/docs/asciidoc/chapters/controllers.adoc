@@ -71,7 +71,7 @@ findAllResponse(@Res() response: Response) {
 * Récupération 
 ** du body de la requête via `@Body()`
 ** des query parameters via `@Query()`
-** des headers via `@Headers`
+** des headers via `@Headers()`
 
 [source,typescript]
 ----
@@ -90,8 +90,9 @@ export class CatsController {
 
 === À vous de jouer !
 
-* Dans le `AppController`, implementez un CRUD permettant de gérer des bières. Nous allons pouvoir : 
-** Les lister, et en récupérer une
+* Dans le `AppController`, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir : 
+** Les lister
+** En récupérer une
 ** En supprimer une 
 ** En ajouter
 ** En modifier
