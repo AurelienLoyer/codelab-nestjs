@@ -86,7 +86,9 @@ class User {
   name: string
   @ApiModelProperty({type: Address})
   address: Address[]
-}</code></pre></section><section id="À-vous-de-jouer"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Récupérez la branche <code>step0</code> du repository GIT</p></li><li><p>Ajoutez l&#8217;intégration Swagger à l&#8217;application NestJS</p></li><li><p>Testez votre application pour vérifier son bon fonctionnement</p></li></ul></div></section></section>
+}</code></pre></section><section id="À-vous-de-jouer"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Récupérez la branche <code>step0</code> du repository GIT</p></li></ul></div>
+<pre class="highlight listingblock"><code data-noescape="" class="shell language-shell">git clone -b step0 https://github.com/T3kstiil3/BaaS</code></pre>
+<div class="ulist"><ul><li><p>Ajoutez l&#8217;intégration Swagger à l&#8217;application NestJS</p></li><li><p>Testez votre application pour vérifier son bon fonctionnement</p></li></ul></div></section></section>
 <section><section id="les-contrôleurs"><h2>Les contrôleurs</h2></section><section id="les-contrôleurs-2"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Un contrôleur permet de définir les endpoints de votre API REST.</p></li><li><p>Syntaxe pour définir les headers, les path parameters, les query parameters, &#8230;&#8203; facilitée par l&#8217;utilisation des décorateurs</p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape="" class="typescript language-typescript">import { Controller, Get } from '@nestjs/common';
 

@@ -146,5 +146,11 @@ class User {
 === À vous de jouer !
 
 * Récupérez la branche `step0` du repository GIT
+
+[source,shell]
+----
+git clone -b step0 https://github.com/T3kstiil3/BaaS
+----
+
 * Ajoutez l'intégration Swagger à l'application NestJS
 * Testez votre application pour vérifier son bon fonctionnement 
