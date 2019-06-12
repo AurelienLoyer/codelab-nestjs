@@ -6,3 +6,31 @@
 	path = corrections/step1
 	url = https://github.com/T3kstiil3/BaaS
 	branch = step1
+[submodule "corrections/step0"]
+	path = corrections/step0
+	url = https://github.com/T3kstiil3/BaaS
+	branch = step0
+[submodule "corrections/step2"]
+	path = corrections/step2
+	url = https://github.com/T3kstiil3/BaaS
+	branch = step2
+[submodule "corrections/step3"]
+	path = corrections/step3
+	url = https://github.com/T3kstiil3/BaaS
+	branch = step3
+[submodule "corrections/step4"]
+	path = corrections/step4
+	url = https://github.com/T3kstiil3/BaaS
+	branch = step4
+[submodule "corrections/step5"]
+	path = corrections/step5
+	url = https://github.com/T3kstiil3/BaaS
+	branch = step5
+[submodule "corrections/step6"]
+	path = corrections/step6
+	url = https://github.com/T3kstiil3/BaaS
+	branch = step6
+[submodule "corrections/final"]
+	path = corrections/final
+	url = https://github.com/T3kstiil3/BaaS
+	branch = master
