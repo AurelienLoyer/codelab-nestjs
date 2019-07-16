@@ -1,0 +1,13 @@
+== Pour aller plus loin...
+
+=== Un zeste de Nest...
+
+image::nestjs.png[conference]
+
+=== SSR pour application Angular
+
+screencast:angular[]
+
+=== Merci 🙏
+
+@EmmanuelDemey | @AurelienLoyer

@@ -1,0 +1,78 @@
+== Les Modules
+
+=== Les Modules
+
+* Toute application NestJS possède au moins un module 
+* A ne pas confondre aves les modules `ES2015`
+* Permet de regrouper de manière logique un ensemble de fonctionnalités
+** découpage métier
+** découpage technique
+** ...
+* Nécessité ensuite d'importer ces modules pour pouvoir les utiliser
+
+=== Les Modules
+
+[source,typescript]
+----
+import { Module } from '@nestjs/common';
+import { HomeController } from './home.controller';
+import { TrainingController, TrainingService } from './trainings';
+
+@Module({
+  controllers: [TrainingController],
+  providers: [TrainingService],
+})
+export class TrainingModule {}
+
+@Module({
+  controllers: [HomeController],
+  imports: [TrainingModule],
+})
+export class AppModule {}
+----
+
+=== Les Modules - @Module
+
+* Seules 4 propriétés sont à connaître : `controllers`, `providers`, `imports`, `exports`
+
+[source,typescript]
+----
+import { Module } from '@nestjs/common';
+import { HomeController } from './home.controller';
+
+@Module({
+  controllers: [AuthController],
+  imports: [HttpModule],
+  providers: [AuthProvider, UserProvider]
+  exports: [AuthProvider]
+})
+export class AuthModule {}
+----
+
+=== Les Modules - Module dynamique
+
+* Tout comme *Angular*, possibilité de définir des modules dynamiques afin de les configurer
+
+[source,typescript]
+----
+@Module({
+  providers: [Connection],
+})
+export class DatabaseModule {
+  static forRoot(entities = [], options?): DynamicModule {
+    const providers = createDatabaseProviders(options, entities);
+    return {
+      module: DatabaseModule,
+      providers: providers,
+      exports: providers,
+    };
+  }
+}
+//DatabaseModule.forRoot([User])
+----
+
+=== À vous de jouer !
+
+* Via la CLI, générez un nouveau module NestJS `BeerModule`. 
+* Dans ce module générez un nouveau contrôleur `BeerController` qui contiendra le CRUD créé précédemment
+* Importez ce nouveau module dans le module principal afin d'avoir le même fonctionnement que précédemment
