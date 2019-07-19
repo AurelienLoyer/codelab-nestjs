@@ -6,7 +6,9 @@ image::nestjs.png[conference]
 
 === SSR pour application Angular
 
-screencast:angular[]
+++++
+<asciinema-player src="screencasts/angular.cast"></asciinema-player>
+++++
 
 === Merci 🙏
 
