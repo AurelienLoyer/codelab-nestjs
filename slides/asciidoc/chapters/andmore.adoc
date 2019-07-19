@@ -1,0 +1,15 @@
+== Pour aller plus loin...
+
+=== Un zeste de Nest...
+
+image::nestjs.png[conference]
+
+=== SSR pour application Angular
+
+++++
+<asciinema-player src="screencasts/angular.cast"></asciinema-player>
+++++
+
+=== Merci 🙏
+
+@EmmanuelDemey | @AurelienLoyer

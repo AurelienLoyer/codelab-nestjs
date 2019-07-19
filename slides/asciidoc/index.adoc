@@ -1,0 +1,39 @@
+:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0
+:revnumber: {project-version}
+:example-caption!:
+ifndef::imagesdir[:imagesdir: images]
+ifndef::sourcedir[:sourcedir: ../java]
+:docinfo: shared
+:navigation:
+:menu:
+:header_footer: true
+:status:
+:title-slide-background-image: nest-logo.png
+:title-slide-transition: zoom
+:title-slide-transition-speed: fast
+:icons: font
+
+= CRÉONS NOTRE PREMIÈRE API AVEC NESTJS
+
+Le framework Node.JS à la façon Angular
+
+== Qui sommes nous ?
+
+=== Emmanuel DEMEY
+
+=== Aurélien LOYER
+
+include::chapters/introduction.adoc[]
+
+include::chapters/controllers.adoc[]
+
+include::chapters/modules.adoc[]
+
+include::chapters/providers.adoc[]
+
+include::chapters/validation.adoc[]
+
+include::chapters/authentification.adoc[]
+
+include::chapters/andmore.adoc[]
+ 

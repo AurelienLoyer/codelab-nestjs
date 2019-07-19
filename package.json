@@ -1,24 +1,29 @@
 {
-    "name": "codelab-nestjs",
-    "version": "1.0.0",
-    "description": "",
-    "scripts": {
-      "update:submodule": "git submodule update --recursive --force",
-      "generate": "./slides.sh && ls", 
-      "generate:labs": "./slides.sh",
-      "generate:slides": "cd asciidoc && ./gradlew release && cd .."
-    },
-    "repository": {
-      "type": "git",
-      "url": "git://github.com/T3kstiil3/codelab-nestjs.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/T3kstiil3/codelab-nestjs/issues"
-    },
-    "homepage": "https://github.com/T3kstiil3/codelab-nestjs",
-    "devDependencies": {
-    }
+  "name": "codelab-nestjs",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "update:submodule": "git submodule update --recursive --force",
+    "generate": "./slides.sh && ls",
+    "generate:labs": "./generate-labs.sh",
+    "generate:slides": "cd asciidoc && ./gradlew release && cd ..",
+    "generate-v2:slides": "node generate-slides.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/T3kstiil3/codelab-nestjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/T3kstiil3/codelab-nestjs/issues"
+  },
+  "homepage": "https://github.com/T3kstiil3/codelab-nestjs",
+  "devDependencies": {},
+  "dependencies": {
+    "asciidoctor-reveal.js": "^2.0.0",
+    "ncp": "^2.0.0",
+    "rimraf": "^2.6.3"
   }
+}
