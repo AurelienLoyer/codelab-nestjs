@@ -6,8 +6,8 @@
     "update:submodule": "git submodule update --recursive --force",
     "generate": "./slides.sh && ls",
     "generate:labs": "./generate-labs.sh",
-    "generate:slides": "cd asciidoc && ./gradlew release && cd ..",
-    "generate-v2:slides": "node generate-slides.js"
+    "generate:slides": "node generate-slides.js",
+    "watch:slides": "node generate-slides.js watch"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "devDependencies": {},
   "dependencies": {
     "asciidoctor-reveal.js": "^2.0.0",
+    "chokidar": "^3.0.2",
     "ncp": "^2.0.0",
     "rimraf": "^2.6.3"
   }
