@@ -7,10 +7,10 @@ function setup() {
 }
 
 function build() {
-    cat ./labs/LAB0.md > ./.tmp/index.md
-    claat export ./.tmp/index.md
+    cat ./labs/LAB0.md ./labs/LAB1.md ./labs/LAB2.md ./labs/LAB3.md ./labs/LAB4.md ./labs/LAB5.md > ./.tmp/index.md
+    claat export -prefix / ./.tmp/index.md
     pushd ./docs/lab
-    claat install
+    claat build
     popd
 }
 

@@ -20,3 +20,4 @@ git clone -b step0 https://github.com/T3kstiil3/BaaS
 ```
 
 Si vous utilisez VSCode, nous vous proposons une selection d'extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, et faites une recherche via `@recommanded` . Normalement VSCode listera notre liste d'extensions.
+

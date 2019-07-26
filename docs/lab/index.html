@@ -7,23 +7,20 @@
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
   <title>Codelab NestJS</title>
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="/elements/codelab.html">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
-  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
-  <style>
-    .success {
-      color: #1e8e3e;
-    }
-    .error {
-      color: red;
+  <style is="custom-style">
+    body {
+      font-family: "Roboto",sans-serif;
+      background: var(--google-codelab-background, #F8F9FA);
     }
   </style>
+  
 </head>
-<body>
-  <google-codelab-analytics gaid="UA-137363732-1"></google-codelab-analytics>
-  <google-codelab codelab-gaid=""
-                  id="docs/lab"
-                  title="Codelab NestJS"
+<body unresolved class="fullbleed">
+
+  <google-codelab title="Codelab NestJS"
                   environment="web"
                   feedback-link="https://twitter.com/AurelienLoyer">
     
@@ -33,6 +30,74 @@
 <li>GIT</li>
 <li>NodeJS 7.x ou &gt;</li>
 <li>un IDE (WebStorm ou Visual Studio Code...)</li>
+<li>Récupérez la branche <code>step0</code> du repository GIT</li>
+</ul>
+<pre><code>git clone -b step0 https://github.com/T3kstiil3/BaaS
+</code></pre>
+<p>Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, et faites une recherche via <code>@recommanded</code> . Normalement VSCode listera notre liste d&#39;extensions.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Controller" duration="0">
+        <ul>
+<li>Dans le <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :<br><br><ul>
+<li>Les lister</li>
+<li>En récupérer une</li>
+<li>En supprimer une</li>
+<li>En ajouter</li>
+<li>En modifier</li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Modules" duration="0">
+        <ul>
+<li>Via la CLI, générez un nouveau module NestJS <code>BeerModule</code>.</li>
+<li>Dans ce module générez un nouveau contrôleur <code>BeerController</code> qui contiendra le CRUD créé précédemment</li>
+<li>Importez ce nouveau module dans le module principal afin d&#39;avoir le même fonctionnement que précédemment</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Provider" duration="0">
+        <ul>
+<li>Mettre tout le code métier utilisé par la classe <code>BeerController</code> dans un service dédié <code>BeerService</code></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Validation" duration="0">
+        <ul>
+<li>Activez la validation de manière globale à l&#39;application</li>
+<li>Ajouter les contraintes suivantes sur votre classe Beer<br><br><ul>
+<li><code>id</code> doit être un <code>number</code></li>
+<li><code>label</code> doit être une <code>string</code></li>
+<li><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</li>
+<li><code>image</code> doit être une <code>string</code>, et se terminer par <code>.svg</code> (via un custom validateur)</li>
+<li><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</li>
+<li><code>stock</code> doit être une <code>entier</code></li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Authentification" duration="0">
+        <ul>
+<li>Récupérez la branche <code>step5</code></li>
+<li>Installez les modules NPM nécessaires pour une Authentification JWT</li>
+<li>Via le service <code>JwtService</code>, implémentez la méthode <code>login</code> du service <code>UserService</code><ul>
+<li>Elle doit retourner un objet <code>{ expiresIn: 3600, accessToken:</code>Bearer ${accessToken}<code>, }</code>, avec <code>accessToken</code> le résultat retourné par la méthode <code>sign</code> du service <code>JwtService</code></li>
+</ul>
+</li>
+<li>Sécurisez la route permettant de créer et mettre à jour des bières</li>
 </ul>
 
 
@@ -40,10 +105,33 @@
     
   </google-codelab>
 
-  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
-  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49880327-14', 'auto');
+
+    (function() {
+      var gaCodelab = '';
+      if (gaCodelab) {
+        ga('create', gaCodelab, 'auto', {name: 'codelab'});
+      }
+
+      var gaView;
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var param = parts[i].split('=');
+        if (param[0] === 'viewga') {
+          gaView = param[1];
+          break;
+        }
+      }
+      if (gaView && gaView !== gaCodelab) {
+        ga('create', gaView, 'auto', {name: 'view'});
+      }
+    })();
+  </script>
 
 </body>
 </html>
