@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
   <title>Codelab NestJS</title>
-  <script src="/codelab-nestjs/lab/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="/codelab-nestjs/lab/elements/codelab.html">
+  <script src="/lab/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="/lab/elements/codelab.html">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <style is="custom-style">
     body {
@@ -28,25 +28,37 @@
         <p>Pour faire ce codelab, vous avez besoin des outils suivants :</p>
 <ul>
 <li>GIT</li>
-<li>NodeJS 7.x ou &gt;</li>
+<li>NodeJS 10.x ou &gt;</li>
 <li>un IDE (WebStorm ou Visual Studio Code...)</li>
-<li>Récupérez la branche <code>step0</code> du repository GIT</li>
+<li>Le module <code>@nestjs/cli</code> installé globalement</li>
 </ul>
-<pre><code>git clone -b step0 https://github.com/T3kstiil3/BaaS
+<pre><code>npm install -g @nestjs/cli
 </code></pre>
-<p>Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, et faites une recherche via <code>@recommanded</code> . Normalement VSCode listera notre liste d&#39;extensions.</p>
+<ul>
+<li>Récupérez la répertoire <code>step0</code> du repository GIT</li>
+</ul>
+<pre><code>git clone https://github.com/T3kstiil3/BaaS
+cd solutions/step0
+npm install
+</code></pre>
+<p>Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé <code>@recommanded</code> . Normalement VSCode listera notre liste d&#39;extensions.</p>
+<p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
+<ul>
+<li><a href="https://www.typescriptlang.org/" target="_blank">Documentation TypeScript</a></li>
+<li><a href="https://docs.nestjs.com" target="_blank">Documentation NestJS</a></li>
+</ul>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Controller" duration="0">
         <ul>
-<li>Dans le <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :<br><br><ul>
-<li>Les lister</li>
-<li>En récupérer une</li>
-<li>En supprimer une</li>
-<li>En ajouter</li>
-<li>En modifier</li>
+<li>Dans le contrôleur <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :<br><br><ul>
+<li>lister les bières</li>
+<li>retourner les détails d&#39;un bière, grâce à son identifiant</li>
+<li>supprimer une bière, grâce à son identifiant</li>
+<li>En modifier, grâce à son identifiant</li>
+<li>Et enfin en ajouter</li>
 </ul>
 </li>
 </ul>
@@ -55,19 +67,29 @@
       </google-codelab-step>
     
       <google-codelab-step label="Modules" duration="0">
-        <ul>
-<li>Via la CLI, générez un nouveau module NestJS <code>BeerModule</code>.</li>
-<li>Dans ce module générez un nouveau contrôleur <code>BeerController</code> qui contiendra le CRUD créé précédemment</li>
-<li>Importez ce nouveau module dans le module principal afin d&#39;avoir le même fonctionnement que précédemment</li>
+        <p>Nous allons à présent créer un module NestJS afin de définir la fonctionnalité de gestion des bières.</p>
+<ul>
+<li>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.</li>
+</ul>
+<pre><code>nest generate module beers
+</code></pre>
+<ul>
+<li>Externalisez le CRUD (créé précédemment) permettant de gérer les bière dans un contrôleur spécifique : <code>BeersController</code></li>
+</ul>
+<pre><code>nest generate controller beers
+</code></pre>
+<ul>
+<li>Associez ce nouveau contrôleur au module <code>BeersModule</code> créé au début de cet exercice.</li>
+<li>Ajoutez au module principal de votre application le module <code>BeersModule</code>.</li>
 </ul>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Provider" duration="0">
-        <ul>
-<li>Mettre tout le code métier utilisé par la classe <code>BeerController</code> dans un service dédié <code>BeerService</code></li>
-</ul>
+        <p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>BeersService</code>.</p>
+<pre><code>nest generate service beers
+</code></pre>
 
 
       </google-codelab-step>

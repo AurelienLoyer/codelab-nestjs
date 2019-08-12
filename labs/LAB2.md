@@ -1,6 +1,20 @@
-## Modules 
+## Modules
 
-* Via la CLI, générez un nouveau module NestJS `BeerModule`. 
-* Dans ce module générez un nouveau contrôleur `BeerController` qui contiendra le CRUD créé précédemment
-* Importez ce nouveau module dans le module principal afin d'avoir le même fonctionnement que précédemment
+Nous allons à présent créer un module NestJS afin de définir la fonctionnalité de gestion des bières.
+
+- Via la CLI, générez un nouveau module NestJS `BeersModule`.
+
+```shell
+nest generate module beers
+```
+
+- Externalisez le CRUD (créé précédemment) permettant de gérer les bière dans un contrôleur spécifique : `BeersController`
+
+```shell
+nest generate controller beers
+```
+
+- Associez ce nouveau contrôleur au module `BeersModule` créé au début de cet exercice.
+
+- Ajoutez au module principal de votre application le module `BeersModule`.
 
