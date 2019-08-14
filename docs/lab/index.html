@@ -69,6 +69,7 @@ npm install
       <google-codelab-step label="Modules" duration="0">
         <p>Nous allons à présent créer un module NestJS afin de définir la fonctionnalité de gestion des bières.</p>
 <ul>
+<li>Si vous êtes en retard, vous pouvez récupérez la correction de l&#39;exercice prédent en utilisant le repertoire <code>solutions/step1</code></li>
 <li>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.</li>
 </ul>
 <pre><code>nest generate module beers
@@ -87,7 +88,10 @@ npm install
       </google-codelab-step>
     
       <google-codelab-step label="Provider" duration="0">
-        <p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>BeersService</code>.</p>
+        <ul>
+<li>Si vous êtes en retard, vous pouvez récupérez la correction de l&#39;exercice prédent en utilisant le repertoire <code>solutions/step2</code></li>
+</ul>
+<p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>BeersService</code>.</p>
 <pre><code>nest generate service beers
 </code></pre>
 
@@ -96,8 +100,9 @@ npm install
     
       <google-codelab-step label="Validation" duration="0">
         <ul>
-<li>Activez la validation de manière globale à l&#39;application</li>
-<li>Ajouter les contraintes suivantes sur votre classe Beer<br><br><ul>
+<li>Si vous êtes en retard, vous pouvez récupérez la correction de l&#39;exercice prédent en utilisant le repertoire <code>solutions/step3</code></li>
+<li>Activez la validation de manière globale pour toute l&#39;application</li>
+<li>Ajouter les contraintes suivantes sur votre classe <code>Beer</code><ul>
 <li><code>id</code> doit être un <code>number</code></li>
 <li><code>label</code> doit être une <code>string</code></li>
 <li><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</li>
@@ -113,7 +118,7 @@ npm install
     
       <google-codelab-step label="Authentification" duration="0">
         <ul>
-<li>Récupérez la branche <code>step5</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérez la correction de l&#39;exercice prédent en utilisant le repertoire <code>solutions/step4</code></li>
 <li>Installez les modules NPM nécessaires pour une Authentification JWT</li>
 <li>Via le service <code>JwtService</code>, implémentez la méthode <code>login</code> du service <code>UserService</code><ul>
 <li>Elle doit retourner un objet <code>{ expiresIn: 3600, accessToken:</code>Bearer ${accessToken}<code>, }</code>, avec <code>accessToken</code> le résultat retourné par la méthode <code>sign</code> du service <code>JwtService</code></li>

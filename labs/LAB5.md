@@ -1,6 +1,6 @@
 ## Authentification
 
-* Récupérez la branche `step5`
+* Si vous êtes en retard, vous pouvez récupérez la correction de l'exercice prédent en utilisant le repertoire `solutions/step4`
 * Installez les modules NPM nécessaires pour une Authentification JWT
 * Via le service `JwtService`, implémentez la méthode `login` du service `UserService`
     * Elle doit retourner un objet `{ expiresIn: 3600, accessToken: `Bearer ${accessToken}`, }`, avec `accessToken` le résultat retourné par la méthode `sign` du service `JwtService`

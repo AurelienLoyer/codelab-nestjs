@@ -2,6 +2,7 @@
 
 Nous allons à présent créer un module NestJS afin de définir la fonctionnalité de gestion des bières.
 
+* Si vous êtes en retard, vous pouvez récupérez la correction de l'exercice prédent en utilisant le repertoire `solutions/step1`
 - Via la CLI, générez un nouveau module NestJS `BeersModule`.
 
 ```shell

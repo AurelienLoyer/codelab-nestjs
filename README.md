@@ -27,4 +27,16 @@ Add submdule folder and step branch
 ```sh
 git submodule add -b step1 --force https://github.com/T3kstiil3/BaaS corrections/step1
 git submodule update --remote
-```s
+```
+
+
+### Codelab
+
+To run the support for the codelab
+
+```shell
+./generate-labs.sh
+npm i http-server
+cd docs
+http-server
+```
