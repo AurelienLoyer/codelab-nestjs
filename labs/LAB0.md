@@ -17,6 +17,7 @@ Pour faire ce codelab, vous avez besoin des outils suivants :
 
 ```shell
 npm install -g @nestjs/cli
+yarn global add @nestjs/cli
 ```
 
 - Récupérez la répertoire `step0` du repository GIT
@@ -24,7 +25,7 @@ npm install -g @nestjs/cli
 ```shell
 git clone https://github.com/T3kstiil3/BaaS
 cd solutions/step0
-npm install
+npm install # yarn
 ```
 
 Si vous utilisez VSCode, nous vous proposons une selection d'extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé `@recommanded` . Normalement VSCode listera notre liste d'extensions.
