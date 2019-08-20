@@ -1,6 +1,6 @@
 ## Validation
 
-* Si vous êtes en retard, vous pouvez récupérez la correction de l'exercice prédent en utilisant le repertoire `solutions/step3`
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `solutions/step3`
 * Activez la validation de manière globale pour toute l'application 
 * Ajouter les contraintes suivantes sur votre classe `Beer`
     * `id` doit être un `number`
