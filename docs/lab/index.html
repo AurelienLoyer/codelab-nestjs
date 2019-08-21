@@ -103,14 +103,14 @@ npm install # yarn
 <li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step2</code></li>
 </ul>
 <p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>BeersService</code>.</p>
+<ul>
+<li>Veuillez créer un service <code>beers</code></li>
+</ul>
 <pre><code>nest generate service beers
 </code></pre>
-
-
-      </google-codelab-step>
-    
-      <google-codelab-step label="Validation" duration="0">
-        <ul>
+<ul>
+<li>Migrez tout le code métier écrit jusqu&#39;à présent dans le contrôleur <code>BeersController</code> dans ce service.</li>
+<li>Injectez et utilisez ce service dans le contrôleur <code>BeersController</code>.## Validation</li>
 <li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step3</code></li>
 <li>Activez la validation de manière globale pour toute l&#39;application</li>
 <li>Ajouter les contraintes suivantes sur votre classe <code>Beer</code><ul>
