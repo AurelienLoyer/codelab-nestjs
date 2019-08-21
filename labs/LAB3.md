@@ -13,3 +13,4 @@ nest generate service beers
 * Migrez tout le code métier écrit jusqu'à présent dans le contrôleur `BeersController` dans ce service.
 
 * Injectez et utilisez ce service dans le contrôleur `BeersController`.
+
