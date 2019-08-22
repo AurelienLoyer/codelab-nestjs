@@ -1,10 +1,10 @@
-=== Petite Présentation
+== Petite Présentation
 
 * Plateforme permettant de développer des applications serveur basées sur : 
 ** Node.js
 ** TypeScript
 ** Express ou Fastify
-** Ouvert à GraphQL, WebSockets, Monde des microservices (Redis, gRPC, MQTT, ...)
+** Ouvert à GraphQL, WebSockets, monde des microservices (Redis, gRPC, MQTT, ...)
 * Fortement inspiré de l'architecture d'une application _Angular_
 ** Même structure
 ** Même terminonologie
@@ -38,7 +38,7 @@ nest generate provider users
 
 screencast:nestjs[]
 
-=== Quelle est la porte d'entrée ?
+=== Par où commencer ?
 
 .main.ts
 [source,typescript]
@@ -52,6 +52,8 @@ async function bootstrap() {
 }
 bootstrap();
 ----
+
+=== Par où commencer ?
 
 .app.module.ts
 [source,typescript]
@@ -73,12 +75,9 @@ export class AppModule {}
 
 === Intégration Swagger
 
-* Module permettant d'intégrer _Swagger_ à votre API 
-* Met à disposition une UI permettant d'intéragir avec vos endpoints
-
 [source,shell]
 ----
-npm install --save @nestjs/swagger swagger-ui-express
+npm install @nestjs/swagger swagger-ui-express
 ----
 
 [source,typescript]
@@ -93,6 +92,7 @@ async function bootstrap() {
     .setDescription('The cats API description')
     .setVersion('1.0')
     .build();
+
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
 
@@ -145,11 +145,13 @@ class User {
 
 === À vous de jouer !
 
-* Récupérez la branche `step0` du repository GIT
+* Récupérez le répertoire `step0` du repository GIT
 
 [source,shell]
 ----
-git clone -b step0 https://github.com/T3kstiil3/BaaS
+git clone  https://github.com/T3kstiil3/BaaS
+cd solutions/step0
+npm install
 ----
 
 * Ajoutez l'intégration Swagger à l'application NestJS

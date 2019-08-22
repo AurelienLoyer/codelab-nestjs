@@ -21,7 +21,11 @@ Le framework Node.JS à la façon Angular
 
 === Emmanuel DEMEY
 
+@EmmanuelDemey
+
 === Aurélien LOYER
+
+@AurelienLoyer
 
 include::chapters/introduction.adoc[]
 
