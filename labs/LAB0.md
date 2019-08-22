@@ -32,6 +32,6 @@ Si vous utilisez VSCode, nous vous proposons une selection d'extensions que vous
 
 Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
 
-- [Documentation TypeScript](https://www.typescriptlang.org/)
-- [Documentation NestJS](https://docs.nestjs.com)
+- [Documentation de TypeScript](https://www.typescriptlang.org/)
+- [Documentation de NestJS](https://docs.nestjs.com)
 
