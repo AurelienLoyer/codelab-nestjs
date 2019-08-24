@@ -12,6 +12,8 @@ ifndef::sourcedir[:sourcedir: ../java]
 :title-slide-transition: zoom
 :title-slide-transition-speed: fast
 :icons: font
+:revealjs_history: true
+
 
 = CRÉONS NOTRE PREMIÈRE API AVEC NESTJS
 
