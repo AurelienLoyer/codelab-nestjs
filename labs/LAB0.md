@@ -30,8 +30,15 @@ npm install # yarn
 
 Si vous utilisez VSCode, nous vous proposons une selection d'extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé `@recommanded` . Normalement VSCode listera notre liste d'extensions.
 
+Si vous exécutez la commande suivante, votre API sera disponible à l'URL `http://localhost:3000`
+
+```shell
+ npm run start
+ ```
+ 
 Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
 
 - [Documentation de TypeScript](https://www.typescriptlang.org/)
 - [Documentation de NestJS](https://docs.nestjs.com)
+- [Getting Started avec NestJS](https://docs.nestjs.com/first-steps)
 
