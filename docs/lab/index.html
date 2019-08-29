@@ -87,7 +87,7 @@ npm install # yarn
       </google-codelab-step>
     
       <google-codelab-step label="Modules" duration="0">
-        <p>Nous allons à présent créer un module NestJS afin de définir la fonctionnalité de gestion des bières.</p>
+        <p>Nous allons à présent créer un module NestJS afin d&#39;y ajouter la fonctionnalité de gestion des bières.</p>
 <ul>
 <li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step1</code></li>
 <li>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.</li>
@@ -95,13 +95,18 @@ npm install # yarn
 <pre><code>nest generate module beers
 </code></pre>
 <ul>
-<li>Externalisez le CRUD (créé précédemment) permettant de gérer les bière dans un contrôleur spécifique : <code>BeersController</code></li>
+<li>Externalisez le CRUD (créé précédemment) permettant de gérer les bières dans un contrôleur spécifique : <code>BeersController</code></li>
 </ul>
 <pre><code>nest generate controller beers/beers
 </code></pre>
 <ul>
-<li>Vérifiez que ce nouveau contrôleur  est bien associé au module <code>BeersModule</code> créé au début de cet exercice.</li>
+<li>Vérifiez que ce nouveau contrôleur est bien associé au module <code>BeersModule</code> créé au début de cet exercice.</li>
 <li>Ajoutez au module principal de votre application le module <code>BeersModule</code>.</li>
+</ul>
+<p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
+<ul>
+<li><a href="https://docs.nestjs.com/controllers" target="_blank">Les contrôleurs NestJS</a></li>
+<li><a href="https://docs.nestjs.com/modules" target="_blank">Les modules NestJS</a></li>
 </ul>
 
 
