@@ -19,7 +19,7 @@ export class CatsController {
 }
 ----
 
-=== Les contrôleurs - CRUD
+=== Les contrôleurs
 
 - Utilisation des décorateurs @Get, @Post, @Put, @Delete, ... pour définir le verbe HTTP à utiliser. 
 
@@ -42,7 +42,7 @@ export class CatsController {
 }
 ----
 
-=== Les contrôleurs - Valeur de retour
+=== Les contrôleurs
 
 * retourner la donnée directement
 * retourner une `promise`
@@ -68,15 +68,11 @@ findAllResponse(@Res() response: Response) {
 
 === Les contrôleurs - autres décorateurs
 
-* Récupération 
-** du body de la requête via `@Body()`
-** des query parameters via `@Query()`
-** des headers via `@Headers()`
-
 [source,typescript]
 ----
 @Controller('trainings')
 export class CatsController {
+
   @Get()
   findAll(
       @Query('sort') sort:string,
@@ -84,7 +80,9 @@ export class CatsController {
     ): Training[] { ... }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCatDto: Training) { }
+  update(
+      @Param('id') id: string, 
+      @Body() updateCatDto: Training) { }
 }
 ----
 

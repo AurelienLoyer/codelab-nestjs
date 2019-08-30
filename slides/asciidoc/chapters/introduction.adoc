@@ -34,10 +34,6 @@ nest generate controller users
 nest generate provider users
 ----
 
-=== Installation 
-
-screencast:nestjs[]
-
 === Par où commencer ?
 
 .main.ts
@@ -116,15 +112,13 @@ export class AppController {
   @Post()
   @ApiResponse({ status: 403, description: 'Forbidden.'})
   createUser(@Body() user: User): string {
-    return "OK"
+    return "OK";
   }
   
 }
 ----
 
 === Intégration Swagger
-
-* Documentation de vos API via des _Décorateurs_
 
 [source,typescript]
 ----
@@ -137,9 +131,10 @@ class Address {
 }
 class User {
   @ApiModelProperty()
-  name: string
+  name: string;
+
   @ApiModelProperty({type: Address})
-  address: Address[]
+  address: Address[];
 }
 ----
 
@@ -149,7 +144,7 @@ class User {
 
 [source,shell]
 ----
-git clone  https://github.com/T3kstiil3/BaaS
+git clone https://github.com/T3kstiil3/BaaS
 cd solutions/step0
 npm install
 ----

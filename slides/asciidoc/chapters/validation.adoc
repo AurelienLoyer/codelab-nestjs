@@ -62,23 +62,22 @@ export class User {
 
 === Custom validateur
 
-* Il est possible de créer ses propres validateurs. 
-
 [source,typescript]
 ----
 import {ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments} from "class-validator";
 
-@ValidatorConstraint({ name: "passwordValidator", async: false })
+@ValidatorConstraint({ 
+  name: "passwordValidator", 
+  async: false 
+})
 export class PasswordValidator implements ValidatorConstraintInterface {
 
     validate(password: string, args: ValidationArguments) {
         return password.length > 5;
     }
-
     defaultMessage(args: ValidationArguments) { 
         return "Erreur: 'password' doit etre plus compliqué 😨";
     }
-
 }
 
 /**

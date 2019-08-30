@@ -29,7 +29,7 @@ npm run start:debug
 npm run test</code></pre>
 <div class="ulist"><ul><li><p>Propose des <em>schematics</em> pour générer de nouveaux fichiers</p></li></ul></div>
 <pre class="highlight listingblock"><code class="shell language-shell">nest generate controller users
-nest generate provider users</code></pre></section><section id="_installation_2"><h2>Installation</h2><div class="paragraph"><p>screencast:nestjs[]</p></div></section><section id="_par_où_commencer"><h2>Par où commencer ?</h2><div class="title">main.ts</div><pre class="highlight listingblock"><code class="typescript language-typescript">import { NestFactory } from '@nestjs/core';
+nest generate provider users</code></pre></section><section id="_par_où_commencer"><h2>Par où commencer ?</h2><div class="title">main.ts</div><pre class="highlight listingblock"><code class="typescript language-typescript">import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
@@ -71,11 +71,10 @@ export class AppController {
   @Post()
   @ApiResponse({ status: 403, description: 'Forbidden.'})
   createUser(@Body() user: User): string {
-    return "OK"
+    return "OK";
   }
 
-}</code></pre></section><section id="_intégration_swagger_3"><h2>Intégration Swagger</h2><div class="ulist"><ul><li><p>Documentation de vos API via des <em>Décorateurs</em></p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { Controller, Post, Body } from '@nestjs/common';
+}</code></pre></section><section id="_intégration_swagger_3"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import { Controller, Post, Body } from '@nestjs/common';
 import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
 
 class Address {
@@ -84,11 +83,12 @@ class Address {
 }
 class User {
   @ApiModelProperty()
-  name: string
+  name: string;
+
   @ApiModelProperty({type: Address})
-  address: Address[]
+  address: Address[];
 }</code></pre></section><section id="_à_vous_de_jouer"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Récupérez le répertoire <code>step0</code> du repository GIT</p></li></ul></div>
-<pre class="highlight listingblock"><code class="shell language-shell">git clone  https://github.com/T3kstiil3/BaaS
+<pre class="highlight listingblock"><code class="shell language-shell">git clone https://github.com/T3kstiil3/BaaS
 cd solutions/step0
 npm install</code></pre>
 <div class="ulist"><ul><li><p>Ajoutez l&#8217;intégration Swagger à l&#8217;application NestJS</p></li><li><p>Testez votre application pour vérifier son bon fonctionnement</p></li></ul></div></section></section>
@@ -102,7 +102,7 @@ export class CatsController {
     // GET /trainings
     return 'NestJS Training';
   }
-}</code></pre></section><section id="_les_contrôleurs_crud"><h2>Les contrôleurs - CRUD</h2><div class="ulist"><ul><li><p>Utilisation des décorateurs @Get, @Post, @Put, @Delete, &#8230;&#8203; pour définir le verbe HTTP à utiliser.</p></li></ul></div>
+}</code></pre></section><section id="_les_contrôleurs_3"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Utilisation des décorateurs @Get, @Post, @Put, @Delete, &#8230;&#8203; pour définir le verbe HTTP à utiliser.</p></li></ul></div>
 <pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('trainings')
 export class CatsController {
   @Get()
@@ -117,7 +117,7 @@ export class CatsController {
   update(@Param('id') id: string, @Body() updateCatDto: Training) : Training {
     return {};
   }
-}</code></pre></section><section id="_les_contrôleurs_valeur_de_retour"><h2>Les contrôleurs - Valeur de retour</h2><div class="ulist"><ul><li><p>retourner la donnée directement</p></li><li><p>retourner une <code>promise</code></p></li><li><p>Manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
+}</code></pre></section><section id="_les_contrôleurs_4"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>retourner la donnée directement</p></li><li><p>retourner une <code>promise</code></p></li><li><p>Manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
 <pre class="highlight listingblock"><code class="typescript language-typescript">import { Response } from 'express';
 
 @Get()
@@ -131,9 +131,9 @@ findAllPromise(): Promise&lt;Training[]&gt; {
 @Get()
 findAllResponse(@Res() response: Response) {
     res.status(HttpStatus.OK).send([]);
-}</code></pre></section><section id="_les_contrôleurs_autres_décorateurs"><h2>Les contrôleurs - autres décorateurs</h2><div class="ulist"><ul><li><p>Récupération</p><div class="ulist"><ul><li><p>du body de la requête via <code>@Body()</code></p></li><li><p>des query parameters via <code>@Query()</code></p></li><li><p>des headers via <code>@Headers()</code></p></li></ul></div></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('trainings')
+}</code></pre></section><section id="_les_contrôleurs_autres_décorateurs"><h2>Les contrôleurs - autres décorateurs</h2><pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('trainings')
 export class CatsController {
+
   @Get()
   findAll(
       @Query('sort') sort:string,
@@ -141,9 +141,12 @@ export class CatsController {
     ): Training[] { ... }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCatDto: Training) { }
+  update(
+      @Param('id') id: string,
+      @Body() updateCatDto: Training) { }
 }</code></pre></section><section id="_à_vous_de_jouer_2"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Dans le <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :</p><div class="ulist"><ul><li><p>Les lister</p></li><li><p>En récupérer une</p></li><li><p>En supprimer une</p></li><li><p>En ajouter</p></li><li><p>En modifier</p></li></ul></div></li></ul></div></section></section>
-<section><section id="_les_modules"><h2>Les Modules</h2></section><section id="_les_modules_2"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Toute application NestJS possède au moins un module</p></li><li><p>A ne pas confondre aves les modules <code>ES2015</code></p></li><li><p>Permet de regrouper de manière logique un ensemble de fonctionnalités</p><div class="ulist"><ul><li><p>découpage métier</p></li><li><p>découpage technique</p></li><li><p>&#8230;&#8203;</p></li></ul></div></li><li><p>Nécessité ensuite d&#8217;importer ces modules pour pouvoir les utiliser</p></li></ul></div></section><section id="_les_modules_3"><h2>Les Modules</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
+<section><section id="_les_modules"><h2>Les Modules</h2></section><section id="_les_modules_2"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Toute application NestJS possède au moins un module</p></li><li><p>A ne pas confondre aves les modules <code>ES2015</code></p></li><li><p>Permet de regrouper de manière logique un ensemble de fonctionnalités</p><div class="ulist"><ul><li><p>découpage métier</p></li><li><p>découpage technique</p></li><li><p>&#8230;&#8203;</p></li></ul></div></li></ul></div></section><section id="_les_modules_3"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Nécessité ensuite d&#8217;importer ces modules pour pouvoir les utiliser</p></li></ul></div>
+<pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
 import { HomeController } from './home.controller';
 import { TrainingController, TrainingService } from './trainings';
 
@@ -242,20 +245,20 @@ export class User {
 
   @IsDate()
   readonly birthDate: date;
-}</code></pre></section><section id="_custom_validateur"><h2>Custom validateur</h2><div class="ulist"><ul><li><p>Il est possible de créer ses propres validateurs.</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import {ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments} from "class-validator";
+}</code></pre></section><section id="_custom_validateur"><h2>Custom validateur</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import {ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments} from "class-validator";
 
-@ValidatorConstraint({ name: "passwordValidator", async: false })
+@ValidatorConstraint({
+  name: "passwordValidator",
+  async: false
+})
 export class PasswordValidator implements ValidatorConstraintInterface {
 
     validate(password: string, args: ValidationArguments) {
         return password.length &gt; 5;
     }
-
     defaultMessage(args: ValidationArguments) {
         return "Erreur: 'password' doit etre plus compliqué 😨";
     }
-
 }
 
 /**
@@ -316,7 +319,7 @@ export class AuthService {
   async validateUser(payload: JwtPayload): Promise&lt;any&gt; {
     return await this.usersService.findOneByEmail(payload.email);
   }
-}</code></pre></section><section id="_à_vous_de_jouer_6"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Récupérez la branche <code>step5</code></p></li><li><p>Installez les modules NPM nécessaires pour une Authentification JWT</p></li><li><p>Via le service <code>JwtService</code>, implémentez la méthode <code>login</code> du service <code>UserService</code></p><div class="ulist"><ul><li><p>Elle doit retourner un objet <code>{ expiresIn: 3600, accessToken: `Bearer ${accessToken}</code>, }`, avec <code>accessToken</code> le résultat retourné par la méthode <code>sign</code> du service <code>JwtService</code></p></li></ul></div></li><li><p>Sécurisez la route permettant de créer et mettre à jour des bières</p></li></ul></div></section></section>
+}</code></pre></section><section id="_à_vous_de_jouer_6"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Installez les modules NPM nécessaires pour une Authentification JWT</p></li><li><p>Via le service <code>JwtService</code>, implémentez la méthode <code>login</code> du service <code>UserService</code></p><div class="ulist"><ul><li><p>Elle doit retourner un objet <code>{ expiresIn: 3600, accessToken: `Bearer ${accessToken}</code>, }`, avec <code>accessToken</code> le résultat retourné par la méthode <code>sign</code> du service <code>JwtService</code></p></li></ul></div></li><li><p>Sécurisez la route permettant de créer et mettre à jour des bières</p></li></ul></div></section></section>
 <section><section id="_pour_aller_plus_loin"><h2>Pour aller plus loin&#8230;&#8203;</h2></section><section id="_un_zeste_de_nest"><h2>Un zeste de Nest&#8230;&#8203;</h2><div class="imageblock" style=""><img src="images/nestjs.png" alt="conference"></div></section><section id="_ssr_pour_application_angular"><h2>SSR pour application Angular</h2><asciinema-player src="screencasts/angular.cast"></asciinema-player></section><section id="_merci"><h2>Merci 🙏</h2><div class="paragraph"><p>@EmmanuelDemey | @AurelienLoyer</p></div></section></section></div></div><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/head.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/js/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)

@@ -8,9 +8,10 @@
 ** découpage métier
 ** découpage technique
 ** ...
-* Nécessité ensuite d'importer ces modules pour pouvoir les utiliser
 
 === Les Modules
+
+* Nécessité ensuite d'importer ces modules pour pouvoir les utiliser
 
 [source,typescript]
 ----
