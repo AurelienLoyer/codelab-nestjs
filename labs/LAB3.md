@@ -14,3 +14,7 @@ nest generate service beers
 
 * Injectez et utilisez ce service dans le contrôleur `BeersController`.
 
+Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
+
+- [Les providers NestJS](https://docs.nestjs.com/providers)
+
