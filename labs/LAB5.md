@@ -8,5 +8,5 @@
 
 Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
 
-- [Les providers NestJS](https://docs.nestjs.com/techniques/authentication)
+- [Authentification avec NestJS](https://docs.nestjs.com/techniques/authentication)
 
