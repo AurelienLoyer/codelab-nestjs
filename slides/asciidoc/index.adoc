@@ -19,15 +19,33 @@ ifndef::sourcedir[:sourcedir: ../java]
 
 Le framework Node.JS à la façon Angular
 
-== Qui sommes nous ?
+[.speaker]
+=== !
 
-=== Emmanuel DEMEY
+[id="speaker-bio"]
+--
+Emmanuel DEMEY
+
+Developer Advocate à Zenika Lille 
 
 @EmmanuelDemey
+--
 
-=== Aurélien LOYER
+image::emmanuel.jpg[]
 
-@AurelienLoyer
+[.speaker]
+=== !
+
+[id="speaker-bio"]
+--
+Aurélien LOYER
+
+Consultant à Zenika Lille 
+
+@AurelienDemey
+--
+
+image::aurelien.jpeg[]
 
 include::chapters/introduction.adoc[]
 
