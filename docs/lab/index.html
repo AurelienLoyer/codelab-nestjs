@@ -7,20 +7,23 @@
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
   <title>Codelab NestJS</title>
-  <script src="/codelab-nestjs/lab/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="/codelab-nestjs/lab/elements/codelab.html">
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
-  <style is="custom-style">
-    body {
-      font-family: "Roboto",sans-serif;
-      background: var(--google-codelab-background, #F8F9FA);
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="/codelab-nestjs/lab//codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
     }
   </style>
-  
 </head>
-<body unresolved class="fullbleed">
-
-  <google-codelab title="Codelab NestJS"
+<body>
+  <google-codelab-analytics gaid="UA-137363732-1"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="docs/lab"
+                  title="Codelab NestJS"
                   environment="web"
                   feedback-link="https://twitter.com/AurelienLoyer">
     
@@ -30,18 +33,16 @@
 <li>GIT</li>
 <li>NodeJS 10.x ou &gt;</li>
 <li>un IDE (WebStorm ou Visual Studio Code...)</li>
-<li>Le module <code>@nestjs/cli</code> installé globalement</li>
-</ul>
-<pre><code>npm install -g @nestjs/cli
+<li>Le module <code>@nestjs/cli</code> installé globalement<pre><code>npm install -g @nestjs/cli
 yarn global add @nestjs/cli
 </code></pre>
-<ul>
-<li>Récupérez la répertoire <code>step0</code> du repository GIT</li>
-</ul>
-<pre><code>git clone https://github.com/T3kstiil3/BaaS
+</li>
+<li>Récupérez la répertoire <code>step0</code> du repository GIT<pre><code>git clone https://github.com/T3kstiil3/BaaS
 cd solutions/step0
 npm install # yarn
 </code></pre>
+</li>
+</ul>
 <p>Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé <code>@recommanded</code> . Normalement VSCode listera notre liste d&#39;extensions.</p>
 <p>Si vous exécutez la commande suivante, votre API sera disponible à l&#39;URL <code>http://localhost:3000</code></p>
 <pre><code> npm run start
@@ -94,16 +95,12 @@ npm install # yarn
         <p>Nous allons à présent créer un module NestJS afin d&#39;y ajouter la fonctionnalité de gestion des bières.</p>
 <ul>
 <li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step1</code></li>
-<li>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.</li>
-</ul>
-<pre><code>nest generate module beers
+<li>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.<pre><code>nest generate module beers
 </code></pre>
-<ul>
-<li>Externalisez le CRUD (créé précédemment) permettant de gérer les bières dans un contrôleur spécifique : <code>BeersController</code></li>
-</ul>
-<pre><code>nest generate controller beers/beers
+</li>
+<li>Externalisez le CRUD (créé précédemment) permettant de gérer les bières dans un contrôleur spécifique : <code>BeersController</code><pre><code>nest generate controller beers/beers
 </code></pre>
-<ul>
+</li>
 <li>Vérifiez que ce nouveau contrôleur est bien associé au module <code>BeersModule</code> créé au début de cet exercice.</li>
 <li>Ajoutez au module principal de votre application le module <code>BeersModule</code>.</li>
 </ul>
@@ -122,11 +119,9 @@ npm install # yarn
 </ul>
 <p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>BeersService</code>.</p>
 <ul>
-<li>Veuillez créer un service <code>beers</code></li>
-</ul>
-<pre><code>nest generate service beers
+<li>Veuillez créer un service <code>beers</code><pre><code>nest generate service beers
 </code></pre>
-<ul>
+</li>
 <li>Migrez tout le code métier écrit jusqu&#39;à présent dans le contrôleur <code>BeersController</code> dans ce service.</li>
 <li>Injectez et utilisez ce service dans le contrôleur <code>BeersController</code>.</li>
 </ul>
@@ -163,7 +158,7 @@ npm install # yarn
     
       <google-codelab-step label="Authentification" duration="0">
         <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step4</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step4</code></li>
 <li>Installez les modules NPM nécessaires pour une Authentification JWT</li>
 <li>Via le service <code>JwtService</code>, implémentez la méthode <code>login</code> du service <code>UserService</code><ul>
 <li>Elle doit retourner un objet <code>{ expiresIn: 3600, accessToken:</code>Bearer ${accessToken}<code>, }</code>, avec <code>accessToken</code> le résultat retourné par la méthode <code>sign</code> du service <code>JwtService</code></li>
@@ -181,33 +176,10 @@ npm install # yarn
     
   </google-codelab>
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-49880327-14', 'auto');
-
-    (function() {
-      var gaCodelab = '';
-      if (gaCodelab) {
-        ga('create', gaCodelab, 'auto', {name: 'codelab'});
-      }
-
-      var gaView;
-      var parts = location.search.substring(1).split('&');
-      for (var i = 0; i < parts.length; i++) {
-        var param = parts[i].split('=');
-        if (param[0] === 'viewga') {
-          gaView = param[1];
-          break;
-        }
-      }
-      if (gaView && gaView !== gaCodelab) {
-        ga('create', gaView, 'auto', {name: 'view'});
-      }
-    })();
-  </script>
+  <script src="/codelab-nestjs/lab//codelab-elements/native-shim.js"></script>
+  <script src="/codelab-nestjs/lab//codelab-elements/custom-elements.min.js"></script>
+  <script src="/codelab-nestjs/lab//codelab-elements/prettify.js"></script>
+  <script src="/codelab-nestjs/lab//codelab-elements/codelab-elements.js"></script>
 
 </body>
 </html>
