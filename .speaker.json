@@ -1,0 +1,11 @@
+{
+    "directoryName": "codelab-nestjs",
+    "projectName": "Codelab NestJS - A progressive Node.js web framework",
+    "projectDescription": "🐱 Mettons en place notre premier backend à base de NestJS et ses bonnes pratiques poussées par la communauté de ce framework !",
+    "projectAuthorsTwitter": "@EmmanuelDemey @AurelienLoyer",
+    "types": [
+        "slides",
+        "codelab"
+    ],
+    "gitinit": true
+}

@@ -1,7 +1,6 @@
 ## Validation
 
 * Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step4`
-
 * Activez la validation de manière globale pour toute l'application 
 
 * Installez les modules `class-validator` et `class-transformer`. 
@@ -15,7 +14,6 @@
     * `stock` doit être une `entier`
 
 Pour cela, nous allons utiliser des décorateurs définis dans le module `class-validator`.
-
 Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
 
 - [Documentation de Class-Validator](https://github.com/typestack/class-validator)

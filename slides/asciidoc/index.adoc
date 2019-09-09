@@ -19,6 +19,8 @@ ifndef::sourcedir[:sourcedir: ../java]
 
 Le framework Node.JS à la façon Angular
 
+=== !
+
 [.speaker]
 === !
 
@@ -42,7 +44,7 @@ Aurélien LOYER
 
 Consultant à Zenika Lille 
 
-@AurelienDemey
+@AurelienLoyer
 --
 
 image::aurelien.jpeg[]
