@@ -1,27 +1,45 @@
-## Modules
+## Contrôleur
 
-Nous allons à présent créer un module NestJS afin d'y ajouter la fonctionnalité de gestion des bières.
+- Dans le contrôleur `AppController`, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :
+  - lister les bières
+  - retourner les détails d'un bière, grâce à son identifiant
+  - supprimer une bière, grâce à son identifiant
+  - modifier une bière grâce à son identifiant
+  - Et enfin en ajouter
 
-* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `solutions/step1`
+Une biére sera représentée par la classe TypeScript suivante : 
 
-- Via la CLI, générez un nouveau module NestJS `BeersModule`.
+```typescript
+import { ApiModelProperty } from '@nestjs/swagger';
 
-```shell
-nest generate module beers
+export class Beer {
+  @ApiModelProperty({ example: 12 })
+  readonly id: number;
+
+  @ApiModelProperty({ example: 'Souper beer' })
+  readonly label?: string;
+
+  @ApiModelProperty({
+    example:
+      'India pale ale is a hoppy beer style within the broader category of pale ale',
+  })
+  readonly description?: string;
+
+  @ApiModelProperty({ example: '' })
+  readonly image?: string;
+
+  @ApiModelProperty({ example: 15.0 })
+  readonly price?: number;
+
+  @ApiModelProperty({ example: 5 })
+  readonly stock?: number;
+}
 ```
 
-- Externalisez le CRUD (créé précédemment) permettant de gérer les bières dans un contrôleur spécifique : `BeersController`
+Un fichier [beers.json](https://github.com/T3kstiil3/BaaS/blob/master/static/data/beers.json) est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API. 
 
-```shell
-nest generate controller beers/beers
-```
-
-- Vérifiez que ce nouveau contrôleur est bien associé au module `BeersModule` créé au début de cet exercice.
-
-- Ajoutez au module principal de votre application le module `BeersModule`.
 
 Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
 
 - [Les contrôleurs NestJS](https://docs.nestjs.com/controllers)
-- [Les modules NestJS](https://docs.nestjs.com/modules)
 

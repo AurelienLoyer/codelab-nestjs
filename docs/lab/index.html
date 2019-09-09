@@ -39,7 +39,7 @@ yarn global add @nestjs/cli
 <li>Récupérez la répertoire <code>step0</code> du repository GIT</li>
 </ul>
 <pre><code>git clone https://github.com/T3kstiil3/BaaS
-cd solutions/step0
+cd corrections/step0
 npm install # yarn
 </code></pre>
 <p>Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé <code>@recommanded</code> . Normalement VSCode listera notre liste d&#39;extensions.</p>
@@ -72,16 +72,32 @@ npm install # yarn
 </li>
 </ul>
 <p>Une biére sera représentée par la classe TypeScript suivante :</p>
-<pre><code>export interface Beer {
-  id: number;
-  label?: string;
-  description?: string;
-  image?: string;
-  price?: number;
-  stock?: number;
+<pre><code>import { ApiModelProperty } from &#39;@nestjs/swagger&#39;;
+
+export class Beer {
+  @ApiModelProperty({ example: 12 })
+  readonly id: number;
+
+  @ApiModelProperty({ example: &#39;Souper beer&#39; })
+  readonly label?: string;
+
+  @ApiModelProperty({
+    example:
+      &#39;India pale ale is a hoppy beer style within the broader category of pale ale&#39;,
+  })
+  readonly description?: string;
+
+  @ApiModelProperty({ example: &#39;&#39; })
+  readonly image?: string;
+
+  @ApiModelProperty({ example: 15.0 })
+  readonly price?: number;
+
+  @ApiModelProperty({ example: 5 })
+  readonly stock?: number;
 }
 </code></pre>
-<p>Un fichier <code>static/data/beers.json</code> est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API.</p>
+<p>Un fichier <a href="https://github.com/T3kstiil3/BaaS/blob/master/static/data/beers.json" target="_blank">beers.json</a> est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API.</p>
 <p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
 <ul>
 <li><a href="https://docs.nestjs.com/controllers" target="_blank">Les contrôleurs NestJS</a></li>
@@ -93,7 +109,7 @@ npm install # yarn
       <google-codelab-step label="Modules" duration="0">
         <p>Nous allons à présent créer un module NestJS afin d&#39;y ajouter la fonctionnalité de gestion des bières.</p>
 <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step1</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step2</code></li>
 <li>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.</li>
 </ul>
 <pre><code>nest generate module beers
@@ -118,13 +134,13 @@ npm install # yarn
     
       <google-codelab-step label="Provider" duration="0">
         <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step2</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step3</code></li>
 </ul>
 <p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>BeersService</code>.</p>
 <ul>
 <li>Veuillez créer un service <code>beers</code></li>
 </ul>
-<pre><code>nest generate service beers
+<pre><code>nest generate service beers/beers
 </code></pre>
 <ul>
 <li>Migrez tout le code métier écrit jusqu&#39;à présent dans le contrôleur <code>BeersController</code> dans ce service.</li>
@@ -140,13 +156,14 @@ npm install # yarn
     
       <google-codelab-step label="Validation" duration="0">
         <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step3</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step4</code></li>
 <li>Activez la validation de manière globale pour toute l&#39;application</li>
-<li>Ajoutez les contraintes suivantes sur votre classe <code>BeerDto</code><ul>
+<li>Installez les modules <code>class-validator</code> et <code>class-transformer</code>.</li>
+<li>Ajoutez les contraintes suivantes sur votre classe <code>Beer</code><ul>
 <li><code>id</code> doit être un <code>number</code></li>
 <li><code>label</code> doit être une <code>string</code></li>
 <li><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</li>
-<li><code>image</code> doit être une <code>string</code>, et se terminer par <code>.svg</code> (via un custom validateur)</li>
+<li><code>image</code> doit être une <code>string</code>, et se terminer par <code>/\.(jpe?g|png|gif|bmp)$/</code> (via un custom validateur)</li>
 <li><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</li>
 <li><code>stock</code> doit être une <code>entier</code></li>
 </ul>
@@ -163,12 +180,93 @@ npm install # yarn
     
       <google-codelab-step label="Authentification" duration="0">
         <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>solutions/step4</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step5</code></li>
 <li>Installez les modules NPM nécessaires pour une Authentification JWT</li>
-<li>Via le service <code>JwtService</code>, implémentez la méthode <code>login</code> du service <code>UserService</code><ul>
-<li>Elle doit retourner un objet <code>{ expiresIn: 3600, accessToken:</code>Bearer ${accessToken}<code>, }</code>, avec <code>accessToken</code> le résultat retourné par la méthode <code>sign</code> du service <code>JwtService</code></li>
+</ul>
+<pre><code>npm install @nestjs/jwt @nestjs/passport @nestjs/platform-express passport passport-jwt
+</code></pre>
+<ul>
+<li>Créez un nouveau module <code>users</code> dans lequel nous allons implémenter la gestions des utilisateurs.</li>
+</ul>
+<pre><code>➜  nest generate module users 
+</code></pre>
+<ul>
+<li>Dans ce module, importez et configurez les modules <code>PassportModule</code> et <code>JwtModule</code> de la manière suivante :</li>
+</ul>
+<pre><code>[
+    PassportModule.register({ defaultStrategy: &#39;jwt&#39; }),
+    JwtModule.register({
+      secretOrPrivateKey: &#39;secretBeer&#39;,
+      signOptions: {
+        expiresIn: 3600,
+      },
+    }),
+]
+</code></pre>
+<p>Nous allons à présent créer deux service :</p>
+<ul>
+<li><code>UsersService</code> pour la gestion des utilisateurs</li>
+<li><code>JwtStrategy</code> pour configurer la stratégie d&#39;authentification de notre application</li>
+</ul>
+<pre><code>nest generate service users/JwtStrategy
+nest generate service users/users
+</code></pre>
+<ul>
+<li>Le service <code>JwtStrategyService</code> aura la structure suivante :</li>
+</ul>
+<pre><code>@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor(private readonly usersService: UsersService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: &#39;secretBeer&#39;,
+    });
+  }
+
+  async validate(payload: JwtPayload) {
+    const user = await this.usersService.validateUser(payload);
+    if (!user) {
+      throw new UnauthorizedException(&#39;The user is unauthorized&#39;);
+    }
+    return user;
+  }
+}
+</code></pre>
+<ul>
+<li>Dans la méthode <code>validate</code>, nous allons appeler une méthode <code>validateUser</code> du service <code>UsersService</code> que nous allons implémenter dans le point suivant.<br>Si l&#39;objet <code>User</code> retourné par cet méthode n&#39;est pas défini, vous devez émettre une exception <code>UnauthorizedException</code>. Sinon vous pouvez retourner l&#39;objet lui-même.</li>
+<li>Dans le service <code>UsersService</code>, nous allons implémenter deux méthodes :<ul>
+<li><code>validateUser</code> : cette méthode prendra en paramètre l&#39;objet <code>JwtPayload</code> et retournera une <code>Promise&lt;boolean&gt;</code>. Le <code>boolean</code> sera à <code>true</code> si le duo <code>email</code> et <code>password</code> sont corrects. Pour cela, vous pouvez utiliser un tableau d&#39;utilisateurs défini en mémoire (bien evidemment nous ne faisons jamais cela dans la vrai vie :p ).</li>
 </ul>
 </li>
+</ul>
+<pre><code>[
+    {
+        &#34;id&#34;: 1,
+        &#34;username&#34;: &#34;Aurel&#34;,
+        &#34;email&#34;: &#34;aurelien@loyer.fr&#34;,
+        &#34;password&#34;: &#34;beer&#34;,
+        &#34;cart&#34;: {}
+    },
+    {
+        &#34;id&#34;: 2,
+        &#34;username&#34;: &#34;Manu&#34;,
+        &#34;email&#34;: &#34;emmanuel@demey.fr&#34;,
+        &#34;password&#34;: &#34;beer&#34;,
+        &#34;cart&#34;: {}
+    }
+    }
+]
+</code></pre>
+<pre><code>* une méthode `login` qui prendra en paramètre l&#39;email et le password d&#39;un utilisateur. Aprés avoir vérifier que l&#39;email et le password correspond à un réel utilisateur, cette méthode retournera le token JWT nécessaire pour s&#39;authentifier. Pour cela, vous devez utiliser le service `JwtService` du module `@nestjs/jwt`
+</code></pre>
+<pre><code>const accessToken = this.jwtService.sign(payload);
+return {
+    expiresIn: 3600,
+    accessToken: `Bearer ${accessToken}`,
+};
+</code></pre>
+<ul>
+<li>Créez un controller <code>users</code> proposant une endpoint permettant d&#39;appeler la méthode <code>login</code> du service <code>UsersService</code>.</li>
 <li>Sécurisez la route permettant de créer et mettre à jour des bières</li>
 </ul>
 <p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>

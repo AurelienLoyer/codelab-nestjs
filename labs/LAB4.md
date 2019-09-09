@@ -1,20 +1,20 @@
-## Validation
+## Provider
 
-* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `solutions/step3`
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step3`
 
-* Activez la validation de manière globale pour toute l'application 
+Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons `BeersService`.
 
-* Ajoutez les contraintes suivantes sur votre classe `BeerDto`
-    * `id` doit être un `number`
-    * `label` doit être une `string`
-    * `description` doit être une `string`, avec un taille entre 10 et 80 caractères
-    * `image` doit être une `string`, et se terminer par `.svg` (via un custom validateur)
-    * `price` doit être une `number`, compris entre 0 et 100
-    * `stock` doit être une `entier`
+* Veuillez créer un service `beers`
 
-Pour cela, nous allons utiliser des décorateurs définis dans le module `class-validator`.
+```shell
+nest generate service beers/beers
+```
+
+* Migrez tout le code métier écrit jusqu'à présent dans le contrôleur `BeersController` dans ce service.
+
+* Injectez et utilisez ce service dans le contrôleur `BeersController`.
 
 Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
 
-- [Documentation de Class-Validator](https://github.com/typestack/class-validator)
+- [Les providers NestJS](https://docs.nestjs.com/providers)
 

@@ -1,12 +1,22 @@
-## Authentification
+## Validation
 
-* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `solutions/step4`
-* Installez les modules NPM nécessaires pour une Authentification JWT
-* Via le service `JwtService`, implémentez la méthode `login` du service `UserService`
-    * Elle doit retourner un objet `{ expiresIn: 3600, accessToken: `Bearer ${accessToken}`, }`, avec `accessToken` le résultat retourné par la méthode `sign` du service `JwtService`
-* Sécurisez la route permettant de créer et mettre à jour des bières
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step4`
+
+* Activez la validation de manière globale pour toute l'application 
+
+* Installez les modules `class-validator` et `class-transformer`. 
+
+* Ajoutez les contraintes suivantes sur votre classe `Beer`
+    * `id` doit être un `number`
+    * `label` doit être une `string`
+    * `description` doit être une `string`, avec un taille entre 10 et 80 caractères
+    * `image` doit être une `string`, et se terminer par `/\.(jpe?g|png|gif|bmp)$/` (via un custom validateur)
+    * `price` doit être une `number`, compris entre 0 et 100
+    * `stock` doit être une `entier`
+
+Pour cela, nous allons utiliser des décorateurs définis dans le module `class-validator`.
 
 Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
 
-- [Authentification avec NestJS](https://docs.nestjs.com/techniques/authentication)
+- [Documentation de Class-Validator](https://github.com/typestack/class-validator)
 

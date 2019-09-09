@@ -1,20 +1,27 @@
-## Provider
+## Modules
 
-* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `solutions/step2`
+Nous allons à présent créer un module NestJS afin d'y ajouter la fonctionnalité de gestion des bières.
 
-Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons `BeersService`.
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step2`
 
-* Veuillez créer un service `beers`
+- Via la CLI, générez un nouveau module NestJS `BeersModule`.
 
 ```shell
-nest generate service beers
+nest generate module beers
 ```
 
-* Migrez tout le code métier écrit jusqu'à présent dans le contrôleur `BeersController` dans ce service.
+- Externalisez le CRUD (créé précédemment) permettant de gérer les bières dans un contrôleur spécifique : `BeersController`
 
-* Injectez et utilisez ce service dans le contrôleur `BeersController`.
+```shell
+nest generate controller beers/beers
+```
+
+- Vérifiez que ce nouveau contrôleur est bien associé au module `BeersModule` créé au début de cet exercice.
+
+- Ajoutez au module principal de votre application le module `BeersModule`.
 
 Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
 
-- [Les providers NestJS](https://docs.nestjs.com/providers)
+- [Les contrôleurs NestJS](https://docs.nestjs.com/controllers)
+- [Les modules NestJS](https://docs.nestjs.com/modules)
 
