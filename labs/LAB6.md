@@ -101,7 +101,7 @@ return {
 
 * Sécurisez la route permettant de créer et mettre à jour des bières
 
-Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
+Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :
 
 - [Authentification avec NestJS](https://docs.nestjs.com/techniques/authentication)
 

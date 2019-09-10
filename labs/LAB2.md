@@ -1,13 +1,13 @@
 ## Contrôleur
 
-- Dans le contrôleur `AppController`, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :
+* Dans le contrôleur `AppController`, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :
   - lister les bières
-  - retourner les détails d'un bière, grâce à son identifiant
+  - retourner les détails d'une bière, grâce à son identifiant
   - supprimer une bière, grâce à son identifiant
   - modifier une bière grâce à son identifiant
-  - Et enfin en ajouter
+  - Et enfin en ajouter une
 
-Une biére sera représentée par la classe TypeScript suivante : 
+Une bière sera représentée par la classe TypeScript suivante : 
 
 ```typescript
 import { ApiModelProperty } from '@nestjs/swagger';
@@ -38,8 +38,7 @@ export class Beer {
 
 Un fichier [beers.json](https://github.com/T3kstiil3/BaaS/blob/master/static/data/beers.json) est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API. 
 
-
-Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
+Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :
 
 - [Les contrôleurs NestJS](https://docs.nestjs.com/controllers)
 

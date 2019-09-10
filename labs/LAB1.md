@@ -1,7 +1,7 @@
 author: Aurelien Loyer / Emmanuel Demey
 summary: Pendant ce codelab, nous allons créer un backend pour une application d'e-commerce avec le framework NestJS.
 id: docs/lab
-ga: UA-137363732-1
+ga: UA-137363732-2
 feedback link: https://twitter.com/AurelienLoyer
 
 # Codelab NestJS
@@ -9,7 +9,6 @@ feedback link: https://twitter.com/AurelienLoyer
 ## Prérequis
 
 Pour faire ce codelab, vous avez besoin des outils suivants :
-
 - GIT
 - NodeJS 10.x ou >
 - un IDE (WebStorm ou Visual Studio Code...)
@@ -20,15 +19,19 @@ npm install -g @nestjs/cli
 yarn global add @nestjs/cli
 ```
 
-- Récupérez la répertoire `step0` du repository GIT
+* Récupérez la répertoire `step0` du repository GIT
 
 ```shell
-git clone https://github.com/T3kstiil3/BaaS
-cd corrections/step0
+git clone -b step0 https://github.com/T3kstiil3/BaaS
+cd BaaS
+npm install # yarn
+# Ou 
+git clone https://github.com/T3kstiil3/codelab-nestjs
+cd codelab-nestjs/corrections/step0
 npm install # yarn
 ```
 
-Si vous utilisez VSCode, nous vous proposons une selection d'extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé `@recommanded` . Normalement VSCode listera notre liste d'extensions.
+Si vous utilisez VSCode, nous vous proposons une selection d'extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé `@recommanded`. Normalement VSCode listera notre liste d'extensions.
 
 Si vous exécutez la commande suivante, votre API sera disponible à l'URL `http://localhost:3000`
 
@@ -36,9 +39,9 @@ Si vous exécutez la commande suivante, votre API sera disponible à l'URL `http
  npm run start
  ```
  
-- Ajoutez l'intégration Swagger à l'application NestJS
+* Ajoutez l'intégration Swagger à l'application NestJS
  
-Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
+Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :
 
 - [Documentation de TypeScript](https://www.typescriptlang.org/)
 - [Documentation de NestJS](https://docs.nestjs.com)

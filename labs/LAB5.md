@@ -14,7 +14,8 @@
     * `stock` doit être une `entier`
 
 Pour cela, nous allons utiliser des décorateurs définis dans le module `class-validator`.
-Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :
+
+Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :
 
 - [Documentation de Class-Validator](https://github.com/typestack/class-validator)
 
