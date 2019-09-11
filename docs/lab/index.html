@@ -38,18 +38,22 @@ yarn global add @nestjs/cli
 <ul>
 <li>Récupérez la répertoire <code>step0</code> du repository GIT</li>
 </ul>
-<pre><code>git clone https://github.com/T3kstiil3/BaaS
-cd corrections/step0
+<pre><code>git clone -b step0 https://github.com/T3kstiil3/BaaS
+cd BaaS
+npm install # yarn
+# Ou 
+git clone https://github.com/T3kstiil3/codelab-nestjs
+cd codelab-nestjs/corrections/step0
 npm install # yarn
 </code></pre>
-<p>Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé <code>@recommanded</code> . Normalement VSCode listera notre liste d&#39;extensions.</p>
+<p>Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé <code>@recommanded</code>. Normalement VSCode listera notre liste d&#39;extensions.</p>
 <p>Si vous exécutez la commande suivante, votre API sera disponible à l&#39;URL <code>http://localhost:3000</code></p>
 <pre><code> npm run start
 </code></pre>
 <ul>
 <li>Ajoutez l&#39;intégration Swagger à l&#39;application NestJS</li>
 </ul>
-<p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
+<p>Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :</p>
 <ul>
 <li><a href="https://www.typescriptlang.org/" target="_blank">Documentation de TypeScript</a></li>
 <li><a href="https://docs.nestjs.com" target="_blank">Documentation de NestJS</a></li>
@@ -64,14 +68,14 @@ npm install # yarn
         <ul>
 <li>Dans le contrôleur <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :<br><br><ul>
 <li>lister les bières</li>
-<li>retourner les détails d&#39;un bière, grâce à son identifiant</li>
+<li>retourner les détails d&#39;une bière, grâce à son identifiant</li>
 <li>supprimer une bière, grâce à son identifiant</li>
 <li>modifier une bière grâce à son identifiant</li>
-<li>Et enfin en ajouter</li>
+<li>Et enfin en ajouter une</li>
 </ul>
 </li>
 </ul>
-<p>Une biére sera représentée par la classe TypeScript suivante :</p>
+<p>Une bière sera représentée par la classe TypeScript suivante :</p>
 <pre><code>import { ApiModelProperty } from &#39;@nestjs/swagger&#39;;
 
 export class Beer {
@@ -98,7 +102,7 @@ export class Beer {
 }
 </code></pre>
 <p>Un fichier <a href="https://github.com/T3kstiil3/BaaS/blob/master/static/data/beers.json" target="_blank">beers.json</a> est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API.</p>
-<p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
+<p>Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :</p>
 <ul>
 <li><a href="https://docs.nestjs.com/controllers" target="_blank">Les contrôleurs NestJS</a></li>
 </ul>
@@ -123,7 +127,7 @@ export class Beer {
 <li>Vérifiez que ce nouveau contrôleur est bien associé au module <code>BeersModule</code> créé au début de cet exercice.</li>
 <li>Ajoutez au module principal de votre application le module <code>BeersModule</code>.</li>
 </ul>
-<p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
+<p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p>
 <ul>
 <li><a href="https://docs.nestjs.com/controllers" target="_blank">Les contrôleurs NestJS</a></li>
 <li><a href="https://docs.nestjs.com/modules" target="_blank">Les modules NestJS</a></li>
@@ -146,7 +150,7 @@ export class Beer {
 <li>Migrez tout le code métier écrit jusqu&#39;à présent dans le contrôleur <code>BeersController</code> dans ce service.</li>
 <li>Injectez et utilisez ce service dans le contrôleur <code>BeersController</code>.</li>
 </ul>
-<p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
+<p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p>
 <ul>
 <li><a href="https://docs.nestjs.com/providers" target="_blank">Les providers NestJS</a></li>
 </ul>
@@ -169,7 +173,8 @@ export class Beer {
 </ul>
 </li>
 </ul>
-<p>Pour cela, nous allons utiliser des décorateurs définis dans le module <code>class-validator</code>.<br>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
+<p>Pour cela, nous allons utiliser des décorateurs définis dans le module <code>class-validator</code>.</p>
+<p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p>
 <ul>
 <li><a href="https://github.com/typestack/class-validator" target="_blank">Documentation de Class-Validator</a></li>
 </ul>
@@ -268,7 +273,7 @@ return {
 <li>Créez un controller <code>users</code> proposant une endpoint permettant d&#39;appeler la méthode <code>login</code> du service <code>UsersService</code>.</li>
 <li>Sécurisez la route permettant de créer et mettre à jour des bières</li>
 </ul>
-<p>Voici de plus quelques liens qui pourraient utiles tout au long de ce codelab :</p>
+<p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p>
 <ul>
 <li><a href="https://docs.nestjs.com/techniques/authentication" target="_blank">Authentification avec NestJS</a></li>
 </ul>
