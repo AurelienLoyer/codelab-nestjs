@@ -46,7 +46,7 @@ export class CatsController {
 
 * retourner la donnée directement
 * retourner une `promise`
-*  Manipuler l'objet `Response`
+* manipuler l'objet `Response`
 
 [source,typescript]
 ----

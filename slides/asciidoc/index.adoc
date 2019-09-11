@@ -17,9 +17,7 @@ ifndef::sourcedir[:sourcedir: ../java]
 
 = CRÉONS NOTRE PREMIÈRE API AVEC NESTJS
 
-Le framework Node.JS à la façon Angular
-
-=== !
+Le framework Node.js à la façon Angular
 
 [.speaker]
 === !

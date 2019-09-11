@@ -18,8 +18,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <link rel="stylesheet" type="text/css" href="./theme/github-gist.css" />
 <link rel="stylesheet" type="text/css" href="./theme/main.css" />
 
-<script src="./theme/asciinema-player.js"></script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title" data-transition="zoom" data-transition-speed="fast" data-background-image="images/nest-logo.png"><h1>CRÉONS NOTRE PREMIÈRE API AVEC NESTJS</h1><div class="preamble"><div class="paragraph"><p>Le framework Node.JS à la façon Angular</p></div></div></section>
-<section></section>
+<script src="./theme/asciinema-player.js"></script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title" data-transition="zoom" data-transition-speed="fast" data-background-image="images/nest-logo.png"><h1>CRÉONS NOTRE PREMIÈRE API AVEC NESTJS</h1><div class="preamble"><div class="paragraph"><p>Le framework Node.js à la façon Angular</p></div></div></section>
 <section class="speaker"><div class="openblock" id="speaker-bio"><div class="content"><div class="paragraph"><p>Emmanuel DEMEY</p></div>
 <div class="paragraph"><p>Developer Advocate à Zenika Lille</p></div>
 <div class="paragraph"><p>@EmmanuelDemey</p></div></div></div>
@@ -97,7 +96,7 @@ class User {
   address: Address[];
 }</code></pre></section><section id="_à_vous_de_jouer"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Récupérez le répertoire <code>step0</code> du repository GIT</p></li></ul></div>
 <pre class="highlight listingblock"><code class="shell language-shell">git clone https://github.com/T3kstiil3/BaaS
-cd solutions/step0
+cd corrections/step0
 npm install</code></pre>
 <div class="ulist"><ul><li><p>Ajoutez l&#8217;intégration Swagger à l&#8217;application NestJS</p></li><li><p>Testez votre application pour vérifier son bon fonctionnement</p></li></ul></div></section></section>
 <section><section id="_les_contrôleurs"><h2>Les contrôleurs</h2></section><section id="_les_contrôleurs_2"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Un contrôleur permet de définir les endpoints de votre API REST.</p></li><li><p>Syntaxe pour définir les headers, les path parameters, les query parameters, &#8230;&#8203; facilitée par l&#8217;utilisation des décorateurs</p></li></ul></div>
@@ -125,7 +124,7 @@ export class CatsController {
   update(@Param('id') id: string, @Body() updateCatDto: Training) : Training {
     return {};
   }
-}</code></pre></section><section id="_les_contrôleurs_4"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>retourner la donnée directement</p></li><li><p>retourner une <code>promise</code></p></li><li><p>Manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
+}</code></pre></section><section id="_les_contrôleurs_4"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>retourner la donnée directement</p></li><li><p>retourner une <code>promise</code></p></li><li><p>manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
 <pre class="highlight listingblock"><code class="typescript language-typescript">import { Response } from 'express';
 
 @Get()
@@ -272,7 +271,7 @@ export class PasswordValidator implements ValidatorConstraintInterface {
 /**
 @Validate(PasswordValidator)
 readonly id: number;
- */</code></pre></section><section id="_à_vous_de_jouer_5"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Activez la validation de manière globale à l&#8217;application</p></li><li><p>Ajouter les contraintes suivantes sur votre classe Beer</p><div class="ulist"><ul><li><p><code>id</code> doit être un <code>number</code></p></li><li><p><code>label</code> doit être une <code>string</code></p></li><li><p><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</p></li><li><p><code>image</code> doit être une <code>string</code>, et se terminer par <code>.svg</code> (via un custom validateur)</p></li><li><p><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</p></li><li><p><code>stock</code> doit être une <code>entier</code>
+ */</code></pre></section><section id="_à_vous_de_jouer_5"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Activez la validation de manière globale à l&#8217;application</p></li><li><p>Ajouter les contraintes suivantes sur votre classe Beer</p><div class="ulist"><ul><li><p><code>id</code> doit être un <code>number</code></p></li><li><p><code>label</code> doit être une <code>string</code></p></li><li><p><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</p></li><li><p><code>image</code> doit être une <code>string</code>, et se terminer par un extension valide (via un custom validateur)</p></li><li><p><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</p></li><li><p><code>stock</code> doit être une <code>entier</code>
 `</p></li></ul></div></li></ul></div></section></section>
 <section><section id="_authentication"><h2>Authentication</h2></section><section id="_authentication_2"><h2>Authentication</h2><div class="ulist"><ul><li><p>NestJS se base sur la librairie <strong>Passport</strong> pour pouvoir restreindre l&#8217;accès à nos endpoints</p></li><li><p>Nous allons pouvoir définir des <code>Strategy</code> d&#8217;authentification et les utiliser via des <code>Guards</code></p></li><li><p>Modules de base nécésaires pour la mise en place de l&#8217;authentification</p></li></ul></div>
 <pre class="highlight listingblock"><code class="shell language-shell">npm install --save @nestjs/passport passport</code></pre></section><section id="_authentication_jwt"><h2>Authentication - JWT</h2><div class="ulist"><ul><li><p>En fonction de la <code>Strategy</code>, d&#8217;autres modules seront nécéssaires</p></li></ul></div>
