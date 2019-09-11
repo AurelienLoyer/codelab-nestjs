@@ -1,53 +1,44 @@
-<!DOCTYPE html>
+
+<!doctype html>
 
 <html>
-	<head>
-		<meta
-			name="viewport"
-			content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
-		/>
-		<meta name="theme-color" content="#4F7DC9" />
-		<meta charset="UTF-8" />
-		<title>Codelab NestJS</title>
-		<link
-			rel="stylesheet"
-			href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono"
-		/>
-		<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons" />
-		<link rel="stylesheet" href="/codelab-nestjs/lab//codelab-elements/codelab-elements.css" />
-		<style>
-			.success {
-				color: #1e8e3e;
-			}
-			.error {
-				color: red;
-			}
-		</style>
-	</head>
-	<body>
-		<google-codelab-analytics gaid="UA-137363732-1"></google-codelab-analytics>
-		<google-codelab
-			codelab-gaid=""
-			id="docs/lab"
-			title="Codelab NestJS"
-			environment="web"
-			feedback-link="https://twitter.com/AurelienLoyer"
-		>
-			<google-codelab-step label="Prérequis" duration="0">
-				<p>Pour faire ce codelab, vous avez besoin des outils suivants :</p>
-				<ul>
-					<li>GIT</li>
-					<li>NodeJS 10.x ou &gt;</li>
-					<li>un IDE (WebStorm ou Visual Studio Code...)</li>
-					<li>
-						Le module <code>@nestjs/cli</code> installé globalement
-						<pre><code>npm install -g @nestjs/cli
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Codelab NestJS</title>
+  <script src="/codelab-nestjs/lab/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="/codelab-nestjs/lab/elements/codelab.html">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <style is="custom-style">
+    body {
+      font-family: "Roboto",sans-serif;
+      background: var(--google-codelab-background, #F8F9FA);
+    }
+  </style>
+  
+</head>
+<body unresolved class="fullbleed">
+
+  <google-codelab title="Codelab NestJS"
+                  environment="web"
+                  feedback-link="https://twitter.com/AurelienLoyer">
+    
+      <google-codelab-step label="Prérequis" duration="0">
+        <p>Pour faire ce codelab, vous avez besoin des outils suivants :</p>
+<ul>
+<li>GIT</li>
+<li>NodeJS 10.x ou &gt;</li>
+<li>un IDE (WebStorm ou Visual Studio Code...)</li>
+<li>Le module <code>@nestjs/cli</code> installé globalement</li>
+</ul>
+<pre><code>npm install -g @nestjs/cli
 yarn global add @nestjs/cli
 </code></pre>
-					</li>
-					<li>
-						Récupérez la répertoire <code>step0</code> du repository GIT
-						<pre><code>git clone -b step0 https://github.com/T3kstiil3/BaaS
+<ul>
+<li>Récupérez la répertoire <code>step0</code> du repository GIT</li>
+</ul>
+<pre><code>git clone -b step0 https://github.com/T3kstiil3/BaaS
 cd BaaS
 npm install # yarn
 # Ou 
@@ -55,62 +46,37 @@ git clone https://github.com/T3kstiil3/codelab-nestjs
 cd codelab-nestjs/corrections/step0
 npm install # yarn
 </code></pre>
-					</li>
-				</ul>
-				<p>
-					Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous
-					pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux
-					extensions, faites une recherche via le mot clé <code>@recommanded</code>. Normalement
-					VSCode listera notre liste d&#39;extensions.
-				</p>
-				<p>
-					Si vous exécutez la commande suivante, votre API sera disponible à l&#39;URL
-					<code>http://localhost:3000</code>
-				</p>
-				<pre><code> npm run start
+<p>Si vous utilisez VSCode, nous vous proposons une selection d&#39;extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé <code>@recommanded</code>. Normalement VSCode listera notre liste d&#39;extensions.</p>
+<p>Si vous exécutez la commande suivante, votre API sera disponible à l&#39;URL <code>http://localhost:3000</code></p>
+<pre><code> npm run start
 </code></pre>
-				<ul>
-					<li>Ajoutez l&#39;intégration Swagger à l&#39;application NestJS</li>
-				</ul>
-				<p>
-					Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :
-				</p>
-				<ul>
-					<li>
-						<a href="https://www.typescriptlang.org/" target="_blank"
-							>Documentation de TypeScript</a
-						>
-					</li>
-					<li><a href="https://docs.nestjs.com" target="_blank">Documentation de NestJS</a></li>
-					<li>
-						<a href="https://docs.nestjs.com/first-steps" target="_blank"
-							>Getting Started avec NestJS</a
-						>
-					</li>
-					<li>
-						<a href="https://docs.nestjs.com/recipes/swagger" target="_blank"
-							>L&#39;intégration Swagger dans NestJS</a
-						>
-					</li>
-				</ul>
-			</google-codelab-step>
+<ul>
+<li>Ajoutez l&#39;intégration Swagger à l&#39;application NestJS</li>
+</ul>
+<p>Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :</p>
+<ul>
+<li><a href="https://www.typescriptlang.org/" target="_blank">Documentation de TypeScript</a></li>
+<li><a href="https://docs.nestjs.com" target="_blank">Documentation de NestJS</a></li>
+<li><a href="https://docs.nestjs.com/first-steps" target="_blank">Getting Started avec NestJS</a></li>
+<li><a href="https://docs.nestjs.com/recipes/swagger" target="_blank">L&#39;intégration Swagger dans NestJS</a></li>
+</ul>
 
-			<google-codelab-step label="Contrôleur" duration="0">
-				<ul>
-					<li>
-						Dans le contrôleur <code>AppController</code>, implementez un CRUD permettant de gérer
-						des bières (en mémoire). Nous allons pouvoir :<br /><br />
-						<ul>
-							<li>lister les bières</li>
-							<li>retourner les détails d&#39;une bière, grâce à son identifiant</li>
-							<li>supprimer une bière, grâce à son identifiant</li>
-							<li>modifier une bière grâce à son identifiant</li>
-							<li>Et enfin en ajouter une</li>
-						</ul>
-					</li>
-				</ul>
-				<p>Une bière sera représentée par la classe TypeScript suivante :</p>
-				<pre><code>import { ApiModelProperty } from &#39;@nestjs/swagger&#39;;
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Contrôleur" duration="0">
+        <ul>
+<li>Dans le contrôleur <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :<br><br><ul>
+<li>lister les bières</li>
+<li>retourner les détails d&#39;une bière, grâce à son identifiant</li>
+<li>supprimer une bière, grâce à son identifiant</li>
+<li>modifier une bière grâce à son identifiant</li>
+<li>Et enfin en ajouter une</li>
+</ul>
+</li>
+</ul>
+<p>Une bière sera représentée par la classe TypeScript suivante :</p>
+<pre><code>import { ApiModelProperty } from &#39;@nestjs/swagger&#39;;
 
 export class Beer {
   @ApiModelProperty({ example: 12 })
@@ -135,279 +101,215 @@ export class Beer {
   readonly stock?: number;
 }
 </code></pre>
-				<p>
-					Un fichier
-					<a
-						href="https://github.com/T3kstiil3/BaaS/blob/master/static/data/beers.json"
-						target="_blank"
-						>beers.json</a
-					>
-					est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette
-					API.
-				</p>
-				<p>
-					Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :
-				</p>
-				<ul>
-					<li>
-						<a href="https://docs.nestjs.com/controllers" target="_blank">Les contrôleurs NestJS</a>
-					</li>
-				</ul>
-			</google-codelab-step>
+<p>Un fichier <a href="https://github.com/T3kstiil3/BaaS/blob/master/static/data/beers.json" target="_blank">beers.json</a> est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API.</p>
+<p>Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :</p>
+<ul>
+<li><a href="https://docs.nestjs.com/controllers" target="_blank">Les contrôleurs NestJS</a></li>
+</ul>
 
-			<google-codelab-step label="Modules" duration="0">
-				<p>
-					Nous allons à présent créer un module NestJS afin d&#39;y ajouter la fonctionnalité de
-					gestion des bières.
-				</p>
-				<ul>
-					<li>
-						Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent
-						en utilisant le repertoire <code>corrections/step2</code>
-					</li>
-					<li>
-						Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.
-						<pre><code>nest generate module beers
-</code></pre>
-					</li>
-					<li>
-						Externalisez le CRUD (créé précédemment) permettant de gérer les bières dans un
-						contrôleur spécifique : <code>BeersController</code>
-						<pre><code>nest generate controller beers/beers
-</code></pre>
-					</li>
-					<li>
-						Vérifiez que ce nouveau contrôleur est bien associé au module
-						<code>BeersModule</code> créé au début de cet exercice.
-					</li>
-					<li>
-						Ajoutez au module principal de votre application le module <code>BeersModule</code>.
-					</li>
-				</ul>
-				<p>
-					Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :
-				</p>
-				<ul>
-					<li>
-						<a href="https://docs.nestjs.com/controllers" target="_blank">Les contrôleurs NestJS</a>
-					</li>
-					<li><a href="https://docs.nestjs.com/modules" target="_blank">Les modules NestJS</a></li>
-				</ul>
-			</google-codelab-step>
 
-			<google-codelab-step label="Provider" duration="0">
-				<ul>
-					<li>
-						Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent
-						en utilisant le repertoire <code>corrections/step3</code>
-					</li>
-				</ul>
-				<p>
-					Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons
-					<code>BeersService</code>.
-				</p>
-				<ul>
-					<li>
-						Veuillez créer un service <code>beers</code>
-						<pre><code>nest generate service beers/beers
+      </google-codelab-step>
+    
+      <google-codelab-step label="Modules" duration="0">
+        <p>Nous allons à présent créer un module NestJS afin d&#39;y ajouter la fonctionnalité de gestion des bières.</p>
+<ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step2</code></li>
+<li>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.</li>
+</ul>
+<pre><code>nest generate module beers
 </code></pre>
-					</li>
-					<li>
-						Migrez tout le code métier écrit jusqu&#39;à présent dans le contrôleur
-						<code>BeersController</code> dans ce service.
-					</li>
-					<li>Injectez et utilisez ce service dans le contrôleur <code>BeersController</code>.</li>
-				</ul>
-				<p>
-					Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :
-				</p>
-				<ul>
-					<li>
-						<a href="https://docs.nestjs.com/providers" target="_blank">Les providers NestJS</a>
-					</li>
-				</ul>
-			</google-codelab-step>
+<ul>
+<li>Externalisez le CRUD (créé précédemment) permettant de gérer les bières dans un contrôleur spécifique : <code>BeersController</code></li>
+</ul>
+<pre><code>nest generate controller beers/beers
+</code></pre>
+<ul>
+<li>Vérifiez que ce nouveau contrôleur est bien associé au module <code>BeersModule</code> créé au début de cet exercice.</li>
+<li>Ajoutez au module principal de votre application le module <code>BeersModule</code>.</li>
+</ul>
+<p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p>
+<ul>
+<li><a href="https://docs.nestjs.com/controllers" target="_blank">Les contrôleurs NestJS</a></li>
+<li><a href="https://docs.nestjs.com/modules" target="_blank">Les modules NestJS</a></li>
+</ul>
 
-			<google-codelab-step label="Validation" duration="0">
-				<ul>
-					<li>
-						Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent
-						en utilisant le repertoire <code>corrections/step4</code>
-					</li>
-					<li>Activez la validation de manière globale pour toute l&#39;application</li>
-					<li>
-						Installez les modules <code>class-validator</code> et <code>class-transformer</code>.
-					</li>
-					<li>
-						Ajoutez les contraintes suivantes sur votre classe <code>Beer</code>
-						<ul>
-							<li><code>id</code> doit être un <code>number</code></li>
-							<li><code>label</code> doit être une <code>string</code></li>
-							<li>
-								<code>description</code> doit être une <code>string</code>, avec un taille entre 10
-								et 80 caractères
-							</li>
-							<li>
-								<code>image</code> doit être une <code>string</code>, et se terminer par
-								<code>/\.(jpe?g|png|gif|bmp)$/</code> (via un custom validateur)
-							</li>
-							<li><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</li>
-							<li><code>stock</code> doit être une <code>entier</code></li>
-						</ul>
-					</li>
-				</ul>
-				<p>
-					Pour cela, nous allons utiliser des décorateurs définis dans le module
-					<code>class-validator</code>.
-				</p>
-				<p>
-					Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :
-				</p>
-				<ul>
-					<li>
-						<a href="https://github.com/typestack/class-validator" target="_blank"
-							>Documentation de Class-Validator</a
-						>
-					</li>
-				</ul>
-			</google-codelab-step>
 
-			<google-codelab-step label="Authentification" duration="0">
-				<ul>
-					<li>
-						Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent
-						en utilisant le repertoire <code>corrections/step5</code>
-					</li>
-					<li>
-						Installez les modules NPM nécessaires pour une Authentification JWT
-						<pre><code>npm install @nestjs/jwt @nestjs/passport @nestjs/platform-express passport passport-jwt
+      </google-codelab-step>
+    
+      <google-codelab-step label="Provider" duration="0">
+        <ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step3</code></li>
+</ul>
+<p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>BeersService</code>.</p>
+<ul>
+<li>Veuillez créer un service <code>beers</code></li>
+</ul>
+<pre><code>nest generate service beers/beers
 </code></pre>
-					</li>
-					<li>
-						Créez un nouveau module <code>users</code> dans lequel nous allons implémenter la
-						gestions des utilisateurs.
-						<pre><code>➜  nest generate module users 
+<ul>
+<li>Migrez tout le code métier écrit jusqu&#39;à présent dans le contrôleur <code>BeersController</code> dans ce service.</li>
+<li>Injectez et utilisez ce service dans le contrôleur <code>BeersController</code>.</li>
+</ul>
+<p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p>
+<ul>
+<li><a href="https://docs.nestjs.com/providers" target="_blank">Les providers NestJS</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Validation" duration="0">
+        <ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step4</code></li>
+<li>Activez la validation de manière globale pour toute l&#39;application</li>
+<li>Installez les modules <code>class-validator</code> et <code>class-transformer</code>.</li>
+<li>Ajoutez les contraintes suivantes sur votre classe <code>Beer</code><ul>
+<li><code>id</code> doit être un <code>number</code></li>
+<li><code>label</code> doit être une <code>string</code></li>
+<li><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</li>
+<li><code>image</code> doit être une <code>string</code>, et se terminer par <code>/\.(jpe?g|png|gif|bmp)$/</code> (via un custom validateur)</li>
+<li><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</li>
+<li><code>stock</code> doit être une <code>entier</code></li>
+</ul>
+</li>
+</ul>
+<p>Pour cela, nous allons utiliser des décorateurs définis dans le module <code>class-validator</code>.</p>
+<p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p>
+<ul>
+<li><a href="https://github.com/typestack/class-validator" target="_blank">Documentation de Class-Validator</a></li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Authentification" duration="0">
+        <ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step5</code></li>
+<li>Installez les modules NPM nécessaires pour une Authentification JWT</li>
+</ul>
+<pre><code>npm install @nestjs/jwt @nestjs/passport @nestjs/platform-express passport passport-jwt
 </code></pre>
-					</li>
-					<li>
-						Dans ce module, importez et configurez les modules <code>PassportModule</code> et
-						<code>JwtModule</code> de la manière suivante :
-						<pre><code>[
-PassportModule.register({ defaultStrategy: &#39;jwt&#39; }),
-JwtModule.register({
-  secretOrPrivateKey: &#39;secretBeer&#39;,
-  signOptions: {
-    expiresIn: 3600,
-  },
-}),
+<ul>
+<li>Créez un nouveau module <code>users</code> dans lequel nous allons implémenter la gestions des utilisateurs.</li>
+</ul>
+<pre><code>➜  nest generate module users 
+</code></pre>
+<ul>
+<li>Dans ce module, importez et configurez les modules <code>PassportModule</code> et <code>JwtModule</code> de la manière suivante :</li>
+</ul>
+<pre><code>[
+    PassportModule.register({ defaultStrategy: &#39;jwt&#39; }),
+    JwtModule.register({
+      secretOrPrivateKey: &#39;secretBeer&#39;,
+      signOptions: {
+        expiresIn: 3600,
+      },
+    }),
 ]
 </code></pre>
-					</li>
-				</ul>
-				<p>Nous allons à présent créer deux service :</p>
-				<ul>
-					<li><code>UsersService</code> pour la gestion des utilisateurs</li>
-					<li>
-						<code>JwtStrategy</code> pour configurer la stratégie d&#39;authentification de notre
-						application
-						<pre><code>nest generate service users/JwtStrategy
+<p>Nous allons à présent créer deux service :</p>
+<ul>
+<li><code>UsersService</code> pour la gestion des utilisateurs</li>
+<li><code>JwtStrategy</code> pour configurer la stratégie d&#39;authentification de notre application</li>
+</ul>
+<pre><code>nest generate service users/JwtStrategy
 nest generate service users/users
 </code></pre>
-					</li>
-					<li>
-						Le service <code>JwtStrategyService</code> aura la structure suivante :
-						<pre><code>@Injectable()
+<ul>
+<li>Le service <code>JwtStrategyService</code> aura la structure suivante :</li>
+</ul>
+<pre><code>@Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-constructor(private readonly usersService: UsersService) {
-super({
-  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey: &#39;secretBeer&#39;,
-});
-}
+  constructor(private readonly usersService: UsersService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: &#39;secretBeer&#39;,
+    });
+  }
 
-async validate(payload: JwtPayload) {
-const user = await this.usersService.validateUser(payload);
-if (!user) {
-  throw new UnauthorizedException(&#39;The user is unauthorized&#39;);
-}
-return user;
-}
+  async validate(payload: JwtPayload) {
+    const user = await this.usersService.validateUser(payload);
+    if (!user) {
+      throw new UnauthorizedException(&#39;The user is unauthorized&#39;);
+    }
+    return user;
+  }
 }
 </code></pre>
-					</li>
-					<li>
-						Dans la méthode <code>validate</code>, nous allons appeler une méthode
-						<code>validateUser</code> du service <code>UsersService</code> que nous allons
-						implémenter dans le point suivant.<br />Si l&#39;objet <code>User</code> retourné par
-						cet méthode n&#39;est pas défini, vous devez émettre une exception
-						<code>UnauthorizedException</code>. Sinon vous pouvez retourner l&#39;objet lui-même.
-					</li>
-					<li>
-						Dans le service <code>UsersService</code>, nous allons implémenter deux méthodes :
-						<ul>
-							<li>
-								<code>validateUser</code> : cette méthode prendra en paramètre l&#39;objet
-								<code>JwtPayload</code> et retournera une <code>Promise&lt;boolean&gt;</code>. Le
-								<code>boolean</code> sera à <code>true</code> si le duo <code>email</code> et
-								<code>password</code> sont corrects. Pour cela, vous pouvez utiliser un tableau
-								d&#39;utilisateurs défini en mémoire (bien evidemment nous ne faisons jamais cela
-								dans la vrai vie :p ).
-								<pre><code>[
-{
-&#34;id&#34;: 1,
-&#34;username&#34;: &#34;Aurel&#34;,
-&#34;email&#34;: &#34;aurelien@loyer.fr&#34;,
-&#34;password&#34;: &#34;beer&#34;,
-&#34;cart&#34;: {}
-},
-{
-&#34;id&#34;: 2,
-&#34;username&#34;: &#34;Manu&#34;,
-&#34;email&#34;: &#34;emmanuel@demey.fr&#34;,
-&#34;password&#34;: &#34;beer&#34;,
-&#34;cart&#34;: {}
-}
-}
+<ul>
+<li>Dans la méthode <code>validate</code>, nous allons appeler une méthode <code>validateUser</code> du service <code>UsersService</code> que nous allons implémenter dans le point suivant.<br>Si l&#39;objet <code>User</code> retourné par cet méthode n&#39;est pas défini, vous devez émettre une exception <code>UnauthorizedException</code>. Sinon vous pouvez retourner l&#39;objet lui-même.</li>
+<li>Dans le service <code>UsersService</code>, nous allons implémenter deux méthodes :<ul>
+<li><code>validateUser</code> : cette méthode prendra en paramètre l&#39;objet <code>JwtPayload</code> et retournera une <code>Promise&lt;boolean&gt;</code>. Le <code>boolean</code> sera à <code>true</code> si le duo <code>email</code> et <code>password</code> sont corrects. Pour cela, vous pouvez utiliser un tableau d&#39;utilisateurs défini en mémoire (bien evidemment nous ne faisons jamais cela dans la vrai vie :p ).</li>
+</ul>
+</li>
+</ul>
+<pre><code>[
+    {
+        &#34;id&#34;: 1,
+        &#34;username&#34;: &#34;Aurel&#34;,
+        &#34;email&#34;: &#34;aurelien@loyer.fr&#34;,
+        &#34;password&#34;: &#34;beer&#34;,
+        &#34;cart&#34;: {}
+    },
+    {
+        &#34;id&#34;: 2,
+        &#34;username&#34;: &#34;Manu&#34;,
+        &#34;email&#34;: &#34;emmanuel@demey.fr&#34;,
+        &#34;password&#34;: &#34;beer&#34;,
+        &#34;cart&#34;: {}
+    }
+    }
 ]
 </code></pre>
-							</li>
-							<li>
-								une méthode <code>login</code> qui prendra en paramètre l&#39;email et le password
-								d&#39;un utilisateur. Aprés avoir vérifier que l&#39;email et le password correspond
-								à un réel utilisateur, cette méthode retournera le token JWT nécessaire pour
-								s&#39;authentifier. Pour cela, vous devez utiliser le service
-								<code>JwtService</code> du module <code>@nestjs/jwt</code>
-								<pre><code>const accessToken = this.jwtService.sign(payload);
+<pre><code>* une méthode `login` qui prendra en paramètre l&#39;email et le password d&#39;un utilisateur. Aprés avoir vérifier que l&#39;email et le password correspond à un réel utilisateur, cette méthode retournera le token JWT nécessaire pour s&#39;authentifier. Pour cela, vous devez utiliser le service `JwtService` du module `@nestjs/jwt`
+</code></pre>
+<pre><code>const accessToken = this.jwtService.sign(payload);
 return {
-expiresIn: 3600,
-accessToken: `Bearer ${accessToken}`,
+    expiresIn: 3600,
+    accessToken: `Bearer ${accessToken}`,
 };
 </code></pre>
-							</li>
-						</ul>
-					</li>
-					<li>
-						Créez un controller <code>users</code> proposant une endpoint permettant d&#39;appeler
-						la méthode <code>login</code> du service <code>UsersService</code>.
-					</li>
-					<li>Sécurisez la route permettant de créer et mettre à jour des bières</li>
-				</ul>
-				<p>
-					Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :
-				</p>
-				<ul>
-					<li>
-						<a href="https://docs.nestjs.com/techniques/authentication" target="_blank"
-							>Authentification avec NestJS</a
-						>
-					</li>
-				</ul>
-			</google-codelab-step>
-		</google-codelab>
+<ul>
+<li>Créez un controller <code>users</code> proposant une endpoint permettant d&#39;appeler la méthode <code>login</code> du service <code>UsersService</code>.</li>
+<li>Sécurisez la route permettant de créer et mettre à jour des bières</li>
+</ul>
+<p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p>
+<ul>
+<li><a href="https://docs.nestjs.com/techniques/authentication" target="_blank">Authentification avec NestJS</a></li>
+</ul>
 
-		<script src="/codelab-nestjs/lab/codelab-elements/native-shim.js"></script>
-		<script src="/codelab-nestjs/lab/codelab-elements/custom-elements.min.js"></script>
-		<script src="/codelab-nestjs/lab/codelab-elements/prettify.js"></script>
-		<script src="/codelab-nestjs/lab/codelab-elements/codelab-elements.js"></script>
-	</body>
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-49880327-14', 'auto');
+
+    (function() {
+      var gaCodelab = '';
+      if (gaCodelab) {
+        ga('create', gaCodelab, 'auto', {name: 'codelab'});
+      }
+
+      var gaView;
+      var parts = location.search.substring(1).split('&');
+      for (var i = 0; i < parts.length; i++) {
+        var param = parts[i].split('=');
+        if (param[0] === 'viewga') {
+          gaView = param[1];
+          break;
+        }
+      }
+      if (gaView && gaView !== gaCodelab) {
+        ga('create', gaView, 'auto', {name: 'view'});
+      }
+    })();
+  </script>
+
+</body>
 </html>
