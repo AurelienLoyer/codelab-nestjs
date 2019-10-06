@@ -59,8 +59,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('Users example')
+    .setDescription('The users API description')
     .setVersion('1.0')
     .build();
 
@@ -102,70 +102,70 @@ npm install</code></pre>
 <section><section id="_les_contrôleurs"><h2>Les contrôleurs</h2></section><section id="_les_contrôleurs_2"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Un contrôleur permet de définir les endpoints de votre API REST.</p></li><li><p>Syntaxe pour définir les headers, les path parameters, les query parameters, &#8230;&#8203; facilitée par l&#8217;utilisation des décorateurs</p></li></ul></div>
 <pre class="highlight listingblock"><code class="typescript language-typescript">import { Controller, Get } from '@nestjs/common';
 
-@Controller('trainings')
-export class CatsController {
+@Controller('users')
+export class UsersController {
   @Get()
   findAll(): string {
-    // GET /trainings
-    return 'NestJS Training';
+    // GET /users
+    return 'All NestJS users';
   }
 }</code></pre></section><section id="_les_contrôleurs_3"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Utilisation des décorateurs @Get, @Post, @Put, @Delete, &#8230;&#8203; pour définir le verbe HTTP à utiliser.</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('trainings')
-export class CatsController {
+<pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('uers')
+export class UsersController {
   @Get()
-  findAll(): Training[] {
+  findAll(): User[] {
     return [];
   }
   @Get(':id')
-  findById(@Param() id: string): Training {
+  findById(@Param() id: string): User {
     return {};
   }
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCatDto: Training) : Training {
+  update(@Param('id') id: string, @Body() updateUserDto: User) : User {
     return {};
   }
-}</code></pre></section><section id="_les_contrôleurs_4"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>retourner la donnée directement</p></li><li><p>retourner une <code>promise</code></p></li><li><p>manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
+}</code></pre></section><section id="_les_contrôleurs_4"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Retourner la donnée directement</p></li><li><p>Retourner une <code>promise</code></p></li><li><p>Manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
 <pre class="highlight listingblock"><code class="typescript language-typescript">import { Response } from 'express';
 
 @Get()
-findAll(): Training[] {
+findAll(): User[] {
     return [];
 }
 @Get()
-findAllPromise(): Promise&lt;Training[]&gt; {
-    return fetchTrainingFromAnotherServer();
+findAllPromise(): Promise&lt;User[]&gt; {
+    return fetchUserFromAnotherServer();
 }
 @Get()
-findAllResponse(@Res() response: Response) {
+findAllResponse(@Res() res: Response) {
     res.status(HttpStatus.OK).send([]);
-}</code></pre></section><section id="_les_contrôleurs_autres_décorateurs"><h2>Les contrôleurs - autres décorateurs</h2><pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('trainings')
-export class CatsController {
+}</code></pre></section><section id="_les_contrôleurs_autres_décorateurs"><h2>Les contrôleurs - autres décorateurs</h2><pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('users')
+export class UsersController {
 
   @Get()
   findAll(
       @Query('sort') sort:string,
       @Headers('pageNumber') pageNumber: number
-    ): Training[] { ... }
+    ): User[] { ... }
 
   @Put(':id')
   update(
       @Param('id') id: string,
-      @Body() updateCatDto: Training) { }
-}</code></pre></section><section id="_à_vous_de_jouer_2"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Dans le <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :</p><div class="ulist"><ul><li><p>Les lister</p></li><li><p>En récupérer une</p></li><li><p>En supprimer une</p></li><li><p>En ajouter</p></li><li><p>En modifier</p></li></ul></div></li></ul></div></section></section>
+      @Body() updateUserDto: User) { }
+}</code></pre></section><section id="_à_vous_de_jouer_2"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Dans le <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :</p><div class="ulist"><ul><li><p>Lister des bières</p></li><li><p>Récupérer une bière</p></li><li><p>Supprimer une bière</p></li><li><p>Ajouter une bière</p></li><li><p>Modifier une bière</p></li></ul></div></li></ul></div></section></section>
 <section><section id="_les_modules"><h2>Les Modules</h2></section><section id="_les_modules_2"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Toute application NestJS possède au moins un module</p></li><li><p>A ne pas confondre aves les modules <code>ES2015</code></p></li><li><p>Permet de regrouper de manière logique un ensemble de fonctionnalités</p><div class="ulist"><ul><li><p>découpage métier</p></li><li><p>découpage technique</p></li><li><p>&#8230;&#8203;</p></li></ul></div></li></ul></div></section><section id="_les_modules_3"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Nécessité ensuite d&#8217;importer ces modules pour pouvoir les utiliser</p></li></ul></div>
 <pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
 import { HomeController } from './home.controller';
-import { TrainingController, TrainingService } from './trainings';
+import { UserController, UserService } from './users';
 
 @Module({
-  controllers: [TrainingController],
-  providers: [TrainingService],
+  controllers: [UserController],
+  providers: [UserService],
 })
-export class TrainingModule {}
+export class UserModule {}
 
 @Module({
   controllers: [HomeController],
-  imports: [TrainingModule],
+  imports: [UserModule],
 })
 export class AppModule {}</code></pre></section><section id="_les_modules_module"><h2>Les Modules - @Module</h2><div class="ulist"><ul><li><p>Seules 4 propriétés sont à connaître : <code>controllers</code>, <code>providers</code>, <code>imports</code>, <code>exports</code></p></li></ul></div>
 <pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
@@ -193,36 +193,36 @@ export class DatabaseModule {
 }
 //DatabaseModule.forRoot([User])</code></pre></section><section id="_à_vous_de_jouer_3"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.</p></li><li><p>Dans ce module générez un nouveau contrôleur <code>BeersController</code> qui contiendra le CRUD créé précédemment</p></li><li><p>Importez ce nouveau module dans le module principal afin d&#8217;avoir le même fonctionnement que précédemment</p></li></ul></div></section></section>
 <section><section id="_les_providers"><h2>Les Providers</h2></section><section id="_les_providers_2"><h2>Les Providers</h2><div class="ulist"><ul><li><p>Type de classes (<em>provider</em>, <em>factory</em>, <em>service</em>, &#8230;&#8203;) permettant d&#8217;extraire le code business de votre application</p></li><li><p>Système d&#8217;Injections de Dépendances activé par défaut</p></li><li><p>Singletons configurés via la classe annotée <code>@Module</code></p></li></ul></div></section><section id="_les_providers_3"><h2>Les Providers</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import { Injectable } from '@nestjs/common';
-import { Cat } from './interfaces/cat.interface';
+import { User } from './interfaces/user.interface';
 
 @Injectable()
-export class CatsService {
-  private readonly cats: Cat[] = [];
+export class UsersService {
+  private readonly users: User[] = [];
 
-  findAll(): Cat[] {
-    return this.cats;
+  findAll(): User[] {
+    return this.users;
   }
 }</code></pre>
 <pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
-import { CatsController } from './cats/cats.controller';
-import { CatsService } from './cats/cats.service';
+import { UsersController } from './users/users.controller';
+import { UsersService } from './users/users.service';
 
 @Module({
-  controllers: [CatsController],
-  providers: [CatsService],
+  controllers: [UsersController],
+  providers: [UsersService],
 })
 export class ApplicationModule {}</code></pre></section><section id="_les_providers_4"><h2>Les Providers</h2><div class="ulist"><ul><li><p>Injections de ces singletons via des paramètres de constructeur</p></li></ul></div>
 <pre class="highlight listingblock"><code class="typescript language-typescript">import { Controller, Get } from '@nestjs/common';
-import { CatsService } from './cats.service';
-import { Cat } from './interfaces/cat.interface';
+import { UsersService } from './users.service';
+import { User } from './interfaces/user.interface';
 
-@Controller('cats')
-export class CatsController {
-  constructor(private readonly catsService: CatsService) {}
+@Controller('users')
+export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
 
   @Get()
-  async findAll(): Promise&lt;Cat[]&gt; {
-    return this.catsService.findAll();
+  async findAll(): Promise&lt;User[]&gt; {
+    return this.usersService.findAll();
   }
 }</code></pre></section><section id="_à_vous_de_jouer_4"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Mettre tout le code métier utilisé par la classe <code>BeersController</code> dans un service dédié <code>BeersService</code></p></li></ul></div></section></section>
 <section><section id="_validation_des_données"><h2>Validation des données</h2></section><section id="_validation_des_données_2"><h2>Validation des données</h2><div class="ulist"><ul><li><p>Grâce au pipe <code>ValidationPipe</code>, nous allons pouvoir valider les données entrantes</p></li><li><p>La validation peut s&#8217;activer</p><div class="ulist"><ul><li><p>localement à un endpoint</p></li></ul></div></li></ul></div>
@@ -252,7 +252,7 @@ export class User {
 
   @IsDate()
   readonly birthDate: date;
-}</code></pre></section><section id="_custom_validateur"><h2>Custom validateur</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import {ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments} from "class-validator";
+}</code></pre></section><section id="_custom_validateur"><h2>Custom validateur</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import { ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments } from "class-validator";
 
 @ValidatorConstraint({
   name: "passwordValidator",
@@ -264,13 +264,13 @@ export class PasswordValidator implements ValidatorConstraintInterface {
         return password.length &gt; 5;
     }
     defaultMessage(args: ValidationArguments) {
-        return "Erreur: 'password' doit etre plus compliqué 😨";
+        return "Erreur: 'password' doit être plus compliqué 😨";
     }
 }
 
 /**
 @Validate(PasswordValidator)
-readonly id: number;
+readonly password: string;
  */</code></pre></section><section id="_à_vous_de_jouer_5"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Activez la validation de manière globale à l&#8217;application</p></li><li><p>Ajouter les contraintes suivantes sur votre classe Beer</p><div class="ulist"><ul><li><p><code>id</code> doit être un <code>number</code></p></li><li><p><code>label</code> doit être une <code>string</code></p></li><li><p><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</p></li><li><p><code>image</code> doit être une <code>string</code>, et se terminer par un extension valide (via un custom validateur)</p></li><li><p><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</p></li><li><p><code>stock</code> doit être une <code>entier</code>
 `</p></li></ul></div></li></ul></div></section></section>
 <section><section id="_authentication"><h2>Authentication</h2></section><section id="_authentication_2"><h2>Authentication</h2><div class="ulist"><ul><li><p>NestJS se base sur la librairie <strong>Passport</strong> pour pouvoir restreindre l&#8217;accès à nos endpoints</p></li><li><p>Nous allons pouvoir définir des <code>Strategy</code> d&#8217;authentification et les utiliser via des <code>Guards</code></p></li><li><p>Modules de base nécésaires pour la mise en place de l&#8217;authentification</p></li></ul></div>
@@ -323,7 +323,7 @@ export class AuthService {
     return this.jwtService.sign(user);
   }
 
-  async validateUser(payload: JwtPayload): Promise&lt;any&gt; {
+  async validateUser(payload: JwtPayload): Promise&lt;User&gt; {
     return await this.usersService.findOneByEmail(payload.email);
   }
 }</code></pre></section><section id="_à_vous_de_jouer_6"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Installez les modules NPM nécessaires pour une Authentification JWT</p></li><li><p>Via le service <code>JwtService</code>, implémentez la méthode <code>login</code> du service <code>UserService</code></p><div class="ulist"><ul><li><p>Elle doit retourner un objet <code>{ expiresIn: 3600, accessToken: `Bearer ${accessToken}</code>, }`, avec <code>accessToken</code> le résultat retourné par la méthode <code>sign</code> du service <code>JwtService</code></p></li></ul></div></li><li><p>Sécurisez la route permettant de créer et mettre à jour des bières</p></li></ul></div></section></section>
