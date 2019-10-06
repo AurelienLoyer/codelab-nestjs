@@ -61,7 +61,7 @@ findAllPromise(): Promise<Training[]> {
     return fetchTrainingFromAnotherServer();
 }
 @Get()
-findAllResponse(@Res() response: Response) {
+findAllResponse(@Res() res: Response) {
     res.status(HttpStatus.OK).send([]);
 }
 ----
