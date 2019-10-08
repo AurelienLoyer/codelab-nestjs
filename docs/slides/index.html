@@ -132,7 +132,7 @@ findAll(): User[] {
     return [];
 }
 @Get()
-findAllPromise(): Promise&lt;User[]&gt; {
+findAllFromRemoteServer(): Promise&lt;User[]&gt; {
     return fetchUserFromAnotherServer();
 }
 @Get()

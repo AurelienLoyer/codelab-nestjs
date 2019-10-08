@@ -57,7 +57,7 @@ findAll(): User[] {
     return [];
 }
 @Get()
-findAllPromise(): Promise<User[]> {
+findAllFromRemoteServer(): Promise<User[]> {
     return fetchUserFromAnotherServer();
 }
 @Get()
