@@ -90,7 +90,7 @@ readonly password: string;
 === À vous de jouer !
 
 * Activez la validation de manière globale à l'application 
-* Ajouter les contraintes suivantes sur votre class Beer
+* Ajouter les contraintes suivantes sur votre classe Beer
 ** `id` doit être un `number`
 ** `label` doit être une `string`
 ** `description` doit être une `string`, avec un taille entre 10 et 80 caractères
