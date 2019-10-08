@@ -9,12 +9,12 @@
 ----
 import { Controller, Get } from '@nestjs/common';
 
-@Controller('trainings')
-export class CatsController {
+@Controller('users')
+export class UsersController {
   @Get()
   findAll(): string {
-    // GET /trainings 
-    return 'NestJS Training';
+    // GET /users 
+    return 'All NestJS users';
   }
 }
 ----
@@ -25,18 +25,18 @@ export class CatsController {
 
 [source,typescript]
 ----
-@Controller('trainings')
-export class CatsController {
+@Controller('uers')
+export class UsersController {
   @Get()
-  findAll(): Training[] {
+  findAll(): User[] {
     return [];
   }
   @Get(':id')
-  findById(@Param() id: string): Training {
+  findById(@Param() id: string): User {
     return {};
   }
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCatDto: Training) : Training {
+  update(@Param('id') id: string, @Body() updateUserDto: User) : User {
     return {};
   }
 }
@@ -44,24 +44,24 @@ export class CatsController {
 
 === Les contrôleurs
 
-* retourner la donnée directement
-* retourner une `promise`
-* manipuler l'objet `Response`
+* Retourner la donnée directement
+* Retourner une `promise`
+* Manipuler l'objet `Response`
 
 [source,typescript]
 ----
 import { Response } from 'express';
 
 @Get()
-findAll(): Training[] {
+findAll(): User[] {
     return [];
 }
 @Get()
-findAllPromise(): Promise<Training[]> {
-    return fetchTrainingFromAnotherServer();
+findAllFromRemoteServer(): Promise<User[]> {
+    return fetchUserFromAnotherServer();
 }
 @Get()
-findAllResponse(@Res() response: Response) {
+findAllResponse(@Res() res: Response) {
     res.status(HttpStatus.OK).send([]);
 }
 ----
@@ -70,27 +70,27 @@ findAllResponse(@Res() response: Response) {
 
 [source,typescript]
 ----
-@Controller('trainings')
-export class CatsController {
+@Controller('users')
+export class UsersController {
 
   @Get()
   findAll(
       @Query('sort') sort:string,
       @Headers('pageNumber') pageNumber: number
-    ): Training[] { ... }
+    ): User[] { ... }
 
   @Put(':id')
   update(
       @Param('id') id: string, 
-      @Body() updateCatDto: Training) { }
+      @Body() updateUserDto: User) { }
 }
 ----
 
 === À vous de jouer !
 
 * Dans le `AppController`, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir : 
-** Les lister
-** En récupérer une
-** En supprimer une 
-** En ajouter
-** En modifier
+** Lister des bières
+** Récupérer une bière
+** Supprimer une bière
+** Ajouter une bière
+** Modifier une bière

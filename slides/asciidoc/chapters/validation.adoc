@@ -64,7 +64,7 @@ export class User {
 
 [source,typescript]
 ----
-import {ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments} from "class-validator";
+import { ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments } from "class-validator";
 
 @ValidatorConstraint({ 
   name: "passwordValidator", 
@@ -76,13 +76,13 @@ export class PasswordValidator implements ValidatorConstraintInterface {
         return password.length > 5;
     }
     defaultMessage(args: ValidationArguments) { 
-        return "Erreur: 'password' doit etre plus compliqué 😨";
+        return "Erreur: 'password' doit être plus compliqué 😨";
     }
 }
 
 /**
 @Validate(PasswordValidator)
-readonly id: number;
+readonly password: string;
  */
 ----
 

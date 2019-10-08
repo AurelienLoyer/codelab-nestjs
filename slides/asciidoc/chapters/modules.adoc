@@ -17,17 +17,17 @@
 ----
 import { Module } from '@nestjs/common';
 import { HomeController } from './home.controller';
-import { TrainingController, TrainingService } from './trainings';
+import { UserController, UserService } from './users';
 
 @Module({
-  controllers: [TrainingController],
-  providers: [TrainingService],
+  controllers: [UserController],
+  providers: [UserService],
 })
-export class TrainingModule {}
+export class UserModule {}
 
 @Module({
   controllers: [HomeController],
-  imports: [TrainingModule],
+  imports: [UserModule],
 })
 export class AppModule {}
 ----
