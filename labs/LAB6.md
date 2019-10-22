@@ -83,7 +83,6 @@ Si l'objet `User` retourné par cet méthode n'est pas défini, vous devez émet
         "password": "beer",
         "cart": {}
     }
-    }
 ]
 ```
 
