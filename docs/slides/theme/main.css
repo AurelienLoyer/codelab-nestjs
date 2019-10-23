@@ -596,7 +596,7 @@ section.has-dark-background h3 {
     flex-flow: row wrap;
   }
   
-  #speaker-bio {
+  .speaker-bio {
     align-items: center;
     justify-content: center;
     display: flex;
