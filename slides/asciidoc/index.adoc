@@ -13,7 +13,7 @@ ifndef::sourcedir[:sourcedir: ../java]
 :title-slide-transition-speed: fast
 :icons: font
 :revealjs_history: true
-
+:source-highlighter: highlightjs
 
 = CRÉONS NOTRE PREMIÈRE API AVEC NESTJS
 
@@ -22,7 +22,7 @@ Le framework Node.js à la façon Angular
 [.speaker]
 === !
 
-[id="speaker-bio"]
+[.speaker-bio]
 --
 Emmanuel DEMEY
 
@@ -36,7 +36,7 @@ image::emmanuel.jpg[]
 [.speaker]
 === !
 
-[id="speaker-bio"]
+[.speaker-bio]
 --
 Aurélien LOYER
 

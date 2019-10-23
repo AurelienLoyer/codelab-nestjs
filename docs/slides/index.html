@@ -19,31 +19,31 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );</script><!--[if 
 <link rel="stylesheet" type="text/css" href="./theme/main.css" />
 
 <script src="./theme/asciinema-player.js"></script></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title" data-transition="zoom" data-transition-speed="fast" data-background-image="images/nest-logo.png"><h1>CRÉONS NOTRE PREMIÈRE API AVEC NESTJS</h1><div class="preamble"><div class="paragraph"><p>Le framework Node.js à la façon Angular</p></div></div></section>
-<section class="speaker"><div class="openblock" id="speaker-bio"><div class="content"><div class="paragraph"><p>Emmanuel DEMEY</p></div>
+<section class="speaker"><div class="openblock speaker-bio"><div class="content"><div class="paragraph"><p>Emmanuel DEMEY</p></div>
 <div class="paragraph"><p>Developer Advocate à Zenika Lille</p></div>
 <div class="paragraph"><p>@EmmanuelDemey</p></div></div></div>
 <div class="imageblock" style=""><img src="images/emmanuel.jpg" alt="emmanuel"></div></section>
-<section class="speaker"><div class="openblock" id="speaker-bio"><div class="content"><div class="paragraph"><p>Aurélien LOYER</p></div>
+<section class="speaker"><div class="openblock speaker-bio"><div class="content"><div class="paragraph"><p>Aurélien LOYER</p></div>
 <div class="paragraph"><p>Consultant à Zenika Lille</p></div>
 <div class="paragraph"><p>@AurelienLoyer</p></div></div></div>
 <div class="imageblock" style=""><img src="images/aurelien.jpeg" alt="aurelien"></div></section>
 <section><section id="_petite_présentation"><h2>Petite Présentation</h2><div class="ulist"><ul><li><p>Plateforme permettant de développer des applications serveur basées sur :</p><div class="ulist"><ul><li><p>Node.js</p></li><li><p>TypeScript</p></li><li><p>Express ou Fastify</p></li><li><p>Ouvert à GraphQL, WebSockets, monde des microservices (Redis, gRPC, MQTT, &#8230;&#8203;)</p></li></ul></div></li><li><p>Fortement inspiré de l&#8217;architecture d&#8217;une application <em>Angular</em></p><div class="ulist"><ul><li><p>Même structure</p></li><li><p>Même terminonologie</p></li><li><p>Mêmes patterns</p></li></ul></div></li></ul></div></section><section id="_installation"><h2>Installation</h2><div class="ulist"><ul><li><p>Utilisation d&#8217;une CLI pour bootstraper le projet</p></li><li><p><a href="https://docs.nestjs.com/cli/usages" class="bare">https://docs.nestjs.com/cli/usages</a></p></li><li><p>Même philosophie que pour <em>Angular CLI</em></p></li></ul></div>
-<pre class="highlight listingblock"><code class="shell language-shell">npm i -g @nestjs/cli
+<pre class="highlight listingblock"><code data-noescape class="shell language-shell">npm i -g @nestjs/cli
 nest new project-name
 
 npm run start:dev
 npm run start:debug
 npm run test</code></pre>
 <div class="ulist"><ul><li><p>Propose des <em>schematics</em> pour générer de nouveaux fichiers</p></li></ul></div>
-<pre class="highlight listingblock"><code class="shell language-shell">nest generate controller users
-nest generate provider users</code></pre></section><section id="_par_où_commencer"><h2>Par où commencer ?</h2><div class="title">main.ts</div><pre class="highlight listingblock"><code class="typescript language-typescript">import { NestFactory } from '@nestjs/core';
+<pre class="highlight listingblock"><code data-noescape class="shell language-shell">nest generate controller users
+nest generate provider users</code></pre></section><section id="_par_où_commencer"><h2>Par où commencer ?</h2><div class="title">main.ts</div><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(3000);
 }
-bootstrap();</code></pre></section><section id="_par_où_commencer_2"><h2>Par où commencer ?</h2><div class="title">app.module.ts</div><pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
+bootstrap();</code></pre></section><section id="_par_où_commencer_2"><h2>Par où commencer ?</h2><div class="title">app.module.ts</div><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -52,8 +52,8 @@ import { AppService } from './app.service';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}</code></pre></section><section id="_présentation_du_tp_fil_rouge"><h2>Présentation du TP fil rouge</h2></section><section id="_intégration_swagger"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code class="shell language-shell">npm install @nestjs/swagger swagger-ui-express</code></pre>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+export class AppModule {}</code></pre></section><section id="_présentation_du_tp_fil_rouge"><h2>Présentation du TP fil rouge</h2></section><section id="_intégration_swagger"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code data-noescape class="shell language-shell">npm install @nestjs/swagger swagger-ui-express</code></pre>
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -69,7 +69,7 @@ async function bootstrap() {
 
   await app.listen(3000);
 }</code></pre></section><section id="_intégration_swagger_2"><h2>Intégration Swagger</h2><div class="ulist"><ul><li><p>Documentation de vos APIs via des <em>Décorateurs</em></p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { Controller, Post, Body } from '@nestjs/common';
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Controller, Post, Body } from '@nestjs/common';
 import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
 
 @Controller()
@@ -81,7 +81,7 @@ export class AppController {
     return "OK";
   }
 
-}</code></pre></section><section id="_intégration_swagger_3"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import { Controller, Post, Body } from '@nestjs/common';
+}</code></pre></section><section id="_intégration_swagger_3"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Controller, Post, Body } from '@nestjs/common';
 import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
 
 class Address {
@@ -95,12 +95,12 @@ class User {
   @ApiModelProperty({type: Address})
   address: Address[];
 }</code></pre></section><section id="_à_vous_de_jouer"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Récupérez le répertoire <code>step0</code> du repository GIT</p></li></ul></div>
-<pre class="highlight listingblock"><code class="shell language-shell">git clone https://github.com/T3kstiil3/BaaS
+<pre class="highlight listingblock"><code data-noescape class="shell language-shell">git clone https://github.com/T3kstiil3/BaaS
 cd corrections/step0
 npm install</code></pre>
 <div class="ulist"><ul><li><p>Ajoutez l&#8217;intégration Swagger à l&#8217;application NestJS</p></li><li><p>Testez votre application pour vérifier son bon fonctionnement</p></li></ul></div></section></section>
 <section><section id="_les_contrôleurs"><h2>Les contrôleurs</h2></section><section id="_les_contrôleurs_2"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Un contrôleur permet de définir les endpoints de votre API REST.</p></li><li><p>Syntaxe pour définir les headers, les path parameters, les query parameters, &#8230;&#8203; facilitée par l&#8217;utilisation des décorateurs</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { Controller, Get } from '@nestjs/common';
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Controller, Get } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController {
@@ -110,7 +110,7 @@ export class UsersController {
     return 'All NestJS users';
   }
 }</code></pre></section><section id="_les_contrôleurs_3"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Utilisation des décorateurs @Get, @Post, @Put, @Delete, &#8230;&#8203; pour définir le verbe HTTP à utiliser.</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('uers')
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Controller('uers')
 export class UsersController {
   @Get()
   findAll(): User[] {
@@ -125,7 +125,7 @@ export class UsersController {
     return {};
   }
 }</code></pre></section><section id="_les_contrôleurs_4"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Retourner la donnée directement</p></li><li><p>Retourner une <code>promise</code></p></li><li><p>Manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { Response } from 'express';
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Response } from 'express';
 
 @Get()
 findAll(): User[] {
@@ -138,7 +138,7 @@ findAllFromRemoteServer(): Promise&lt;User[]&gt; {
 @Get()
 findAllResponse(@Res() res: Response) {
     res.status(HttpStatus.OK).send([]);
-}</code></pre></section><section id="_les_contrôleurs_autres_décorateurs"><h2>Les contrôleurs - autres décorateurs</h2><pre class="highlight listingblock"><code class="typescript language-typescript">@Controller('users')
+}</code></pre></section><section id="_les_contrôleurs_autres_décorateurs"><h2>Les contrôleurs - autres décorateurs</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Controller('users')
 export class UsersController {
 
   @Get()
@@ -153,7 +153,7 @@ export class UsersController {
       @Body() updateUserDto: User) { }
 }</code></pre></section><section id="_à_vous_de_jouer_2"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Dans le <code>AppController</code>, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :</p><div class="ulist"><ul><li><p>Lister des bières</p></li><li><p>Récupérer une bière</p></li><li><p>Supprimer une bière</p></li><li><p>Ajouter une bière</p></li><li><p>Modifier une bière</p></li></ul></div></li></ul></div></section></section>
 <section><section id="_les_modules"><h2>Les Modules</h2></section><section id="_les_modules_2"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Toute application NestJS possède au moins un module</p></li><li><p>A ne pas confondre aves les modules <code>ES2015</code></p></li><li><p>Permet de regrouper de manière logique un ensemble de fonctionnalités</p><div class="ulist"><ul><li><p>découpage métier</p></li><li><p>découpage technique</p></li><li><p>&#8230;&#8203;</p></li></ul></div></li></ul></div></section><section id="_les_modules_3"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Nécessité ensuite d&#8217;importer ces modules pour pouvoir les utiliser</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Module } from '@nestjs/common';
 import { HomeController } from './home.controller';
 import { UserController, UserService } from './users';
 
@@ -168,7 +168,7 @@ export class UserModule {}
   imports: [UserModule],
 })
 export class AppModule {}</code></pre></section><section id="_les_modules_module"><h2>Les Modules - @Module</h2><div class="ulist"><ul><li><p>Seules 4 propriétés sont à connaître : <code>controllers</code>, <code>providers</code>, <code>imports</code>, <code>exports</code></p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Module } from '@nestjs/common';
 import { HomeController } from './home.controller';
 
 @Module({
@@ -178,7 +178,7 @@ import { HomeController } from './home.controller';
   exports: [AuthProvider]
 })
 export class AuthModule {}</code></pre></section><section id="_les_modules_module_dynamique"><h2>Les Modules - Module dynamique</h2><div class="ulist"><ul><li><p>Tout comme <strong>Angular</strong>, possibilité de définir des modules dynamiques afin de les configurer</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">@Module({
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Module({
   providers: [Connection],
 })
 export class DatabaseModule {
@@ -192,7 +192,7 @@ export class DatabaseModule {
   }
 }
 //DatabaseModule.forRoot([User])</code></pre></section><section id="_à_vous_de_jouer_3"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Via la CLI, générez un nouveau module NestJS <code>BeersModule</code>.</p></li><li><p>Dans ce module générez un nouveau contrôleur <code>BeersController</code> qui contiendra le CRUD créé précédemment</p></li><li><p>Importez ce nouveau module dans le module principal afin d&#8217;avoir le même fonctionnement que précédemment</p></li></ul></div></section></section>
-<section><section id="_les_providers"><h2>Les Providers</h2></section><section id="_les_providers_2"><h2>Les Providers</h2><div class="ulist"><ul><li><p>Type de classes (<em>provider</em>, <em>factory</em>, <em>service</em>, &#8230;&#8203;) permettant d&#8217;extraire le code business de votre application</p></li><li><p>Système d&#8217;Injections de Dépendances activé par défaut</p></li><li><p>Singletons configurés via la classe annotée <code>@Module</code></p></li></ul></div></section><section id="_les_providers_3"><h2>Les Providers</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import { Injectable } from '@nestjs/common';
+<section><section id="_les_providers"><h2>Les Providers</h2></section><section id="_les_providers_2"><h2>Les Providers</h2><div class="ulist"><ul><li><p>Type de classes (<em>provider</em>, <em>factory</em>, <em>service</em>, &#8230;&#8203;) permettant d&#8217;extraire le code business de votre application</p></li><li><p>Système d&#8217;Injections de Dépendances activé par défaut</p></li><li><p>Singletons configurés via la classe annotée <code>@Module</code></p></li></ul></div></section><section id="_les_providers_3"><h2>Les Providers</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Injectable } from '@nestjs/common';
 import { User } from './interfaces/user.interface';
 
 @Injectable()
@@ -203,7 +203,7 @@ export class UsersService {
     return this.users;
   }
 }</code></pre>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Module } from '@nestjs/common';
 import { UsersController } from './users/users.controller';
 import { UsersService } from './users/users.service';
 
@@ -212,7 +212,7 @@ import { UsersService } from './users/users.service';
   providers: [UsersService],
 })
 export class ApplicationModule {}</code></pre></section><section id="_les_providers_4"><h2>Les Providers</h2><div class="ulist"><ul><li><p>Injections de ces singletons via des paramètres de constructeur</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { Controller, Get } from '@nestjs/common';
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Controller, Get } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './interfaces/user.interface';
 
@@ -226,19 +226,19 @@ export class UsersController {
   }
 }</code></pre></section><section id="_à_vous_de_jouer_4"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Mettre tout le code métier utilisé par la classe <code>BeersController</code> dans un service dédié <code>BeersService</code></p></li></ul></div></section></section>
 <section><section id="_validation_des_données"><h2>Validation des données</h2></section><section id="_validation_des_données_2"><h2>Validation des données</h2><div class="ulist"><ul><li><p>Grâce au pipe <code>ValidationPipe</code>, nous allons pouvoir valider les données entrantes</p></li><li><p>La validation peut s&#8217;activer</p><div class="ulist"><ul><li><p>localement à un endpoint</p></li></ul></div></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">@Post()
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Post()
 @UsePipes(ValidationPipe)
 getHello(@Body() body: User) { ... }</code></pre></section><section id="_validation_des_données_3"><h2>Validation des données</h2><div class="ulist"><ul><li><p>globalement pour toute l&#8217;application</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">async function bootstrap() {
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule);
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(3000);
 }
 bootstrap();</code></pre>
 <div class="ulist"><ul><li><p>localement à un paramètre</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">@Post()
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Post()
 getHello(@Body(new ValidationPipe()) body: User) { ... }</code></pre></section><section id="_validation_des_données_4"><h2>Validation des données</h2><div class="ulist"><ul><li><p>Le validateur se base sur les modules <code>class-validator</code> et <code>class-transformer</code></p></li><li><p>Il suffit d&#8217;ajouter des décorateurs sur vos models</p></li></ul></div>
-<pre class="highlight listingblock"><code class="typescript language-typescript">import { IsString, IsInt, IsEmail, IsDate } from 'class-validator';
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { IsString, IsInt, IsEmail, IsDate } from 'class-validator';
 
 export class User {
   @IsString()
@@ -252,7 +252,7 @@ export class User {
 
   @IsDate()
   readonly birthDate: date;
-}</code></pre></section><section id="_custom_validateur"><h2>Custom validateur</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import { ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments } from "class-validator";
+}</code></pre></section><section id="_custom_validateur"><h2>Custom validateur</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments } from "class-validator";
 
 @ValidatorConstraint({
   name: "passwordValidator",
@@ -274,13 +274,13 @@ readonly password: string;
  */</code></pre></section><section id="_à_vous_de_jouer_5"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Activez la validation de manière globale à l&#8217;application</p></li><li><p>Ajouter les contraintes suivantes sur votre classe Beer</p><div class="ulist"><ul><li><p><code>id</code> doit être un <code>number</code></p></li><li><p><code>label</code> doit être une <code>string</code></p></li><li><p><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</p></li><li><p><code>image</code> doit être une <code>string</code>, et se terminer par un extension valide (via un custom validateur)</p></li><li><p><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</p></li><li><p><code>stock</code> doit être une <code>entier</code>
 `</p></li></ul></div></li></ul></div></section></section>
 <section><section id="_authentication"><h2>Authentication</h2></section><section id="_authentication_2"><h2>Authentication</h2><div class="ulist"><ul><li><p>NestJS se base sur la librairie <strong>Passport</strong> pour pouvoir restreindre l&#8217;accès à nos endpoints</p></li><li><p>Nous allons pouvoir définir des <code>Strategy</code> d&#8217;authentification et les utiliser via des <code>Guards</code></p></li><li><p>Modules de base nécésaires pour la mise en place de l&#8217;authentification</p></li></ul></div>
-<pre class="highlight listingblock"><code class="shell language-shell">npm install --save @nestjs/passport passport</code></pre></section><section id="_authentication_jwt"><h2>Authentication - JWT</h2><div class="ulist"><ul><li><p>En fonction de la <code>Strategy</code>, d&#8217;autres modules seront nécéssaires</p></li></ul></div>
-<pre class="highlight listingblock"><code class="shell language-shell">npm install --save @nestjs/jwt passport-jw</code></pre>
-<pre class="highlight listingblock"><code class="typescript language-typescript">@Get('users')
+<pre class="highlight listingblock"><code data-noescape class="shell language-shell">npm install --save @nestjs/passport passport</code></pre></section><section id="_authentication_jwt"><h2>Authentication - JWT</h2><div class="ulist"><ul><li><p>En fonction de la <code>Strategy</code>, d&#8217;autres modules seront nécéssaires</p></li></ul></div>
+<pre class="highlight listingblock"><code data-noescape class="shell language-shell">npm install --save @nestjs/jwt passport-jw</code></pre>
+<pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Get('users')
 @UseGuards(AuthGuard())
 findAll() {
   return [];
-}</code></pre></section><section id="_authentication_jwt_2"><h2>Authentication - JWT</h2><pre class="highlight listingblock"><code class="typescript language-typescript">import { Module } from '@nestjs/common';
+}</code></pre></section><section id="_authentication_jwt_2"><h2>Authentication - JWT</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
@@ -295,7 +295,7 @@ import { PassportModule } from '@nestjs/passport';
   ],
   providers: [AuthService, JwtStrategy]
 })
-export class AppModule {}</code></pre></section><section id="_authentication_jwt_3"><h2>Authentication - JWT</h2><pre class="highlight listingblock"><code class="typescript language-typescript">@Injectable()
+export class AppModule {}</code></pre></section><section id="_authentication_jwt_3"><h2>Authentication - JWT</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly authService: AuthService) {
     super({
@@ -311,7 +311,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
     return user;
   }
-}</code></pre></section><section id="_authentication_jwt_4"><h2>Authentication - JWT</h2><pre class="highlight listingblock"><code class="typescript language-typescript">@Injectable()
+}</code></pre></section><section id="_authentication_jwt_4"><h2>Authentication - JWT</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Injectable()
 export class AuthService {
   constructor(
     private readonly usersService: UsersService,
@@ -446,7 +446,7 @@ Reveal.initialize({
   // Optional libraries used to extend on reveal.js
   dependencies: [
       { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-      
+      { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
       { src: 'reveal/plugin/zoom-js/zoom.js', async: true },
       { src: 'reveal/plugin/notes/notes.js', async: true },
       
@@ -458,5 +458,11 @@ Reveal.initialize({
   
 
 });</script><div class="footer">
-    <p>@nestjs @EmmanuelDemey @AurelienLoyer</p>
-</div></body></html>
+	<p>@nestframework @EmmanuelDemey @AurelienLoyer</p>
+</div>
+
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="https://raw.githubusercontent.com/nwinkler/reveal-highlight-themes/master/styles/solarized_dark.css"
+/></body></html>
