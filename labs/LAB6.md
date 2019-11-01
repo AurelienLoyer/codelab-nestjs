@@ -62,7 +62,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 ```
 
 * Dans la méthode `validate`, nous allons appeler une méthode `validateUser` du service `UsersService` que nous allons implémenter dans le point suivant. 
-Si l'objet `User` retourné par cet méthode n'est pas défini, vous devez émettre une exception `UnauthorizedException`. Sinon vous pouvez retourner l'objet lui-même.  
+Si l'objet `User` retourné par cet méthode n'est pas défini, vous devez émettre une exception `UnauthorizedException`. Sinon vous pouvez retourner l'objet lui-même.
   
 * Dans le service `UsersService`, nous allons implémenter deux méthodes : 
     * `validateUser` : cette méthode prendra en paramètre l'objet `JwtPayload` et retournera une `Promise<boolean>`. Le `boolean` sera à `true` si le duo `email` et `password` sont corrects. Pour cela, vous pouvez utiliser un tableau d'utilisateurs défini en mémoire (bien evidemment nous ne faisons jamais cela dans la vrai vie :p ).
