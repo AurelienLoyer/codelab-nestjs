@@ -62,32 +62,31 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 ```
 
 * Dans la méthode `validate`, nous allons appeler une méthode `validateUser` du service `UsersService` que nous allons implémenter dans le point suivant. 
-Si l'objet `User` retourné par cet méthode n'est pas défini, vous devez émettre une exception `UnauthorizedException`. Sinon vous pouvez retourner l'objet lui-même. 
-
+Si l'objet `User` retourné par cet méthode n'est pas défini, vous devez émettre une exception `UnauthorizedException`. Sinon vous pouvez retourner l'objet lui-même.  
+  
 * Dans le service `UsersService`, nous allons implémenter deux méthodes : 
     * `validateUser` : cette méthode prendra en paramètre l'objet `JwtPayload` et retournera une `Promise<boolean>`. Le `boolean` sera à `true` si le duo `email` et `password` sont corrects. Pour cela, vous pouvez utiliser un tableau d'utilisateurs défini en mémoire (bien evidemment nous ne faisons jamais cela dans la vrai vie :p ).
 
-```
-[
-    {
-        "id": 1,
-        "username": "Aurel",
-        "email": "aurelien@loyer.fr",
-        "password": "beer",
-        "cart": {}
-    },
-    {
-        "id": 2,
-        "username": "Manu",
-        "email": "emmanuel@demey.fr",
-        "password": "beer",
-        "cart": {}
-    }
-    }
-]
-```
-
-    * une méthode `login` qui prendra en paramètre l'email et le password d'un utilisateur. Aprés avoir vérifier que l'email et le password correspond à un réel utilisateur, cette méthode retournera le token JWT nécessaire pour s'authentifier. Pour cela, vous devez utiliser le service `JwtService` du module `@nestjs/jwt`
+  ```
+    [
+        {
+            "id": 1,
+            "username": "Aurel",
+            "email": "aurelien@loyer.fr",
+            "password": "beer",
+            "cart": {}
+        },
+        {
+            "id": 2,
+            "username": "Manu",
+            "email": "emmanuel@demey.fr",
+            "password": "beer",
+            "cart": {}
+        }
+    ]
+  ```  
+  
+    * une méthode `login` qui prendra en paramètre l'email et le password d'un utilisateur. Après avoir vérifié que la combinaison email/password correspond bien à un utilisateur, cette méthode retournera le token JWT nécessaire pour s'authentifier. Pour cela, on utilisera le service `JwtService` du module `@nestjs/jwt`
 
 ```typescript
 const accessToken = this.jwtService.sign(payload);
