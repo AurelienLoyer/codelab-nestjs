@@ -1,24 +1,24 @@
 ## Modules
 
-Nous allons à présent créer un module NestJS afin d'y ajouter la fonctionnalité de gestion des bières.
+Nous allons à présent créer un module NestJS afin d'y ajouter la fonctionnalité de gestion des produits.
 
 * Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step2`
 
-* Via la CLI, générez un nouveau module NestJS `BeersModule`.
+* Via la CLI, générez un nouveau module NestJS `ProductsModule`.
 
 ```shell
-nest generate module beers
+nest generate module products
 ```
 
-* Externalisez le CRUD (créé précédemment) permettant de gérer les bières dans un contrôleur spécifique : `BeersController`
+* Externalisez le CRUD (créé précédemment) permettant de gérer les produits dans un contrôleur spécifique : `ProductsController`
 
 ```shell
-nest generate controller beers/beers
+nest generate controller products
 ```
 
-* Vérifiez que ce nouveau contrôleur est bien associé au module `BeersModule` créé au début de cet exercice.
+* Vérifiez que ce nouveau contrôleur est bien associé au module `ProductsModule` créé au début de cet exercice.
 
-* Ajoutez au module principal de votre application le module `BeersModule`.
+* Ajoutez au module principal de votre application le module `ProductsModule`.
 
 Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :
 

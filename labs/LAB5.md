@@ -1,11 +1,12 @@
 ## Validation
 
 * Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step4`
+
 * Activez la validation de manière globale pour toute l'application 
 
 * Installez les modules `class-validator` et `class-transformer`. 
 
-* Ajoutez les contraintes suivantes sur votre classe `Beer`
+* Ajoutez les contraintes suivantes sur votre classe `Product`
     * `id` doit être un `number`
     * `label` doit être une `string`
     * `description` doit être une `string`, avec un taille entre 10 et 80 caractères

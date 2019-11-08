@@ -1,7 +1,3 @@
-[submodule "corrections/BaaS"]
-	path = corrections/final
-	url = https://github.com/T3kstiil3/BaaS
-	
 [submodule "corrections/step1"]
 	path = corrections/step1
 	url = https://github.com/T3kstiil3/BaaS
@@ -14,7 +10,7 @@
 	path = corrections/step2
 	url = https://github.com/T3kstiil3/BaaS
 	branch = step2
-[submodule "corrections/step3"]
+[submodule "corrections/step3"]	
 	path = corrections/step3
 	url = https://github.com/T3kstiil3/BaaS
 	branch = step3

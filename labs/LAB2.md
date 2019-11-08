@@ -1,27 +1,27 @@
 ## Contrôleur
 
-* Dans le contrôleur `AppController`, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir :
-  - lister les bières
-  - retourner les détails d'une bière, grâce à son identifiant
-  - supprimer une bière, grâce à son identifiant
-  - modifier une bière grâce à son identifiant
-  - Et enfin en ajouter une
+* Dans le contrôleur `AppController`, implementez un CRUD permettant de gérer des produits (en mémoire). Nous allons pouvoir :
+  - lister les produits
+  - retourner les détails d'un produit, grâce à son identifiant
+  - supprimer un produit, grâce à son identifiant
+  - modifier un produit grâce à son identifiant
+  - Et enfin en ajouter un
 
-Une bière sera représentée par la classe TypeScript suivante : 
+Un produit sera représenté par la classe TypeScript suivante : 
 
 ```typescript
 import { ApiModelProperty } from '@nestjs/swagger';
 
-export class Beer {
+export class Product {
   @ApiModelProperty({ example: 12 })
   readonly id: number;
 
-  @ApiModelProperty({ example: 'Souper beer' })
+  @ApiModelProperty({ example: 'Super product' })
   readonly label?: string;
 
   @ApiModelProperty({
     example:
-      'India pale ale is a hoppy beer style within the broader category of pale ale',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ...',
   })
   readonly description?: string;
 
@@ -36,7 +36,7 @@ export class Beer {
 }
 ```
 
-Un fichier [beers.json](https://github.com/T3kstiil3/BaaS/blob/master/static/data/beers.json) est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API. 
+Un fichier [products.json](https://github.com/T3kstiil3/codelab-nestjs-corrections/blob/master/static/data/products.json) est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API. 
 
 Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :
 
