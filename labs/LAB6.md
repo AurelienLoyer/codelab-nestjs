@@ -21,7 +21,7 @@ npm install @nestjs/jwt @nestjs/passport @nestjs/platform-express passport passp
 [
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
-      secretOrPrivateKey: 'secretBeer',
+      secretOrPrivateKey: 'secretKey',
       signOptions: {
         expiresIn: 3600,
       },
@@ -47,7 +47,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly usersService: UsersService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: 'secretBeer',
+      secretOrKey: 'secretKey',
     });
   }
 
@@ -73,14 +73,14 @@ Si l'objet `User` retourné par cet méthode n'est pas défini, vous devez émet
             "id": 1,
             "username": "Aurel",
             "email": "aurelien@loyer.fr",
-            "password": "beer",
+            "password": "password",
             "cart": {}
         },
         {
             "id": 2,
             "username": "Manu",
             "email": "emmanuel@demey.fr",
-            "password": "beer",
+            "password": "password",
             "cart": {}
         }
     ]
@@ -98,7 +98,7 @@ return {
 
 * Créez un controller `users` proposant une endpoint permettant d'appeler la méthode `login` du service `UsersService`.
 
-* Sécurisez la route permettant de créer et mettre à jour des bières
+* Sécurisez la route permettant de créer et mettre à jour des produits
 
 Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :
 
