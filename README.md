@@ -19,13 +19,13 @@ Pendant ce codelab, mettons en place notre premier backend à base de NestJS et 
 
 ### Final project repository
 
-https://github.com/T3kstiil3/BaaS
+https://github.com/T3kstiil3/codelab-nestjs-corrections
 
 ### Sub modules  
 
 Add submdule folder and step branch
 ```sh
-git submodule add -b step1 --force https://github.com/T3kstiil3/BaaS corrections/step1
+git submodule add -b step1 --force https://github.com/T3kstiil3/codelab-nestjs-corrections corrections/step1
 git submodule sync
 git submodule update --init --recursive --remote
 # OU
