@@ -26,7 +26,3 @@
 	path = corrections/step6
 	url = https://github.com/T3kstiil3/codelab-nestjs-corrections
 	branch = step6
-[submodule "corrections/final"]
-	path = corrections/final
-	url = https://github.com/T3kstiil3/codelab-nestjs-corrections
-	branch = master
