@@ -60,4 +60,5 @@ include::chapters/validation.adoc[]
 include::chapters/authentification.adoc[]
 
 include::chapters/andmore.adoc[]
- 
+
+// include::chapters/thanks.adoc[]

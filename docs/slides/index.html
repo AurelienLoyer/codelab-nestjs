@@ -88,12 +88,13 @@ class Address {
   @ApiModelProperty()
   city: string
 }
+
 class User {
   @ApiModelProperty()
   name: string;
 
   @ApiModelProperty({type: Address})
-  address: Address[];
+  address: Address;
 }</code></pre></section><section id="_à_vous_de_jouer"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Récupérez le répertoire <code>step0</code> du repository GIT</p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="shell language-shell">git clone https://github.com/T3kstiil3/BaaS
 cd corrections/step0
