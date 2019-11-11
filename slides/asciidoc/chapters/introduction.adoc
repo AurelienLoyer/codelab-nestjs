@@ -129,12 +129,13 @@ class Address {
   @ApiModelProperty()
   city: string
 }
+
 class User {
   @ApiModelProperty()
   name: string;
 
   @ApiModelProperty({type: Address})
-  address: Address[];
+  address: Address;
 }
 ----
 

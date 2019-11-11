@@ -1,0 +1,18 @@
+[.thanks]
+== !
+
+[.emoji]
+--
+🙏
+--
+
+[.header]
+--
+Merci
+--
+
+[.speakers]
+--
+@AurelienLoyer
+@EmmanuelDemey
+--
