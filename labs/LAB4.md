@@ -1,6 +1,10 @@
 ## Provider
 
-* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step3`
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant
+
+```
+git checkout step3 -f
+```
 
 Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons `ProductsService`.
 

@@ -88,9 +88,9 @@ export class UsersController {
 
 === À vous de jouer !
 
-* Dans le `AppController`, implementez un CRUD permettant de gérer des bières (en mémoire). Nous allons pouvoir : 
-** Lister des bières
-** Récupérer une bière
-** Supprimer une bière
-** Ajouter une bière
-** Modifier une bière
+* Dans le `AppController`, implementez un CRUD permettant de gérer des produits (en mémoire). Nous allons pouvoir : 
+** Lister des produits
+** Récupérer une produit
+** Supprimer une produit
+** Ajouter une produit
+** Modifier une produit

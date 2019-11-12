@@ -145,8 +145,8 @@ class User {
 
 [source,shell]
 ----
-git clone https://github.com/T3kstiil3/codelab-nestjs/
-cd corrections/step0
+git clone -b step0 https://github.com/T3kstiil3/codelab-nestjs-corrections/
+cd codelab-nestjs-corrections
 npm install
 ----
 

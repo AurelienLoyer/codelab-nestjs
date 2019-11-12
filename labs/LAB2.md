@@ -1,5 +1,11 @@
 ## Contrôleur
 
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant
+
+```
+git checkout step1 -f
+```
+
 * Dans le contrôleur `AppController`, implementez un CRUD permettant de gérer des produits (en mémoire). Nous allons pouvoir :
   - lister les produits
   - retourner les détails d'un produit, grâce à son identifiant

@@ -59,4 +59,4 @@ export class UsersController {
 
 === À vous de jouer !
 
-* Mettre tout le code métier utilisé par la classe `BeersController` dans un service dédié `BeersService`
+* Mettre tout le code métier utilisé par la classe `ProductsController` dans un service dédié `ProductsService`

@@ -74,6 +74,6 @@ export class DatabaseModule {
 
 === À vous de jouer !
 
-* Via la CLI, générez un nouveau module NestJS `BeersModule`. 
-* Dans ce module générez un nouveau contrôleur `BeersController` qui contiendra le CRUD créé précédemment
+* Via la CLI, générez un nouveau module NestJS `ProductsModule`. 
+* Dans ce module générez un nouveau contrôleur `ProductsController` qui contiendra le CRUD créé précédemment
 * Importez ce nouveau module dans le module principal afin d'avoir le même fonctionnement que précédemment

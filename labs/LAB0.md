@@ -17,6 +17,7 @@ Pour faire ce codelab, vous avez besoin des outils suivants :
 
 ```shell
 npm install -g @nestjs/cli
+# OU
 yarn global add @nestjs/cli
 ```
 
@@ -25,10 +26,6 @@ yarn global add @nestjs/cli
 ```shell
 git clone -b step0 https://github.com/T3kstiil3/codelab-nestjs-corrections
 cd codelab-nestjs-corrections
-npm install # yarn
-# Ou
-git clone https://github.com/T3kstiil3/codelab-nestjs
-cd codelab-nestjs/corrections/step0
 npm install # yarn
 ```
 

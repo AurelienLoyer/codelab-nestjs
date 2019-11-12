@@ -11,11 +11,11 @@
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   
   <!-- <link rel="stylesheet" href="/codelab-nestjs/lab//codelab-elements/codelab-elements.css"> -->
-  
+     
   <script src="/codelab-nestjs/lab/bower_components/webcomponentsjs/webcomponents-lite.js"></script>		
   <link rel="import" href="/codelab-nestjs/lab/elements/codelab.html">
  
- <style>
+  <style>
     .success {
       color: #1e8e3e;
     }
@@ -39,15 +39,12 @@
 <li>NodeJS 10.x ou &gt;</li>
 <li>un IDE (WebStorm ou Visual Studio Code...)</li>
 <li>Le module <code>@nestjs/cli</code> installé globalement<pre><code>npm install -g @nestjs/cli
+# OU
 yarn global add @nestjs/cli
 </code></pre>
 </li>
 <li>Récupérez la répertoire <code>step0</code> du repository GIT<pre><code>git clone -b step0 https://github.com/T3kstiil3/codelab-nestjs-corrections
 cd codelab-nestjs-corrections
-npm install # yarn
-# Ou
-git clone https://github.com/T3kstiil3/codelab-nestjs
-cd codelab-nestjs/corrections/step0
 npm install # yarn
 </code></pre>
 </li>
@@ -77,7 +74,10 @@ npm install # yarn
     
       <google-codelab-step label="Contrôleur" duration="0">
         <ul>
-<li>Dans le contrôleur <code>AppController</code>, implementez un CRUD permettant de gérer des produits (en mémoire). Nous allons pouvoir :<br><br><ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant<pre><code>git checkout step1 -f
+</code></pre>
+</li>
+<li>Dans le contrôleur <code>AppController</code>, implementez un CRUD permettant de gérer des produits (en mémoire). Nous allons pouvoir :<ul>
 <li>lister les produits</li>
 <li>retourner les détails d&#39;un produit, grâce à son identifiant</li>
 <li>supprimer un produit, grâce à son identifiant</li>
@@ -124,7 +124,9 @@ export class Product {
       <google-codelab-step label="Modules" duration="0">
         <p>Nous allons à présent créer un module NestJS afin d&#39;y ajouter la fonctionnalité de gestion des produits.</p>
 <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step2</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant<pre><code>git checkout step2 -f
+</code></pre>
+</li>
 <li>Via la CLI, générez un nouveau module NestJS <code>ProductsModule</code>.<pre><code>nest generate module products
 </code></pre>
 </li>
@@ -145,7 +147,9 @@ export class Product {
     
       <google-codelab-step label="Provider" duration="0">
         <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step3</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant<pre><code>git checkout step3 -f
+</code></pre>
+</li>
 </ul>
 <p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>ProductsService</code>.</p>
 <ul>
@@ -165,7 +169,9 @@ export class Product {
     
       <google-codelab-step label="Validation" duration="0">
         <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step4</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant<pre><code>git checkout step4 -f
+</code></pre>
+</li>
 <li>Activez la validation de manière globale pour toute l&#39;application</li>
 <li>Installez les modules <code>class-validator</code> et <code>class-transformer</code>.</li>
 <li>Ajoutez les contraintes suivantes sur votre classe <code>Product</code><ul>
@@ -189,7 +195,9 @@ export class Product {
     
       <google-codelab-step label="Authentification" duration="0">
         <ul>
-<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant le repertoire <code>corrections/step5</code></li>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l&#39;exercice précédent en utilisant<pre><code>git checkout step5 -f
+</code></pre>
+</li>
 <li>Installez les modules NPM nécessaires pour une Authentification JWT<pre><code>npm install @nestjs/jwt @nestjs/passport @nestjs/platform-express passport passport-jwt
 </code></pre>
 </li>

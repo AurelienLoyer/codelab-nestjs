@@ -1,6 +1,10 @@
 ## Validation
 
-* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step4`
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant
+
+```
+git checkout step4 -f
+```
 
 * Activez la validation de manière globale pour toute l'application 
 

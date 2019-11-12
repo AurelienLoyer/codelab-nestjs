@@ -1,6 +1,10 @@
 ## Authentification
 
-* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step5`
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant
+
+```
+git checkout step5 -f
+```
 
 * Installez les modules NPM nécessaires pour une Authentification JWT
 

@@ -2,7 +2,11 @@
 
 Nous allons à présent créer un module NestJS afin d'y ajouter la fonctionnalité de gestion des produits.
 
-* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant le repertoire `corrections/step2`
+* Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant
+
+```
+git checkout step2 -f
+```
 
 * Via la CLI, générez un nouveau module NestJS `ProductsModule`.
 
