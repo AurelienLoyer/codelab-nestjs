@@ -15,7 +15,7 @@ npm install @nestjs/jwt @nestjs/passport @nestjs/platform-express passport passp
 * Créez un nouveau module `users` dans lequel nous allons implémenter la gestions des utilisateurs.
 
 ```shell
-➜  nest generate module users 
+  nest generate module users 
 ```
 
 * Dans ce module, importez et configurez les modules `PassportModule` et `JwtModule` de la manière suivante : 

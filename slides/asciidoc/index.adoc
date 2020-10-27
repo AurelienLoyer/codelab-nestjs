@@ -26,7 +26,7 @@ Le framework Node.js à la façon Angular
 --
 Emmanuel DEMEY
 
-Developer Advocate à Zenika Lille 
+Freelance 
 
 @EmmanuelDemey
 --
@@ -40,7 +40,7 @@ image::emmanuel.jpg[]
 --
 Aurélien LOYER
 
-Consultant à Zenika Lille 
+Software Engineer @ Qima
 
 @AurelienLoyer
 --

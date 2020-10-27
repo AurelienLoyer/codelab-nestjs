@@ -3,12 +3,13 @@
 	"version": "1.0.0",
 	"description": "🐱 Mettons en place notre premier backend à base de NestJS et ses bonnes pratiques poussées par la communauté de ce framework !",
 	"scripts": {
-		"update:submodule": "git submodule update --recursive --force",
-		"generate": "./slides.sh && ls",
-		"generate:labs": "./generate-labs.sh",
-		"start": "npm run generate:slides",
+		"start": "npm run generate",
+		"generate": "speaker-cli generate",
 		"generate:slides": "speaker-cli generate --slides",
-		"watch:slides": "speaker-cli generate --slides --watch"
+		"watch:slides": "speaker-cli generate --slides --watch",
+		"generate:labs": "speaker-cli generate --labs",
+		"watch:labs": "speaker-cli generate --labs --watch",
+		"update:submodule": "git submodule update --recursive --force"
 	},
 	"repository": {
 		"type": "git",
