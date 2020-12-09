@@ -16,28 +16,28 @@ git checkout step1 -f
 Un produit sera représenté par la classe TypeScript suivante : 
 
 ```typescript
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptions } from '@nestjs/swagger';
 
 export class Product {
-  @ApiModelProperty({ example: 12 })
+  @ApiProperty({ example: 12 } as ApiPropertyOptions)
   readonly id: number;
 
-  @ApiModelProperty({ example: 'Super product' })
+  @ApiProperty({ example: 'Super product' } as ApiPropertyOptions)
   readonly label?: string;
 
-  @ApiModelProperty({
+  @ApiProperty({
     example:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ...',
-  })
+  } as ApiPropertyOptions)
   readonly description?: string;
 
-  @ApiModelProperty({ example: '' })
+  @ApiProperty({ example: '' } as ApiPropertyOptions)
   readonly image?: string;
 
-  @ApiModelProperty({ example: 15.0 })
+  @ApiProperty({ example: 15.0 } as ApiPropertyOptions)
   readonly price?: number;
 
-  @ApiModelProperty({ example: 5 })
+  @ApiProperty({ example: 5 } as ApiPropertyOptions)
   readonly stock?: number;
 }
 ```
