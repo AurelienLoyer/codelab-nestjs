@@ -57,6 +57,8 @@ include::chapters/providers.adoc[]
 
 include::chapters/validation.adoc[]
 
+include::chapters/test.adoc[]
+
 include::chapters/authentification.adoc[]
 
 include::chapters/andmore.adoc[]
