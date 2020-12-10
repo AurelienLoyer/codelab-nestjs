@@ -1,7 +1,9 @@
 ## Swagger
  
-* Ajoutez l'intégration Swagger à l'application NestJS
- 
+* Dans le fichier `main.ts`, ajoutez l'intégration Swagger à l'application NestJS
+
+Nous améliorerons cette intégration au fur et à mesure des TPs. 
+
 Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :
 
 - [Documentation de TypeScript](https://www.typescriptlang.org/)
