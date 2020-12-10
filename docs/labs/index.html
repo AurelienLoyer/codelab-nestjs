@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta name="theme-color" content="#4F7DC9" />
+    <meta charset="UTF-8" />
+    <title>Codelab NestJS</title>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="elements/codelab.html" />
+    <link
+      rel="stylesheet"
+      href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono"
+    />
+    <style is="custom-style">
+      body {
+        font-family: "Roboto", sans-serif;
+        background: var(--google-codelab-background, #f8f9fa);
+      }
+    </style>
+  </head>
+  <body unresolved class="fullbleed">
+    <google-codelab title="Codelab NestJS" environment="web">
+      <p>author: Aurelien Loyer / Emmanuel Demey
+summary: Pendant ce codelab, nous allons créer un backend pour une application d'e-commerce avec le framework NestJS.
+id: docs/lab
+ga: UA-137363732-2
+feedback link: https://twitter.com/AurelienLoyer</p></google-codelab-step>
+<google-codelab-step label="Prérequis" duration="0"><p>Pour faire ce codelab, vous avez besoin des outils suivants :</p><ul>
+<li>GIT</li>
+<li>NodeJS 10.x ou &gt;</li>
+<li>un IDE (WebStorm ou Visual Studio Code…)</li>
+<li>Le module <code>@nestjs/cli</code> installé globalement</li>
+</ul><pre><code class="shell language-shell">npm install -g @nestjs/cli
+# OU
+yarn global add @nestjs/cli
+</code></pre><ul>
+<li>Récupérez la répertoire <code>step0</code> du repository GIT</li>
+</ul><pre><code class="shell language-shell">git clone -b step0 https://github.com/T3kstiil3/codelab-nestjs-corrections
+cd codelab-nestjs-corrections
+npm install # yarn
+</code></pre><p>Si vous utilisez VSCode, nous vous proposons une selection d'extensions que vous pouvez utiliser pour un projet NestJS. Pour les lister, dans la page dédiée aux extensions, faites une recherche via le mot clé <code>@recommanded</code>. Normalement VSCode listera notre liste d'extensions.</p><p>Si vous exécutez la commande suivante, votre API sera disponible à l'URL <code>http://localhost:3000</code></p><pre><code class="shell language-shell"> npm run start
+</code></pre></google-codelab-step>
+<google-codelab-step label="Swagger" duration="0"><ul>
+<li>Dans le fichier <code>main.ts</code>, ajoutez l'intégration Swagger à l'application NestJS</li>
+</ul><p>Nous améliorerons cette intégration au fur et à mesure des TPs. </p><p>Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :</p><ul>
+<li><a href="https://www.typescriptlang.org/">Documentation de TypeScript</a></li>
+<li><a href="https://docs.nestjs.com">Documentation de NestJS</a></li>
+<li><a href="https://docs.nestjs.com/first-steps">Getting Started avec NestJS</a></li>
+<li><a href="https://docs.nestjs.com/recipes/swagger">L'intégration Swagger dans NestJS</a></li>
+</ul></google-codelab-step>
+<google-codelab-step label="Contrôleur" duration="0"><ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant</li>
+</ul><pre><code>git checkout step1 -f
+</code></pre><ul>
+<li>Dans le contrôleur <code>AppController</code>, implementez un CRUD permettant de gérer des produits (en mémoire). Nous allons pouvoir :</li>
+<li>lister les produits</li>
+<li>retourner les détails d'un produit, grâce à son identifiant</li>
+<li>supprimer un produit, grâce à son identifiant</li>
+<li>modifier un produit grâce à son identifiant</li>
+<li>Et enfin en ajouter un</li>
+</ul><p>Un produit sera représenté par la classe TypeScript suivante : </p><pre><code class="typescript language-typescript">import { ApiProperty, ApiPropertyOptions } from '@nestjs/swagger';
+
+export class Product {
+  @ApiProperty({ example: 12 } as ApiPropertyOptions)
+  readonly id: number;
+
+  @ApiProperty({ example: 'Super product' } as ApiPropertyOptions)
+  readonly label?: string;
+
+  @ApiProperty({
+    example:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ...',
+  } as ApiPropertyOptions)
+  readonly description?: string;
+
+  @ApiProperty({ example: '' } as ApiPropertyOptions)
+  readonly image?: string;
+
+  @ApiProperty({ example: 15.0 } as ApiPropertyOptions)
+  readonly price?: number;
+
+  @ApiProperty({ example: 5 } as ApiPropertyOptions)
+  readonly stock?: number;
+}
+</code></pre><p>Un fichier <a href="https://github.com/T3kstiil3/codelab-nestjs-corrections/blob/master/static/data/products.json">products.json</a> est à votre disposition. Il contient un jeu de données que vous pouvez utiliser pour cette API. </p><p>Voici de plus quelques liens qui pourraient vous être utiles tout au long de ce codelab :</p><ul>
+<li><a href="https://docs.nestjs.com/controllers">Les contrôleurs NestJS</a></li>
+</ul></google-codelab-step>
+<google-codelab-step label="Modules" duration="0"><ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant</li>
+</ul><pre><code>git checkout step2 -f
+</code></pre><p>Nous allons à présent créer un module NestJS afin d'y ajouter la fonctionnalité de gestion des produits.</p><ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant</li>
+</ul><pre><code>git checkout step2 -f
+</code></pre><ul>
+<li>Via la CLI, générez un nouveau module NestJS <code>ProductsModule</code>.</li>
+</ul><pre><code class="shell language-shell">nest generate module products
+</code></pre><ul>
+<li>Externalisez le CRUD (créé précédemment) permettant de gérer les produits dans un contrôleur spécifique : <code>ProductsController</code></li>
+</ul><pre><code class="shell language-shell">nest generate controller products
+</code></pre><ul>
+<li><p>Vérifiez que ce nouveau contrôleur est bien associé au module <code>ProductsModule</code> créé au début de cet exercice.</p></li>
+<li><p>Ajoutez au module principal de votre application le module <code>ProductsModule</code>.</p></li>
+</ul><p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p><ul>
+<li><a href="https://docs.nestjs.com/controllers">Les contrôleurs NestJS</a></li>
+<li><a href="https://docs.nestjs.com/modules">Les modules NestJS</a></li>
+</ul></google-codelab-step>
+<google-codelab-step label="Provider" duration="0"><ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant</li>
+</ul><pre><code>git checkout step3 -f
+</code></pre><p>Nous allons à présent externaliser le code métier dans un service dédié que nous nommerons <code>ProductsService</code>.</p><ul>
+<li>Veuillez créer un service <code>products</code></li>
+</ul><pre><code class="shell language-shell">nest generate service products
+</code></pre><ul>
+<li><p>Migrez tout le code métier écrit jusqu'à présent dans le contrôleur <code>ProductsController</code> dans ce service.</p></li>
+<li><p>Injectez et utilisez ce service dans le contrôleur <code>ProductsController</code>.</p></li>
+</ul><p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p><ul>
+<li><a href="https://docs.nestjs.com/providers">Les providers NestJS</a></li>
+</ul></google-codelab-step>
+<google-codelab-step label="Validation" duration="0"><ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant</li>
+</ul><pre><code>git checkout step4 -f
+</code></pre><ul>
+<li><p>Activez la validation de manière globale pour toute l'application </p></li>
+<li><p>Installez les modules <code>class-validator</code> et <code>class-transformer</code>. </p></li>
+<li><p>Ajoutez les contraintes suivantes sur votre classe <code>Product</code></p>
+<ul>
+<li><code>id</code> doit être un <code>number</code></li>
+<li><code>label</code> doit être une <code>string</code></li>
+<li><code>description</code> doit être une <code>string</code>, avec un taille entre 10 et 80 caractères</li>
+<li><code>image</code> doit être une <code>string</code>, et se terminer par <code>/\.(jpe?g|png|gif|bmp)$/</code> (via un custom validateur)</li>
+<li><code>price</code> doit être une <code>number</code>, compris entre 0 et 100</li>
+<li><code>stock</code> doit être une <code>entier</code></li></ul></li>
+</ul><p>Pour cela, nous allons utiliser des décorateurs définis dans le module <code>class-validator</code>.</p><p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p><ul>
+<li><a href="https://github.com/typestack/class-validator">Documentation de Class-Validator</a></li>
+</ul></google-codelab-step>
+<google-codelab-step label="Authentification" duration="0"><ul>
+<li>Si vous êtes en retard, vous pouvez récupérer la correction de l'exercice précédent en utilisant</li>
+</ul><pre><code>git checkout step5 -f
+</code></pre><ul>
+<li>Installez les modules NPM nécessaires pour une Authentification JWT</li>
+</ul><pre><code class="shell language-shell">npm install @nestjs/jwt @nestjs/passport @nestjs/platform-express passport passport-jwt
+</code></pre><ul>
+<li>Créez un nouveau module <code>users</code> dans lequel nous allons implémenter la gestions des utilisateurs.</li>
+</ul><pre><code class="shell language-shell">  nest generate module users 
+</code></pre><ul>
+<li>Dans ce module, importez et configurez les modules <code>PassportModule</code> et <code>JwtModule</code> de la manière suivante : </li>
+</ul><pre><code class="typescript language-typescript">[
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    JwtModule.register({
+      secretOrPrivateKey: 'secretKey',
+      signOptions: {
+        expiresIn: 3600,
+      },
+    }),
+]
+</code></pre><p>Nous allons à présent créer deux service : </p><ul>
+<li><code>UsersService</code> pour la gestion des utilisateurs</li>
+<li><code>JwtStrategy</code> pour configurer la stratégie d'authentification de notre application </li>
+</ul><pre><code class="shell language-shell">nest generate service users/JwtStrategy
+nest generate service users/users
+</code></pre><ul>
+<li>Le service <code>JwtStrategyService</code> aura la structure suivante :</li>
+</ul><pre><code class="typescript language-typescript">@Injectable()
+export class JwtStrategy extends PassportStrategy(Strategy) {
+  constructor(private readonly usersService: UsersService) {
+    super({
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: 'secretKey',
+    });
+  }
+
+  async validate(payload: JwtPayload) {
+    const user = await this.usersService.validateUser(payload);
+    if (!user) {
+      throw new UnauthorizedException('The user is unauthorized');
+    }
+    return user;
+  }
+}
+</code></pre><ul>
+<li><p>Dans la méthode <code>validate</code>, nous allons appeler une méthode <code>validateUser</code> du service <code>UsersService</code> que nous allons implémenter dans le point suivant. 
+Si l'objet <code>User</code> retourné par cet méthode n'est pas défini, vous devez émettre une exception <code>UnauthorizedException</code>. Sinon vous pouvez retourner l'objet lui-même.</p></li>
+<li><p>Dans le service <code>UsersService</code>, nous allons implémenter deux méthodes : </p>
+<ul>
+<li><code>validateUser</code> : cette méthode prendra en paramètre l'objet <code>JwtPayload</code> et retournera une <code>Promise&lt;boolean&gt;</code>. Le <code>boolean</code> sera à <code>true</code> si le duo <code>email</code> et <code>password</code> sont corrects. Pour cela, vous pouvez utiliser un tableau d'utilisateurs défini en mémoire (bien evidemment nous ne faisons jamais cela dans la vrai vie :p ).</li></ul></li>
+</ul><pre><code>    [
+        {
+            "id": 1,
+            "username": "Aurel",
+            "email": "aurelien@loyer.fr",
+            "password": "password",
+            "cart": {}
+        },
+        {
+            "id": 2,
+            "username": "Manu",
+            "email": "emmanuel@demey.fr",
+            "password": "password",
+            "cart": {}
+        }
+    ]
+</code></pre><pre><code>* une méthode `login` qui prendra en paramètre l'email et le password d'un utilisateur. Après avoir vérifié que la combinaison email/password correspond bien à un utilisateur, cette méthode retournera le token JWT nécessaire pour s'authentifier. Pour cela, on utilisera le service `JwtService` du module `@nestjs/jwt`
+</code></pre><pre><code class="typescript language-typescript">const accessToken = this.jwtService.sign(payload);
+return {
+    expiresIn: 3600,
+    accessToken: `Bearer ${accessToken}`,
+};
+</code></pre><ul>
+<li><p>Créez un controller <code>users</code> proposant une endpoint permettant d'appeler la méthode <code>login</code> du service <code>UsersService</code>.</p></li>
+<li><p>Sécurisez la route permettant de créer et mettre à jour des produits</p></li>
+</ul><p>Voici de plus quelques liens qui pourraient vous êtres utiles tout au long de ce codelab :</p><ul>
+<li><a href="https://docs.nestjs.com/techniques/authentication">Authentification avec NestJS</a></li>
+</ul></google-codelab-step>
+    </google-codelab>
+  </body>
+</html>
