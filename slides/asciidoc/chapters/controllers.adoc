@@ -45,7 +45,7 @@ export class UsersController {
 === Les contrôleurs
 
 * Retourner la donnée directement
-* Retourner une `promise`
+* Retourner une `Promise`
 * Manipuler l'objet `Response`
 
 [source,typescript]

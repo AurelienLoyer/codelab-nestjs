@@ -20,8 +20,7 @@ import { HomeController } from './home.controller';
 import { UserController, UserService } from './users';
 
 @Module({
-  controllers: [UserController],
-  providers: [UserService],
+  controllers: [UserController]
 })
 export class UserModule {}
 
