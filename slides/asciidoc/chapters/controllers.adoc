@@ -52,17 +52,20 @@ export class UsersController {
 ----
 import { Response } from 'express';
 
-@Get()
-findAll(): User[] {
-    return [];
-}
-@Get()
-findAllFromRemoteServer(): Promise<User[]> {
-    return fetchUserFromAnotherServer();
-}
-@Get()
-findAllResponse(@Res() res: Response) {
-    res.status(HttpStatus.OK).send([]);
+@Controller('users')
+export class UsersController {
+    @Get()
+    findAll(): User[] {
+        return [];
+    }
+    @Get()
+    findAllFromRemoteServer(): Promise<User[]> {
+        return fetchUserFromAnotherServer();
+    }
+    @Get()
+    findAllResponse(@Res() res: Response) {
+        res.status(HttpStatus.OK).send([]);
+    }
 }
 ----
 
