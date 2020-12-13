@@ -38,7 +38,7 @@ export class ApplicationModule {}
 
 === Les Providers
 
-* Injections de ces singletons via des paramètres de constructeur
+* Injections de ces singletons via les paramètres du constructeur
 
 [source,typescript]
 ----

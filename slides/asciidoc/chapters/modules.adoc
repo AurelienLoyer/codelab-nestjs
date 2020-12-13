@@ -17,11 +17,10 @@
 ----
 import { Module } from '@nestjs/common';
 import { HomeController } from './home.controller';
-import { UserController, UserService } from './users';
+import { UserController } from './users';
 
 @Module({
-  controllers: [UserController],
-  providers: [UserService],
+  controllers: [UserController]
 })
 export class UserModule {}
 
@@ -39,12 +38,15 @@ export class AppModule {}
 [source,typescript]
 ----
 import { Module } from '@nestjs/common';
-import { HomeController } from './home.controller';
+import { AuthController } from './auth.controller';
+import { DatabaseModule } from './database.module';
+import { AuthProvider } from './auth.service';
+import { UserProvider } from './user.service';
 
 @Module({
   controllers: [AuthController],
-  imports: [HttpModule],
-  providers: [AuthProvider, UserProvider]
+  imports: [DatabaseModule],
+  providers: [AuthProvider, UserProvider],
   exports: [AuthProvider]
 })
 export class AuthModule {}
