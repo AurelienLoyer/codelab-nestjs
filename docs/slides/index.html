@@ -81,8 +81,7 @@ export class AppController {
     return "OK";
   }
 
-}</code></pre></section><section id="_intégration_swagger_3"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Controller, Post, Body } from '@nestjs/common';
-import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
+}</code></pre></section><section id="_intégration_swagger_3"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { ApiModelProperty } from '@nestjs/swagger';
 
 class Address {
   @ApiModelProperty()
@@ -125,20 +124,23 @@ export class UsersController {
   update(@Param('id') id: string, @Body() updateUserDto: User) : User {
     return {};
   }
-}</code></pre></section><section id="_les_contrôleurs_4"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Retourner la donnée directement</p></li><li><p>Retourner une <code>promise</code></p></li><li><p>Manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
+}</code></pre></section><section id="_les_contrôleurs_4"><h2>Les contrôleurs</h2><div class="ulist"><ul><li><p>Retourner la donnée directement</p></li><li><p>Retourner une <code>Promise</code></p></li><li><p>Manipuler l&#8217;objet <code>Response</code></p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Response } from 'express';
 
-@Get()
-findAll(): User[] {
-    return [];
-}
-@Get()
-findAllFromRemoteServer(): Promise&lt;User[]&gt; {
-    return fetchUserFromAnotherServer();
-}
-@Get()
-findAllResponse(@Res() res: Response) {
-    res.status(HttpStatus.OK).send([]);
+@Controller('users')
+export class UsersController {
+    @Get()
+    findAll(): User[] {
+        return [];
+    }
+    @Get()
+    findAllFromRemoteServer(): Promise&lt;User[]&gt; {
+        return fetchUserFromAnotherServer();
+    }
+    @Get()
+    findAllResponse(@Res() res: Response) {
+        res.status(HttpStatus.OK).send([]);
+    }
 }</code></pre></section><section id="_les_contrôleurs_autres_décorateurs"><h2>Les contrôleurs - autres décorateurs</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Controller('users')
 export class UsersController {
 
@@ -156,11 +158,10 @@ export class UsersController {
 <section><section id="_les_modules"><h2>Les Modules</h2></section><section id="_les_modules_2"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Toute application NestJS possède au moins un module</p></li><li><p>A ne pas confondre aves les modules <code>ES2015</code></p></li><li><p>Permet de regrouper de manière logique un ensemble de fonctionnalités</p><div class="ulist"><ul><li><p>découpage métier</p></li><li><p>découpage technique</p></li><li><p>&#8230;&#8203;</p></li></ul></div></li></ul></div></section><section id="_les_modules_3"><h2>Les Modules</h2><div class="ulist"><ul><li><p>Nécessité ensuite d&#8217;importer ces modules pour pouvoir les utiliser</p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Module } from '@nestjs/common';
 import { HomeController } from './home.controller';
-import { UserController, UserService } from './users';
+import { UserController } from './users';
 
 @Module({
-  controllers: [UserController],
-  providers: [UserService],
+  controllers: [UserController]
 })
 export class UserModule {}
 
@@ -170,12 +171,15 @@ export class UserModule {}
 })
 export class AppModule {}</code></pre></section><section id="_les_modules_module"><h2>Les Modules - @Module</h2><div class="ulist"><ul><li><p>Seules 4 propriétés sont à connaître : <code>controllers</code>, <code>providers</code>, <code>imports</code>, <code>exports</code></p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Module } from '@nestjs/common';
-import { HomeController } from './home.controller';
+import { AuthController } from './auth.controller';
+import { DatabaseModule } from './database.module';
+import { AuthProvider } from './auth.service';
+import { UserProvider } from './user.service';
 
 @Module({
   controllers: [AuthController],
-  imports: [HttpModule],
-  providers: [AuthProvider, UserProvider]
+  imports: [DatabaseModule],
+  providers: [AuthProvider, UserProvider],
   exports: [AuthProvider]
 })
 export class AuthModule {}</code></pre></section><section id="_les_modules_module_dynamique"><h2>Les Modules - Module dynamique</h2><div class="ulist"><ul><li><p>Tout comme <strong>Angular</strong>, possibilité de définir des modules dynamiques afin de les configurer</p></li></ul></div>
@@ -212,7 +216,7 @@ import { UsersService } from './users/users.service';
   controllers: [UsersController],
   providers: [UsersService],
 })
-export class ApplicationModule {}</code></pre></section><section id="_les_providers_4"><h2>Les Providers</h2><div class="ulist"><ul><li><p>Injections de ces singletons via des paramètres de constructeur</p></li></ul></div>
+export class ApplicationModule {}</code></pre></section><section id="_les_providers_4"><h2>Les Providers</h2><div class="ulist"><ul><li><p>Injections de ces singletons via les paramètres du constructeur</p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Controller, Get } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './interfaces/user.interface';
@@ -238,7 +242,8 @@ getHello(@Body() body: User) { ... }</code></pre></section><section id="_validat
 bootstrap();</code></pre>
 <div class="ulist"><ul><li><p>localement à un paramètre</p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">@Post()
-getHello(@Body(new ValidationPipe()) body: User) { ... }</code></pre></section><section id="_validation_des_données_4"><h2>Validation des données</h2><div class="ulist"><ul><li><p>Le validateur se base sur les modules <code>class-validator</code> et <code>class-transformer</code></p></li><li><p>Il suffit d&#8217;ajouter des décorateurs sur vos models</p></li></ul></div>
+getHello(@Body(new ValidationPipe()) body: User) { ... }</code></pre></section><section id="_validation_des_données_4"><h2>Validation des données</h2><div class="ulist"><ul><li><p>Le validateur se base sur les modules <code>class-validator</code> et <code>class-transformer</code></p></li></ul></div>
+<pre class="highlight listingblock"><code data-noescape>npm install -D class-validator class-transformer</code></pre></section><section id="_validation_des_données_5"><h2>Validation des données</h2><div class="ulist"><ul><li><p>Il suffit d&#8217;ajouter des décorateurs sur vos models</p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { IsString, IsInt, IsEmail, IsDate } from 'class-validator';
 
 export class User {
