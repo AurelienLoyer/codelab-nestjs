@@ -14,7 +14,7 @@ Comme vue dans les slides, NestJs dispose déjà de `@nestjs/testing` pour vous 
 * Commencez par tester via des tests unitaire :
   * `ProductsService`
 
-    Pour faciliter le mock de vos donnees, il vous sera possible d'avoir les products au format JSON provider dans l'application.
+Afin de faciliter l'écriture des tests, nous allons tout d'abord externaliser notre tableau de produits dans un nouveau `provider`
 
     ```ts
     @Module({
@@ -43,4 +43,3 @@ Comme vue dans les slides, NestJs dispose déjà de `@nestjs/testing` pour vous 
   
 
 * Puis terminez par des tests e2e que nous placerons dans le dossier `test/products/products.e2e-spec.ts`
-
