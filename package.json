@@ -4,6 +4,7 @@
 	"description": "🐱 Mettons en place notre premier backend à base de NestJS et ses bonnes pratiques poussées par la communauté de ce framework !",
 	"scripts": {
 		"start": "npm run generate",
+		"postinstall": "npm run update:submodule",
 		"generate": "speaker-cli generate",
 		"generate:slides": "speaker-cli generate --slides",
 		"watch:slides": "speaker-cli generate --slides --watch",
