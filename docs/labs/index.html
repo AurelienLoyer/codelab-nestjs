@@ -146,18 +146,14 @@ Comme vue dans les slides, NestJs dispose déjà de <code>@nestjs/testing</code>
 <li><p>A ce stade du codelab nous avons la posibilite de tester plusieurs partie de notre application.</p></li>
 <li><p>Commencez par tester via des tests unitaire :</p></li>
 <li><p><code>ProductsService</code></p></li>
-</ul><p>Afin de faciliter l'écriture des tests, nous allons tout d'abord externaliser notre tableau de produits dans un nouveau <code>provider</code></p><pre><code>```ts
-@Module({
+</ul><p>Afin de faciliter l'écriture des tests, nous allons tout d'abord externaliser notre tableau de produits dans un nouveau <code>provider</code></p><pre><code class="typescript language-typescript">@Module({
   controllers: [ProductsController],
   providers: [
     ProductsService,
     { provide: 'ProductsJson', useValue: productsJson },
   ],
 })
-``` 
-
-```ts
-@Injectable()
+</code></pre><pre><code class="typescript language-typescript">@Injectable()
 export class ProductsService {
   private products: Product[];
 
@@ -167,7 +163,6 @@ export class ProductsService {
     this.products = productsJson;
   }
 }
-```
 </code></pre><ul>
 <li><p><code>ProductsController</code></p></li>
 <li><p>Puis terminez par des tests e2e que nous placerons dans le dossier <code>test/products/products.e2e-spec.ts</code></p></li>
