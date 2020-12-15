@@ -16,28 +16,28 @@ Comme vue dans les slides, NestJs dispose déjà de `@nestjs/testing` pour vous 
 
 Afin de faciliter l'écriture des tests, nous allons tout d'abord externaliser notre tableau de produits dans un nouveau `provider`
 
-    ```ts
-    @Module({
-      controllers: [ProductsController],
-      providers: [
-        ProductsService,
-        { provide: 'ProductsJson', useValue: productsJson },
-      ],
-    })
-    ``` 
+```typescript
+@Module({
+  controllers: [ProductsController],
+  providers: [
+    ProductsService,
+    { provide: 'ProductsJson', useValue: productsJson },
+  ],
+})
+``` 
 
-    ```ts
-    @Injectable()
-    export class ProductsService {
-      private products: Product[];
+```typescript
+@Injectable()
+export class ProductsService {
+  private products: Product[];
 
-      constructor(
-        @Inject('ProductsJson') private readonly productsJson: Product[],
-      ) {
-        this.products = productsJson;
-      }
-    }
-    ```
+  constructor(
+    @Inject('ProductsJson') private readonly productsJson: Product[],
+  ) {
+    this.products = productsJson;
+  }
+}
+```
 
   * `ProductsController`
   
