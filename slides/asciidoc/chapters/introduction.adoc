@@ -104,7 +104,7 @@ async function bootstrap() {
 [source,typescript]
 ----
 import { Controller, Post, Body } from '@nestjs/common';
-import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
@@ -122,18 +122,18 @@ export class AppController {
 
 [source,typescript]
 ----
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 
 class Address {
-  @ApiModelProperty()
+  @ApiProperty()
   city: string
 }
 
 class User {
-  @ApiModelProperty()
+  @ApiProperty()
   name: string;
 
-  @ApiModelProperty({type: Address})
+  @ApiProperty({type: Address})
   address: Address;
 }
 ----
