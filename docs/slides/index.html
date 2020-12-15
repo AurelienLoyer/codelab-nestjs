@@ -70,7 +70,7 @@ async function bootstrap() {
   await app.listen(3000);
 }</code></pre></section><section id="_intégration_swagger_2"><h2>Intégration Swagger</h2><div class="ulist"><ul><li><p>Documentation de vos APIs via des <em>Décorateurs</em></p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { Controller, Post, Body } from '@nestjs/common';
-import { ApiModelProperty, ApiResponse } from '@nestjs/swagger';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
@@ -81,18 +81,18 @@ export class AppController {
     return "OK";
   }
 
-}</code></pre></section><section id="_intégration_swagger_3"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { ApiModelProperty } from '@nestjs/swagger';
+}</code></pre></section><section id="_intégration_swagger_3"><h2>Intégration Swagger</h2><pre class="highlight listingblock"><code data-noescape class="typescript language-typescript">import { ApiProperty } from '@nestjs/swagger';
 
 class Address {
-  @ApiModelProperty()
+  @ApiProperty()
   city: string
 }
 
 class User {
-  @ApiModelProperty()
+  @ApiProperty()
   name: string;
 
-  @ApiModelProperty({type: Address})
+  @ApiProperty({type: Address})
   address: Address;
 }</code></pre></section><section id="_à_vous_de_jouer"><h2>À vous de jouer !</h2><div class="ulist"><ul><li><p>Récupérez le répertoire <code>step0</code> du repository GIT</p></li></ul></div>
 <pre class="highlight listingblock"><code data-noescape class="shell language-shell">git clone -b step0 https://github.com/T3kstiil3/codelab-nestjs-corrections/
